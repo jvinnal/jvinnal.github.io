@@ -1,2 +1,0 @@
-# jvinnal.github.io
- 
