@@ -190,7 +190,7 @@
 
 
 
-            };
+            
 
 
 
@@ -268,6 +268,7 @@
 
                 //console.log(t)
             };
+        };
         
 
         table.appendRows(allRows)
