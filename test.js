@@ -40,18 +40,18 @@ else
 
 
 const allRows = [];
-const expected = {};
+const HLST = {};
+const HT = {};
 
-expected.officialname = null;
-expected.no_doc_ext = null;   
-expected.organisation = null;         
-expected.nationalid = null;
-expected.aadress = null;
-expected.town = null;
-expected.postal_code = null;  
-expected.url_document = null;
-expected.url_document = null;
-
+HT.officialname = null;
+HT.no_doc_ext = null;   
+HT.organisation = null;         
+HT.nationalid = null;
+HT.aadress = null;
+HT.town = null;
+HT.postal_code = null;  
+HT.url_document = null;
+HT.url_document = null;
 
 
 for (var t = dateMonth ; t <= e_dateMonth ; t++) {
@@ -61,20 +61,20 @@ for (var t = dateMonth ; t <= e_dateMonth ; t++) {
 
 //const url = 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice_award/2019/month/1/xml'
 
-const url = 'https://jvinnal.github.io/HT_2019_6.xml'
+//const url = 'https://jvinnal.github.io/HT_2019_6.xml'
 
-
+var urls = ['http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml', 'http://192.168.56.1:8080/HLST_' + dateYear + '_' + t + '.xml']
 
 
 $.ajax({
     type: 'get',
-    url: url,
+    url: urls[0],
     dataType: "xml",
+    jsonp: true,
     contentType: "text/xml; charset=\"utf-8\"",
     data: {},
     async: false,
     crossDomain: false,
-
     success: function(data) {
         const nodes =  data.getElementsByTagName("TED_ESENDERS")
  
@@ -85,53 +85,53 @@ $.ajax({
            for (var i = 0 ; i < nodes.length ; i++) {
             
            
-            expected.file_name = 'HT_' + dateYear + '_' + t + '.xml';
+            HT.file_name = 'HT_' + dateYear + '_' + t + '.xml';
 
             
             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined')     
                       {    
-                        expected.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                        HT.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
             } else {
-                expected.title = null;
+                HT.title = null;
             }
 
             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined')     
                       {    
-                        expected.short_descr = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                        HT.short_descr = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
             } else {
-                expected.short_descr = null;
+                HT.short_descr = null;
             }
            
      
-            expected.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
-            expected.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;   
-            expected.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;         
-            expected.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+            HT.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+            HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;   
+            HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;         
+            HT.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
 
             if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined')     
                       { 
-            expected.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+                        HT.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
                       }
 
             if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined')     
                       { 
-            expected.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                        HT.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
                       }
 
             if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined')     
                       { 
-            expected.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
+                        HT.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
                       }
 
             if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined')     
                       {    
-                expected.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
+                        HT.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
             } else {
-                expected.url_document = null;
+                HT.url_document = null;
             }
         
 
-            allRows.push(expected);
+            allRows.push(HT);
             
         }
            
@@ -145,10 +145,94 @@ $.ajax({
        
        
     }
-}); 
+});
+
+//console.log(t)
+
+
+
+
+//FAIL 2
+if (true){
+$.ajax({
+    type: 'get',
+    url: urls[1],
+    dataType: "xml",
+    jsonp: true,
+    contentType: "text/xml; charset=\"utf-8\"",
+    data: {},
+    async: false,
+    crossDomain: false,
+    success: function(data) {
+        const nodes =  data.getElementsByTagName("TED_ESENDERS")
+ 
+        //const keys = Object.keys(nodes)
+        
+
+           // Iterate over the XML object
+           for (var i = 0 ; i < nodes.length ; i++) {
+            
+           
+            HLST.file_name = 'HLST_' + dateYear + '_' + t + '.xml';
+
+            
+            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined')     
+                      {    
+                        HLST.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+            } else {
+                HLST.title = null;
+            }
+
+            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined')     
+                      {    
+                        HLST.short_descr = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+            } else {
+                HLST.short_descr = null;
+            }
+           
+     
+            HLST.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+            HLST.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;   
+            HLST.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;         
+            HLST.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+
+            if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined')     
+                      { 
+                        HLST.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+                      }
+
+            if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined')     
+                      { 
+                        HLST.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                      }
+
+            if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined')     
+                      { 
+                        HLST.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
+                      }
+
+            if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined')     
+                      {    
+                        HLST.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
+            } else {
+                HLST.url_document = null;
+            }
+        
+
+            allRows.push(HLST);
+            
+        }
+           
+    
+    
+       
+       
+    }
+});
 
 //console.log(t)
 };
+};
 
-
-}
+console.log(JSON.stringify(allRows, null, 4));
+};

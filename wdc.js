@@ -92,6 +92,10 @@
         };
 
         // Download the data
+
+
+
+
         myConnector.getData = function (table, doneCallback) {
 
             var dateObj = JSON.parse(tableau.connectionData),  //võtame aja parameetri
@@ -107,12 +111,26 @@
 
 
             const allRows = [];
+            const HLST = {};
+            const HT = {};
+
+            HT.officialname = null;
+            HT.no_doc_ext = null;
+            HT.organisation = null;
+            HT.nationalid = null;
+            HT.aadress = null;
+            HT.town = null;
+            HT.postal_code = null;
+            HT.url_document = null;
+            HT.url_document = null;
 
             for (var t = dateMonth; t <= enddateMonth; t++) {
 
                 //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
 
-                const url = 'https://jvinnal.github.io/HT_' + dateYear + '_' + t + '.xml'
+                //const url = 'https://jvinnal.github.io/HT_' + dateYear + '_' + t + '.xml'
+
+                var urls = ['http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml', 'http://192.168.56.1:8080/HLST_' + dateYear + '_' + t + '.xml']
 
                 //const url = 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t + '/xml';
 
@@ -120,7 +138,7 @@
 
                 $.ajax({
                     type: 'GET',
-                    url: url,
+                    url: urls[0],
                     dataType: "xml",
                     jsonp: true,
                     contentType: "text/xml; charset=\"utf-8\"",
@@ -168,38 +186,125 @@
 
                     }
                 });
+
+
+
+
             };
-            table.appendRows(allRows)
-            doneCallback();
 
-        };
 
-        // Create event listeners for when the user submits the form
-        tableau.registerConnector(myConnector);
 
-        $(document).ready(function () {
-            $("#submitButton").click(function () {
-                var dateObj = {
-                    startDate: $('#start-date-one').val().trim(),
-                    endDate: $('#end-date-one').val().trim()
-                };
+            //FAIL 2
+            if (true) {
+                $.ajax({
+                    type: 'get',
+                    url: urls[1],
+                    dataType: "xml",
+                    jsonp: true,
+                    contentType: "text/xml; charset=\"utf-8\"",
+                    data: {},
+                    async: false,
+                    crossDomain: false,
+                    success: function (data) {
+                        const nodes = data.getElementsByTagName("TED_ESENDERS")
 
-                // Simple date validation: Call the getDate function on the date object created
-                function isValidDate(dateStr) {
-                    var d = new Date(dateStr);
-                    return !isNaN(d.getDate());
-                }
+                        //const keys = Object.keys(nodes)
 
-                //if (isValidDate(dateObj.startDate)) {
-                tableau.connectionData = JSON.stringify(dateObj); // Use this variable to pass data to your getSchema and getData functions
-                tableau.connectionName = "Web data connection riigihanked"; // This will be the data source name in Tableau
-                tableau.submit(); // This sends the connector object to Tableau
-                //} else {
-                //  $('#errorMsg').html("Enter valid year-month format. For example, 2020-10.");
-                // }
 
-            });
+                        // Iterate over the XML object
+                        for (var i = 0; i < nodes.length; i++) {
+
+
+                            HLST.file_name = 'HLST_' + dateYear + '_' + t + '.xml';
+
+
+                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined') {
+                                HLST.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                            } else {
+                                HLST.title = null;
+                            }
+
+                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined') {
+                                HLST.short_descr = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                            } else {
+                                HLST.short_descr = null;
+                            }
+
+
+                            HLST.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+                            HLST.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
+                            HLST.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
+                            HLST.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+
+                            if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
+                                HLST.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+                            }
+
+                            if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined') {
+                                HLST.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                            }
+
+                            if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
+                                HLST.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
+                            }
+
+                            if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined') {
+                                HLST.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
+                            } else {
+                                HLST.url_document = null;
+                            }
+
+
+                            allRows.push(HLST);
+
+                        }
+
+
+
+
+
+                    }
+                });
+
+                //console.log(t)
+            };
+        
+
+        table.appendRows(allRows)
+        doneCallback();
+
+
+
+    };
+
+
+
+    // Create event listeners for when the user submits the form
+    tableau.registerConnector(myConnector);
+
+    $(document).ready(function () {
+        $("#submitButton").click(function () {
+            var dateObj = {
+                startDate: $('#start-date-one').val().trim(),
+                endDate: $('#end-date-one').val().trim()
+            };
+
+            // Simple date validation: Call the getDate function on the date object created
+            function isValidDate(dateStr) {
+                var d = new Date(dateStr);
+                return !isNaN(d.getDate());
+            }
+
+            //if (isValidDate(dateObj.startDate)) {
+            tableau.connectionData = JSON.stringify(dateObj); // Use this variable to pass data to your getSchema and getData functions
+            tableau.connectionName = "Web data connection riigihanked"; // This will be the data source name in Tableau
+            tableau.submit(); // This sends the connector object to Tableau
+            //} else {
+            //  $('#errorMsg').html("Enter valid year-month format. For example, 2020-10.");
+            // }
+
         });
     });
-})();
+});
+}) ();
 
