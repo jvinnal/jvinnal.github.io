@@ -147,6 +147,6 @@ $.ajax({
 
 //console.log(t)
 };
-console.log(JSON.stringify(allRows, null, 4));
+
 
 }
