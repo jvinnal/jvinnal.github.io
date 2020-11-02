@@ -152,35 +152,35 @@
 
                         // Iterate over the XML object
                         for (var i = 0; i < nodes.length; i++) {
-                            const expected = {}
+                            
 
-                            expected.file_name = 'HT_' + dateYear + '_' + t + '.xml';
-                            expected.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
-                            expected.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
-                            expected.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
-                            expected.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+                            HT.file_name = 'HT_' + dateYear + '_' + t + '.xml';
+                            HT.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+                            HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
+                            HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
+                            HT.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
 
 
                             if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
-                                expected.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+                                HT.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
                             }
 
                             if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined') {
-                                expected.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                                HT.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
                             }
 
                             if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
-                                expected.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
+                                HT.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
                             }
 
                             if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined') {
-                                expected.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
+                                HT.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
                             } else {
-                                expected.url_document = null;
+                                HT.url_document = null;
                             }
 
 
-                            allRows.push(expected)
+                            allRows.push(HT)
                         }
 
 
