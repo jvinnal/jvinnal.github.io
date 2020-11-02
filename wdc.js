@@ -189,13 +189,8 @@
 
 
 
-
-            
-
-
-
             //FAIL 2
-            if (true) {
+            if (false) {
                 $.ajax({
                     type: 'get',
                     url: urls[1],
