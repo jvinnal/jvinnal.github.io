@@ -115,9 +115,9 @@
 
 
 
-                //const url = 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t + '/xml';
+                const url = 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t + '/xml';
 
-                const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
+                //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
 
                 $.ajax({
                     type: 'GET',
