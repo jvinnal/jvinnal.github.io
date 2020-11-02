@@ -152,78 +152,72 @@
 
                         // Iterate over the XML object
                         for (var i = 0; i < nodes.length; i++) {
-                            
+                            const expected = {}
 
-                            HT.file_name = 'HT_' + dateYear + '_' + t + '.xml';
-                            HT.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
-                            HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
-                            HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
-                            HT.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+                            expected.file_name = 'HT_' + dateYear + '_' + t + '.xml';
+                            expected.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+                            expected.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
+                            expected.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
+                            expected.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
 
 
                             if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
-                                HT.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+                                expected.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
                             }
 
                             if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined') {
-                                HT.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                                expected.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
                             }
 
                             if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
-                                HT.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
+                                expected.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
                             }
 
                             if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined') {
-                                HT.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
+                                expected.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
                             } else {
-                                HT.url_document = null;
+                                expected.url_document = null;
                             }
 
 
-                            allRows.push(HT)
+                            allRows.push(expected)
                         }
 
 
                     }
                 });
-        };
-        
-
-        table.appendRows(allRows)
-        doneCallback();
-
-
-
-    };
-
-
-
-    // Create event listeners for when the user submits the form
-    tableau.registerConnector(myConnector);
-
-    $(document).ready(function () {
-        $("#submitButton").click(function () {
-            var dateObj = {
-                startDate: $('#start-date-one').val().trim(),
-                endDate: $('#end-date-one').val().trim()
             };
+            table.appendRows(allRows)
+            doneCallback();
 
-            // Simple date validation: Call the getDate function on the date object created
-            function isValidDate(dateStr) {
-                var d = new Date(dateStr);
-                return !isNaN(d.getDate());
-            }
+        };
 
-            //if (isValidDate(dateObj.startDate)) {
-            tableau.connectionData = JSON.stringify(dateObj); // Use this variable to pass data to your getSchema and getData functions
-            tableau.connectionName = "Web data connection riigihanked"; // This will be the data source name in Tableau
-            tableau.submit(); // This sends the connector object to Tableau
-            //} else {
-            //  $('#errorMsg').html("Enter valid year-month format. For example, 2020-10.");
-            // }
+        // Create event listeners for when the user submits the form
+        tableau.registerConnector(myConnector);
 
+        $(document).ready(function () {
+            $("#submitButton").click(function () {
+                var dateObj = {
+                    startDate: $('#start-date-one').val().trim(),
+                    endDate: $('#end-date-one').val().trim()
+                };
+
+                // Simple date validation: Call the getDate function on the date object created
+                function isValidDate(dateStr) {
+                    var d = new Date(dateStr);
+                    return !isNaN(d.getDate());
+                }
+
+                //if (isValidDate(dateObj.startDate)) {
+                tableau.connectionData = JSON.stringify(dateObj); // Use this variable to pass data to your getSchema and getData functions
+                tableau.connectionName = "Web data connection riigihanked"; // This will be the data source name in Tableau
+                tableau.submit(); // This sends the connector object to Tableau
+                //} else {
+                //  $('#errorMsg').html("Enter valid year-month format. For example, 2020-10.");
+                // }
+
+            });
         });
     });
-});
-}) ();
+})();
 
