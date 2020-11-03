@@ -6,7 +6,9 @@
 
         // Define the schema
         myConnector.getSchema = function (schemaCallback) {
-            var sender_cols = [
+
+            var cols = [
+
                 {
                     id: "no_doc_ext",
                     alias: "no_doc_ext",
@@ -19,19 +21,11 @@
                     alias: "organisation",
                     dataType: tableau.dataTypeEnum.string
                 }
-            ];
-            var contracting_cols = [
 
+                ,
                 {
                     id: "file_name",
                     alias: "file_name",
-                    dataType: tableau.dataTypeEnum.string
-
-                }
-                ,
-                {
-                    id: "no_doc_ext",
-                    alias: "no_doc_ext",
                     dataType: tableau.dataTypeEnum.string
 
                 }
@@ -76,19 +70,35 @@
 
 
             ];
-            var sender_tb = {
-                id: "sender",
-                alias: "sender",
-                columns: sender_cols
-            };
 
-            var contracting_tb = {
-                id: "contract",
-                alias: "contract",
-                columns: contracting_cols
-            };
 
-            schemaCallback([contracting_tb, sender_tb]);
+            var dateObj = JSON.parse(tableau.connectionData);
+
+
+
+            if (dateObj.selection == "hanketeated") {
+                var tb = {
+                    id: "hanked",
+                    alias: "hanked",
+                    columns: cols
+                };
+            }
+            else if (dateObj.selection == "lepingud") {
+                var tb = {
+                    id: "lepingud",
+                    alias: "lepingud",
+                    columns: cols
+                };
+            }
+            else {
+                var tb = {
+                    id: "undefined",
+                    alias: "undefined",
+                    columns: cols
+                };
+            }
+
+            schemaCallback([tb]);
         };
 
         // Download the data
@@ -98,8 +108,8 @@
 
         myConnector.getData = function (table, doneCallback) {
 
-            var dateObj = JSON.parse(tableau.connectionData),  //võtame aja parameetri
-                dateString = new Date(dateObj.startDate);  //et getfullyear töötaks
+            var dateObj = JSON.parse(tableau.connectionData);  //võtame aja parameetri
+            dateString = new Date(dateObj.startDate);  //et getfullyear töötaks
             enddateString = new Date(dateObj.endDate);  //et getfullyear töötaks
 
 
@@ -111,96 +121,162 @@
 
 
             const allRows = [];
-            const HLST = {};
-            const HT = {};
 
-            HT.officialname = null;
-            HT.no_doc_ext = null;
-            HT.organisation = null;
-            HT.nationalid = null;
-            HT.aadress = null;
-            HT.town = null;
-            HT.postal_code = null;
-            HT.url_document = null;
-            HT.url_document = null;
+
+
 
             for (var t = dateMonth; t <= enddateMonth; t++) {
 
-                //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
-
-                //const url = 'https://jvinnal.github.io/HT_' + dateYear + '_' + t + '.xml'
-
-                var urls = ['https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t + '/xml'
-                ,'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice_award/' + dateYear + '/month/' + t + '/xml']
-
-                //const url = 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t + '/xml';
-
-                //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
-
-                $.ajax({
-                    type: 'GET',
-                    url: urls[0],
-                    dataType: "xml",
-                    jsonp: true,
-                    contentType: "text/xml; charset=\"utf-8\"",
-                    data: {},
-                    async: false,
-                    crossDomain: true,
-                    success: function (data) {
 
 
-                        const nodes = data.getElementsByTagName("TED_ESENDERS")
 
-                        // Iterate over the XML object
-                        for (var i = 0; i < nodes.length; i++) {
-                            const expected = {}
+                if (dateObj.selection == "hanketeated") {
 
-                            expected.file_name = 'HT_' + dateYear + '_' + t + '.xml';
-                            expected.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
-                            expected.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
-                            expected.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
-                            expected.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+                    //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
+
+                    //const url = 'https://jvinnal.github.io/HT_' + dateYear + '_' + t + '.xml'
+
+                    var urls = ['https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t + '/xml'
+                        , 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice_award/' + dateYear + '/month/' + t + '/xml']
+
+                    //const url = 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t + '/xml';
+
+                    //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
+
+                    $.ajax({
+                        type: 'GET',
+                        url: urls[0],
+                        dataType: "xml",
+                        jsonp: true,
+                        contentType: "text/xml; charset=\"utf-8\"",
+                        data: {},
+                        async: false,
+                        crossDomain: true,
+                        success: function (data) {
 
 
-                            if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
-                                expected.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+                            const nodes = data.getElementsByTagName("TED_ESENDERS")
+
+                            // Iterate over the XML object
+                            for (var i = 0; i < nodes.length; i++) {
+
+                                const HT = {};
+
+                                HT.file_name = 'hanked' + dateYear + '_' + t + '.xml';
+                                HT.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+                                HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
+                                HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
+                                HT.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+
+
+                                if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
+                                    HT.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined') {
+                                    HT.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
+                                    HT.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined') {
+                                    HT.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
+                                }
+
+                                allRows.push(HT);
+
                             }
 
-                            if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined') {
-                                expected.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
-                            }
 
-                            if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
-                                expected.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
-                            }
-
-                            if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined') {
-                                expected.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
-                            } else {
-                                expected.url_document = null;
-                            }
-
-
-                            allRows.push(expected)
                         }
+                    });
+
+                } else if (dateObj.selection == "lepingud") {
+                    //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
+
+                    //const url = 'https://jvinnal.github.io/HT_' + dateYear + '_' + t + '.xml'
+
+                    var urls = ['https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t + '/xml'
+                        , 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice_award/' + dateYear + '/month/' + t + '/xml']
+
+                    //const url = 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t + '/xml';
+
+                    //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
+
+                    $.ajax({
+                        type: 'GET',
+                        url: urls[1],
+                        dataType: "xml",
+                        jsonp: true,
+                        contentType: "text/xml; charset=\"utf-8\"",
+                        data: {},
+                        async: false,
+                        crossDomain: true,
+                        success: function (data) {
 
 
-                    }
-                });
+                            const nodes = data.getElementsByTagName("TED_ESENDERS")
+
+                            // Iterate over the XML object
+                            for (var i = 0; i < nodes.length; i++) {
+
+                                const HT = {};
+
+                                HT.file_name = 'lepingud' + dateYear + '_' + t + '.xml';
+                                HT.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+                                HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
+                                HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
+                                HT.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+
+
+                                if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
+                                    HT.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined') {
+                                    HT.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
+                                    HT.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined') {
+                                    HT.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
+                                }
+
+                                allRows.push(HT);
+
+                            }
+
+
+                        }
+                    });
+
+                }
+
+
             };
+
+
+
             table.appendRows(allRows)
             doneCallback();
-
         };
 
         // Create event listeners for when the user submits the form
         tableau.registerConnector(myConnector);
 
         $(document).ready(function () {
+
             $("#submitButton").click(function () {
+
                 var dateObj = {
                     startDate: $('#start-date-one').val().trim(),
-                    endDate: $('#end-date-one').val().trim()
+                    endDate: $('#end-date-one').val().trim(),
+                    selection: document.getElementById('selectid').value
                 };
 
                 // Simple date validation: Call the getDate function on the date object created
@@ -211,14 +287,29 @@
 
                 //if (isValidDate(dateObj.startDate)) {
                 tableau.connectionData = JSON.stringify(dateObj); // Use this variable to pass data to your getSchema and getData functions
-                tableau.connectionName = "Web data connection riigihanked"; // This will be the data source name in Tableau
+
+
+                if (dateObj.selection == "hanketeated") {
+                    tableau.connectionName = "hangete hanketeated ja muutmise teated"; // This will be the data source name in Tableau
+                } else if (dateObj.selection == "lepingud") {
+                   
+                    tableau.connectionName = "lepingute teated ja lepingute muutmise teated"; // This will be the data source name in Tableau
+
+                }
+
+
+
+
                 tableau.submit(); // This sends the connector object to Tableau
                 //} else {
                 //  $('#errorMsg').html("Enter valid year-month format. For example, 2020-10.");
                 // }
 
             });
-        });
+        }
+
+        );
+
     });
 })();
 

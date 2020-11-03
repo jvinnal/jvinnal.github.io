@@ -39,200 +39,141 @@ else
 
 
 
+if (document.getElementById('selectid').value == "hanketeated") {
+ console.log("hanked")
+}
+else if (document.getElementById('selectid').value == "lepingud") 
+{
+  console.log("lepingud")
+}
+else
+{
+  console.log("test")
+}
+
 const allRows = [];
-const HLST = {};
-const HT = {};
-
-HT.officialname = null;
-HT.no_doc_ext = null;   
-HT.organisation = null;         
-HT.nationalid = null;
-HT.aadress = null;
-HT.town = null;
-HT.postal_code = null;  
-HT.url_document = null;
-HT.url_document = null;
 
 
-for (var t = dateMonth ; t <= e_dateMonth ; t++) {
+for (var t = dateMonth; t <= e_dateMonth; t++) {
 
-//const url = 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t  +'/xml';
-//const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
+  
 
-//const url = 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice_award/2019/month/1/xml'
+  //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
 
-//const url = 'https://jvinnal.github.io/HT_2019_6.xml'
+  //const url = 'https://jvinnal.github.io/HT_' + dateYear + '_' + t + '.xml'
 
-var urls = ['http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml', 'http://192.168.56.1:8080/HLST_' + dateYear + '_' + t + '.xml']
+  var urls = ['https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t + '/xml'
+      , 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice_award/' + dateYear + '/month/' + t + '/xml']
+
+  //const url = 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t + '/xml';
+
+  //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
+
+  $.ajax({
+      type: 'GET',
+      url: urls[0],
+      dataType: "xml",
+      jsonp: true,
+      contentType: "text/xml; charset=\"utf-8\"",
+      data: {},
+      async: false,
+      crossDomain: true,
+      success: function (data) {
 
 
-$.ajax({
-    type: 'get',
-    url: urls[0],
-    dataType: "xml",
-    jsonp: true,
-    contentType: "text/xml; charset=\"utf-8\"",
-    data: {},
-    async: false,
-    crossDomain: false,
-    success: function(data) {
-        const nodes =  data.getElementsByTagName("TED_ESENDERS")
- 
-        //const keys = Object.keys(nodes)
-        
+          const nodes = data.getElementsByTagName("TED_ESENDERS")
 
-           // Iterate over the XML object
-           for (var i = 0 ; i < nodes.length ; i++) {
+          // Iterate over the XML object
+          for (var i = 0; i < nodes.length; i++) {
+            const HT = {};
             
-           
-            HT.file_name = 'HT_' + dateYear + '_' + t + '.xml';
 
-            
-            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined')     
-                      {    
-                        HT.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-            } else {
-                HT.title = null;
-            }
-
-            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined')     
-                      {    
-                        HT.short_descr = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-            } else {
-                HT.short_descr = null;
-            }
-           
-     
-            HT.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
-            HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;   
-            HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;         
-            HT.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
-
-            if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined')     
-                      { 
-                        HT.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
-                      }
-
-            if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined')     
-                      { 
-                        HT.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
-                      }
-
-            if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined')     
-                      { 
-                        HT.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
-                      }
-
-            if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined')     
-                      {    
-                        HT.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
-            } else {
-                HT.url_document = null;
-            }
-        
-
-            allRows.push(HT);
-            
-        }
-           
-    
-    
-        
-    
-                  
-         
-
-       
-       
-    }
-});
-
-//console.log(t)
+              HT.ht_file_name = 'HT_' + dateYear + '_' + t + '.xml';
+              HT.ht_officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+              HT.ht_no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
+              HT.ht_organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
+              HT.ht_nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
 
 
+              if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
+                  HT.ht_aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+              }
+
+              if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined') {
+                  HT.ht_town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+              }
+
+              if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
+                  HT.ht_postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
+              }
+
+              if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined') {
+                  HT.ht_url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
+              }
 
 
-//FAIL 2
-if (true){
-$.ajax({
-    type: 'get',
-    url: urls[1],
-    dataType: "xml",
-    jsonp: true,
-    contentType: "text/xml; charset=\"utf-8\"",
-    data: {},
-    async: false,
-    crossDomain: false,
-    success: function(data) {
-        const nodes =  data.getElementsByTagName("TED_ESENDERS")
- 
-        //const keys = Object.keys(nodes)
-        
+              allRows.push(HT)
+          }
 
-           // Iterate over the XML object
-           for (var i = 0 ; i < nodes.length ; i++) {
-            
-           
-            HLST.file_name = 'HLST_' + dateYear + '_' + t + '.xml';
 
-            
-            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined')     
-                      {    
-                        HLST.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-            } else {
-                HLST.title = null;
-            }
+      }
+  });
 
-            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined')     
-                      {    
-                        HLST.short_descr = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-            } else {
-                HLST.short_descr = null;
-            }
-           
-     
-            HLST.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
-            HLST.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;   
-            HLST.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;         
-            HLST.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+  $.ajax({
+      type: 'GET',
+      url: urls[1],
+      dataType: "xml",
+      jsonp: true,
+      contentType: "text/xml; charset=\"utf-8\"",
+      data: {},
+      async: false,
+      crossDomain: true,
+      success: function (data) {
 
-            if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined')     
-                      { 
-                        HLST.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
-                      }
 
-            if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined')     
-                      { 
-                        HLST.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
-                      }
+          const nodes = data.getElementsByTagName("TED_ESENDERS")
 
-            if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined')     
-                      { 
-                        HLST.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
-                      }
+          // Iterate over the XML object
+          for (var i = 0; i < nodes.length; i++) {
 
-            if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined')     
-                      {    
-                        HLST.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
-            } else {
-                HLST.url_document = null;
-            }
-        
+              const HLST = {};
 
-            allRows.push(HLST);
-            
-        }
-           
-    
-    
-       
-       
-    }
-});
+              
+              HLST.ht_file_name = 'HT_' + dateYear + '_' + t + '.xml';
+              HLST.ht_officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+              HLST.ht_no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
+              HLST.ht_organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
+              HLST.ht_nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
 
-//console.log(t)
+
+              if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
+                HLST.ht_aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+              }
+
+              if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined') {
+                HLST.ht_town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+              }
+
+              if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
+                HLST.ht_postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
+              }
+
+              if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined') {
+                HLST.ht_url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
+              }
+
+              allRows.push(HLST)
+          }
+
+
+      }
+  });
+
+  
+  //console.log(HT)
 };
-};
+
+//console.log(allRows.);
 
 console.log(JSON.stringify(allRows, null, 4));
 };
