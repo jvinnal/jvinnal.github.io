@@ -41,7 +41,7 @@
                 {
                     id: "nationalid",
                     alias: "nationalid",
-                    dataType: tableau.dataTypeEnum.string
+                    dataType: tableau.dataTypeEnum.int
                 }
                 ,
                 {
@@ -59,7 +59,7 @@
                 {
                     id: "postal_code",
                     alias: "postal_code",
-                    dataType: tableau.dataTypeEnum.string
+                    dataType: tableau.dataTypeEnum.int
                 }
                 ,
                 {
