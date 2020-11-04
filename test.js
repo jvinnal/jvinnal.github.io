@@ -188,6 +188,13 @@ function test() {
           }
 
 
+          if (typeof nodes[i].getElementsByTagName("CE_ACTIVITY")[0] !== 'undefined') {
+            HT.ce_activity = nodes[i].getElementsByTagName("CE_ACTIVITY")[0].getAttributeNode("VALUE").nodeValue;
+          }
+
+          console.log(HT.ce_activity )
+
+
 
           allRows.push(HT)
         }
@@ -203,5 +210,5 @@ function test() {
 
   //console.log(allRows.);
 
-  console.log(JSON.stringify(allRows, null, 4));
+  //console.log(JSON.stringify(allRows, null, 4));
 };

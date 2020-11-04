@@ -10,12 +10,71 @@
             var cols = [
 
                 {
+                    id: "reference_number",
+                    alias: "viitenumber",
+                    dataType: tableau.dataTypeEnum.int
+                }
+                ,
+
+                {
+                    id: "title",
+                    alias: "nimetus",
+                    dataType: tableau.dataTypeEnum.string
+                }
+
+                ,
+
+                {
+                    id: "officialname",
+                    alias: "hankija",
+                    dataType: tableau.dataTypeEnum.string
+                }
+
+                ,
+
+                {
                     id: "datetime",
                     alias: "esitamise_aeg",
                     dataType: tableau.dataTypeEnum.date
 
                 }
                 ,
+
+                {
+                    id: "nationalid",
+                    alias: "hankija_kood",
+                    dataType: tableau.dataTypeEnum.int
+                }
+                ,
+
+                {
+                    id: "town",
+                    alias: "hankija_linn",
+                    dataType: tableau.dataTypeEnum.string
+                }
+                ,
+
+                {
+                    id: "aadress",
+                    alias: "aadress",
+                    dataType: tableau.dataTypeEnum.string
+                }
+                ,
+                {
+                    id: "ce_activity",
+                    alias: "hankija_teg_ala",
+                    dataType: tableau.dataTypeEnum.string
+                }
+                ,
+
+                {
+                    id: "type_contract",
+                    alias: "hanke_liik",
+                    dataType: tableau.dataTypeEnum.string
+                }
+                ,
+
+                
 
                 {
                     id: "no_doc_ext",
@@ -39,31 +98,6 @@
                 }
                 ,
 
-                {
-                    id: "officialname",
-                    alias: "hankija",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-
-                {
-                    id: "nationalid",
-                    alias: "hankija_kood",
-                    dataType: tableau.dataTypeEnum.int
-                }
-                ,
-                {
-                    id: "aadress",
-                    alias: "aadress",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-                {
-                    id: "town",
-                    alias: "hankija_linn",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
                 {
                     id: "postal_code",
                     alias: "postal_code",
@@ -96,19 +130,7 @@
                     dataType: tableau.dataTypeEnum.int
                 }
                 ,
-                {
-                    id: "title",
-                    alias: "nimetus",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-                {
-                    id: "reference_number",
-                    alias: "viitenumber",
-                    dataType: tableau.dataTypeEnum.int
-                }
 
-                ,
 
                 {
                     id: "short_descr",
@@ -373,6 +395,15 @@
 
                                 if (typeof nodes[i].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
                                     HT.info_add = nodes[i].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("CE_ACTIVITY")[0] !== 'undefined') {
+                                    HT.ce_activity = nodes[i].getElementsByTagName("CE_ACTIVITY")[0].getAttributeNode("VALUE").nodeValue;
+                                }
+
+
+                                if (typeof nodes[i].getElementsByTagName("TYPE_CONTRACT")[0] !== 'undefined') {
+                                    HT.type_contract = nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE").nodeValue;
                                 }
 
 
