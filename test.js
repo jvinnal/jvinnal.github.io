@@ -97,7 +97,13 @@ function test() {
             }
           }
 
+          if (typeof nodes[i].getElementsByTagName("VAL_TOTAL")[0] !== 'undefined') {
+            if (nodes[i].getElementsByTagName("VAL_TOTAL")[0].childNodes[0] != null) {
+            HT.val_total = nodes[i].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue;
+            }
+          }
 
+          console.log(HT.val_total )
 
 
           //FORM_SECTION
@@ -232,5 +238,5 @@ function test() {
 
   //console.log(allRows.);
 
-  console.log(JSON.stringify(allRows, null, 4));
+  //console.log(JSON.stringify(allRows, null, 4));
 };

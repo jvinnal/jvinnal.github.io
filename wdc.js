@@ -321,6 +321,15 @@
                         dataType: tableau.dataTypeEnum.string
 
                     }
+
+                    ,
+
+                    {
+                        id: "val_total",
+                        alias: "eeldatav_maksumus",
+                        dataType: tableau.dataTypeEnum.string
+
+                    }
                     ,
 
                     //{
@@ -713,6 +722,12 @@
                                         HT.contract_town = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
                                     }
                                 }
+
+                                if (typeof nodes[i].getElementsByTagName("VAL_TOTAL")[0] !== 'undefined') {
+                                    if (nodes[i].getElementsByTagName("VAL_TOTAL")[0].childNodes[0] != null) {
+                                    HT.val_total = nodes[i].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue;
+                                    }
+                                  }
 
 
                                 //FORM_SECTION
