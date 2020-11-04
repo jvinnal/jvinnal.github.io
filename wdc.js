@@ -309,12 +309,12 @@
                     // }
                     //,
 
-                    {
-                        id: "type_contract",
-                        alias: "hanke_liik",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-                    ,
+                   // {
+                    //    id: "type_contract",
+                     //   alias: "hanke_liik",
+                     //   dataType: tableau.dataTypeEnum.string
+                   // }
+                    //,
 
 
 
@@ -324,12 +324,12 @@
                         dataType: tableau.dataTypeEnum.string
 
                     }
-                    ,
-                    {
-                        id: "organisation",
-                        alias: "organisation",
-                        dataType: tableau.dataTypeEnum.string
-                    }
+                   // ,
+                    //{
+                     //   id: "organisation",
+                     //   alias: "organisation",
+                      //  dataType: tableau.dataTypeEnum.string
+                   // }
 
                     ,
                     {
