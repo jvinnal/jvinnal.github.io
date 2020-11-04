@@ -598,7 +598,9 @@
                                 }
 
 
-                                var datetime = new Date(date + ' ' + time);
+                                if (typeof date !== 'undefined' && typeof time !== 'undefined') {
+                                    var datetime = new Date(date + ' ' + time);
+                                }
 
                                 HT.datetime = datetime;
 
@@ -769,7 +771,9 @@
                                 }
 
 
-                                var datetime = new Date(date + ' ' + time);
+                                if (typeof date !== 'undefined' && typeof time !== 'undefined') {
+                                    var datetime = new Date(date + ' ' + time);
+                                }
 
                                 HT.datetime = datetime;
 

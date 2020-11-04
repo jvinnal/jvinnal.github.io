@@ -96,7 +96,7 @@ function test() {
             }
         }
 
-        console.log(HT.test);
+        //console.log(HT.contract_officialname);
 
 
 
@@ -230,5 +230,5 @@ if (typeof date !== 'undefined' && typeof time !== 'undefined'){
 
   //console.log(allRows.);
 
-  //console.log(JSON.stringify(allRows, null, 4));
+  console.log(JSON.stringify(allRows, null, 4));
 };
