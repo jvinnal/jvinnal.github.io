@@ -39,7 +39,8 @@
                     {
                         id: "nationalid",
                         alias: "hankija_kood",
-                        dataType: tableau.dataTypeEnum.int
+                        dataType: tableau.dataTypeEnum.int,
+                        
                     }
                     ,
 
@@ -56,7 +57,9 @@
                     {
                         id: "town",
                         alias: "hankija_linn",
-                        dataType: tableau.dataTypeEnum.string
+                        dataType: tableau.dataTypeEnum.string,
+                        geoRole: tableau.geographicRoleEnum.city
+                        
                     }
                     ,
 
@@ -213,6 +216,7 @@
                         id: "reference_number",
                         alias: "viitenumber",
                         dataType: tableau.dataTypeEnum.int
+                       
                     }
                     ,
 
@@ -268,7 +272,8 @@
                     {
                         id: "contract_town",
                         alias: "pakkuja_linn",
-                        dataType: tableau.dataTypeEnum.string
+                        dataType: tableau.dataTypeEnum.string,
+                        geoRole: tableau.geographicRoleEnum.city
                     }
                     ,
 
