@@ -24,3 +24,28 @@ label {
   }
 
 
+  #test, #test2{
+    visibility: hidden;
+    display: none;
+
+  }
+
+
+  .titlediv{
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1em;  
+    font-weight: 100;
+    
+  
+  }
+
+  .option{
+    margin-top: 5%;
+    
+
+  }
+
+
+

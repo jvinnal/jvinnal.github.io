@@ -20,34 +20,50 @@
 </head>
 
 <body>
+
+
+    <div class="titlediv">
+    <h2>Riigihangete registri avaandmed </h2> 
+    </div>
+
+    
+
+
     <div class="container container-table">
+        
+            
         <div class="row vertical-center-row">
+
+          
+        
             <div class="text-left col-md-4 col-md-offset-4">
 
-                <br><br>
-                Väljakuulutatud hangete hanketeated ja muutmise teated
-                <br><br>
-
-                <label for="start">Start month:</label>
-                <br>
-                <input type="month" id="start-date-one" name="start-date-one" min="2015-01" value="2019-01">
-                <br>
-                <label for="start">End month:</label>
-                <br>
-                <input type="month" id="end-date-one" name="end-date-one" min="2015-01" value="2019-05">
-                <br>
-                <br><br>
+                <div class="option">
                 <select id="selectid" required>
-                    <option value="" disabled selected>Select your option</option>
+                    <option value="" disabled selected>Vali hanked või lepingud</option>
                     <option value="hanketeated">Hanketeated</option>
                     <option value="lepingud">Lepingute teated</option>
                 </select>
+            </div>
+
+                <br>
+                Periood:
+                <br>
+                <label for="start">Alates:</label>
+                <br>
+                <input type="month" id="start-date-one" name="start-date-one" min="2015-01" value="2020-01">
+                <br>
+                <label for="start">Kuni:</label>
+                <br>
+                <input type="month" id="end-date-one" name="end-date-one" min="2015-01" value="2020-11">
+                
+                
 
                 <br>
 
                 <p id="demo"></p>
 
-                <button type="button" id="submitButton" class="btn btn-success">GetData</button>
+                <button type="button" id="submitButton" class="btn btn-success">Lae andmed</button>
                 
 
           

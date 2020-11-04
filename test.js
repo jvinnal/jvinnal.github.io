@@ -4,6 +4,11 @@ function test() {
   //const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=TSLA&apikey=QYOWP5SXIHB6BV3X'
 
 
+  if ($("#selectid").val() === "") 
+
+  {
+      alert("Not selected");
+  }
 
 
   // Simple date validation: Call the getDate function on the date object created

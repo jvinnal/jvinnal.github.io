@@ -891,6 +891,12 @@
 
             $("#submitButton").click(function () {
 
+                if ($("#selectid").val() === "") 
+
+                    {
+                        alert("Not selected");
+                    }
+
                 var dateObj = {
                     startDate: $('#start-date-one').val().trim(),
                     endDate: $('#end-date-one').val().trim(),
