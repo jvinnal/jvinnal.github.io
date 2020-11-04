@@ -214,13 +214,13 @@
                         alias: "viitenumber",
                         dataType: tableau.dataTypeEnum.int
                     }
-                    //,
+                    ,
 
-                    //{
-                    //    id: "title",
-                    //    alias: "nimetus",
-                    //    dataType: tableau.dataTypeEnum.string
-                    //}
+                    {
+                        id: "title",
+                        alias: "nimetus",
+                        dataType: tableau.dataTypeEnum.string
+                    }
 
                     ,
 
