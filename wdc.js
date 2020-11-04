@@ -909,10 +909,10 @@
 
 
                 if (dateObj.selection == "hanketeated") {
-                    tableau.connectionName = "hangete hanketeated ja muutmise teated"; // This will be the data source name in Tableau
+                    tableau.connectionName = "Hangete hanketeated"; // This will be the data source name in Tableau
                 } else if (dateObj.selection == "lepingud") {
 
-                    tableau.connectionName = "lepingute teated ja lepingute muutmise teated"; // This will be the data source name in Tableau
+                    tableau.connectionName = "Lepingute teated"; // This will be the data source name in Tableau
 
                 }
 
