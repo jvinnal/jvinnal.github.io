@@ -580,8 +580,11 @@
                                 }
 
                                 if (typeof nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0] !== 'undefined') {
+
+                                    if (typeof nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0].childNodes[0] !== 'undefined') {
                                     HT.ca_activity_other = nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0].childNodes[0].nodeValue;
-                                }
+                                    }
+                                  }
 
                                 //OBJECT_CONTRACT
 
@@ -779,8 +782,11 @@
                                 }
 
                                 if (typeof nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0] !== 'undefined') {
+
+                                    if (typeof nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0].childNodes[0] !== 'undefined') {
                                     HT.ca_activity_other = nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0].childNodes[0].nodeValue;
-                                }
+                                    }
+                                  }
 
                                 //OBJECT_CONTRACT
 
