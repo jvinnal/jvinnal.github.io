@@ -7,200 +7,415 @@
         // Define the schema
         myConnector.getSchema = function (schemaCallback) {
 
-            var cols = [
-
-                {
-                    id: "reference_number",
-                    alias: "viitenumber",
-                    dataType: tableau.dataTypeEnum.int
-                }
-                ,
-
-                {
-                    id: "title",
-                    alias: "nimetus",
-                    dataType: tableau.dataTypeEnum.string
-                }
-
-                ,
-
-                {
-                    id: "officialname",
-                    alias: "hankija",
-                    dataType: tableau.dataTypeEnum.string
-                }
-
-                ,
-
-                {
-                    id: "datetime",
-                    alias: "esitamise_aeg",
-                    dataType: tableau.dataTypeEnum.date
-
-                }
-                ,
-
-                {
-                    id: "nationalid",
-                    alias: "hankija_kood",
-                    dataType: tableau.dataTypeEnum.int
-                }
-                ,
-
-                {
-                    id: "town",
-                    alias: "hankija_linn",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-
-                {
-                    id: "aadress",
-                    alias: "aadress",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-                {
-                    id: "ce_activity",
-                    alias: "hankija_teg_ala",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-
-                {
-                    id: "type_contract",
-                    alias: "hanke_liik",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-
-                
-
-                {
-                    id: "no_doc_ext",
-                    alias: "no_doc_ext",
-                    dataType: tableau.dataTypeEnum.string
-
-                }
-                ,
-                {
-                    id: "organisation",
-                    alias: "organisation",
-                    dataType: tableau.dataTypeEnum.string
-                }
-
-                ,
-                {
-                    id: "file_name",
-                    alias: "file_name",
-                    dataType: tableau.dataTypeEnum.string
-
-                }
-                ,
-
-                {
-                    id: "postal_code",
-                    alias: "postal_code",
-                    dataType: tableau.dataTypeEnum.int
-                }
-                ,
-                {
-                    id: "url_document",
-                    alias: "url_document",
-                    dataType: tableau.dataTypeEnum.string
-                }
-
-                ,
-
-                {
-                    id: "url_participation",
-                    alias: "url_participation",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-                {
-                    id: "ca_type_other",
-                    alias: "ca_type_other",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-                {
-                    id: "ca_activity_other",
-                    alias: "ca_activity_other",
-                    dataType: tableau.dataTypeEnum.int
-                }
-                ,
-
-
-                {
-                    id: "short_descr",
-                    alias: "short_descr",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-                {
-                    id: "val_estimated_total",
-                    alias: "val_estimated_total",
-                    dataType: tableau.dataTypeEnum.int
-                }
-                ,
-                {
-                    id: "duration",
-                    alias: "duration",
-                    dataType: tableau.dataTypeEnum.int
-                }
-                ,
-                {
-                    id: "economic_financial_info",
-                    alias: "economic_financial_info",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-                {
-                    id: "technical_professional_info",
-                    alias: "technical_professional_info",
-                    dataType: tableau.dataTypeEnum.string
-                }
-
-
-                ,
-
-                {
-                    id: "performance_conditions",
-                    alias: "performance_conditions",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-                {
-                    id: "date_receipt_tenders",
-                    alias: "date_receipt_tenders",
-                    dataType: tableau.dataTypeEnum.date
-                }
-                ,
-                {
-                    id: "time_receipt_tenders",
-                    alias: "time_receipt_tenders",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-                {
-                    id: "date_tender_valid",
-                    alias: "date_tender_valid",
-                    dataType: tableau.dataTypeEnum.date
-                }
-                ,
-                {
-                    id: "info_add",
-                    alias: "info_add",
-                    dataType: tableau.dataTypeEnum.string
-                }
-
-
-
-            ];
-
-
             var dateObj = JSON.parse(tableau.connectionData);
+
+
+            if (dateObj.selection == "hanketeated") {
+                var cols = [
+
+                    {
+                        id: "reference_number",
+                        alias: "viitenumber",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+
+                    {
+                        id: "title",
+                        alias: "nimetus",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+                    ,
+
+                    {
+                        id: "officialname",
+                        alias: "hankija",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+                    ,
+
+                    {
+                        id: "nationalid",
+                        alias: "hankija_kood",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+
+                    {
+                        id: "datetime",
+                        alias: "esitamise_aeg",
+                        dataType: tableau.dataTypeEnum.date
+
+                    }
+                    ,
+
+
+
+                    {
+                        id: "town",
+                        alias: "hankija_linn",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+
+                    {
+                        id: "aadress",
+                        alias: "aadress",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "ce_activity",
+                        alias: "hankija_teg_ala",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+
+                    {
+                        id: "type_contract",
+                        alias: "hanke_liik",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+
+
+
+                    {
+                        id: "no_doc_ext",
+                        alias: "no_doc_ext",
+                        dataType: tableau.dataTypeEnum.string
+
+                    }
+                    ,
+                    {
+                        id: "organisation",
+                        alias: "organisation",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+                    ,
+                    {
+                        id: "file_name",
+                        alias: "file_name",
+                        dataType: tableau.dataTypeEnum.string
+
+                    }
+                    ,
+
+                    {
+                        id: "postal_code",
+                        alias: "postal_code",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+                    {
+                        id: "url_document",
+                        alias: "url_document",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+                    ,
+
+                    {
+                        id: "url_participation",
+                        alias: "url_participation",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "ca_type_other",
+                        alias: "ca_type_other",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "ca_activity_other",
+                        alias: "ca_activity_other",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+
+
+                    {
+                        id: "short_descr",
+                        alias: "short_descr",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "val_estimated_total",
+                        alias: "val_estimated_total",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+                    {
+                        id: "duration",
+                        alias: "duration",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+                    {
+                        id: "economic_financial_info",
+                        alias: "economic_financial_info",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "technical_professional_info",
+                        alias: "technical_professional_info",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+
+                    ,
+
+                    {
+                        id: "performance_conditions",
+                        alias: "performance_conditions",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "date_receipt_tenders",
+                        alias: "date_receipt_tenders",
+                        dataType: tableau.dataTypeEnum.date
+                    }
+                    ,
+                    {
+                        id: "time_receipt_tenders",
+                        alias: "time_receipt_tenders",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "date_tender_valid",
+                        alias: "date_tender_valid",
+                        dataType: tableau.dataTypeEnum.date
+                    }
+                    ,
+                    {
+                        id: "info_add",
+                        alias: "info_add",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+
+
+                ];
+
+            } else if (dateObj.selection == "lepingud") {
+
+                var cols = [
+
+                    {
+                        id: "reference_number",
+                        alias: "viitenumber",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+
+                    //{
+                    //    id: "title",
+                    //    alias: "nimetus",
+                    //    dataType: tableau.dataTypeEnum.string
+                    //}
+
+                    ,
+
+                    {
+                        id: "officialname",
+                        alias: "hankija",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+                    ,
+
+                    {
+                        id: "nationalid",
+                        alias: "hankija_kood",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+
+                    {
+                        id: "datetime",
+                        alias: "esitamise_aeg",
+                        dataType: tableau.dataTypeEnum.date
+
+                    }
+                    ,
+
+                    {
+                        id: "contract_officialname",
+                        alias: "pakkuja",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+
+
+
+
+                    {
+                        id: "town",
+                        alias: "hankija_linn",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+
+                    {
+                        id: "aadress",
+                        alias: "aadress",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "ce_activity",
+                        alias: "hankija_teg_ala",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+
+                    {
+                        id: "type_contract",
+                        alias: "hanke_liik",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+
+
+
+                    {
+                        id: "no_doc_ext",
+                        alias: "no_doc_ext",
+                        dataType: tableau.dataTypeEnum.string
+
+                    }
+                    ,
+                    {
+                        id: "organisation",
+                        alias: "organisation",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+                    ,
+                    {
+                        id: "file_name",
+                        alias: "file_name",
+                        dataType: tableau.dataTypeEnum.string
+
+                    }
+                    ,
+
+                    {
+                        id: "postal_code",
+                        alias: "postal_code",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+                    {
+                        id: "url_document",
+                        alias: "url_document",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+                    ,
+
+                    {
+                        id: "url_participation",
+                        alias: "url_participation",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "ca_type_other",
+                        alias: "ca_type_other",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "ca_activity_other",
+                        alias: "ca_activity_other",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+
+
+                    {
+                        id: "short_descr",
+                        alias: "short_descr",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "val_estimated_total",
+                        alias: "val_estimated_total",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+                    {
+                        id: "duration",
+                        alias: "duration",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+                    {
+                        id: "economic_financial_info",
+                        alias: "economic_financial_info",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "technical_professional_info",
+                        alias: "technical_professional_info",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+
+                    ,
+
+                    {
+                        id: "performance_conditions",
+                        alias: "performance_conditions",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "date_receipt_tenders",
+                        alias: "date_receipt_tenders",
+                        dataType: tableau.dataTypeEnum.date
+                    }
+                    ,
+                    {
+                        id: "time_receipt_tenders",
+                        alias: "time_receipt_tenders",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+                    {
+                        id: "date_tender_valid",
+                        alias: "date_tender_valid",
+                        dataType: tableau.dataTypeEnum.date
+                    }
+                    ,
+                    {
+                        id: "info_add",
+                        alias: "info_add",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+
+
+                ];
+
+
+
+
+            }
+
+
+
 
 
 
@@ -404,9 +619,8 @@
 
                                 if (typeof nodes[i].getElementsByTagName("TYPE_CONTRACT")[0] !== 'undefined') {
 
-                                    if  (nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE") != null)
-                                    {
-                                      HT.type_contract = nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE").nodeValue;
+                                    if (nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE") != null) {
+                                        HT.type_contract = nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE").nodeValue;
                                     }
                                 }
 
@@ -461,6 +675,14 @@
                                 //SENDER
                                 HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
                                 HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
+
+
+                                if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
+                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0] !== 'undefined') {
+                                        HT.contract_officialname = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+                                    }
+                                }
+
 
                                 //FORM_SECTION
                                 //CONTRACTING_BODY
@@ -535,13 +757,21 @@
 
                                 //PROCEDURE
 
+                                //ESITAMISE AEG
                                 if (typeof nodes[i].getElementsByTagName("DATE_RECEIPT_TENDERS")[0] !== 'undefined') {
                                     HT.date_receipt_tenders = nodes[i].getElementsByTagName("DATE_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
+                                    date = nodes[i].getElementsByTagName("DATE_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
                                 }
 
                                 if (typeof nodes[i].getElementsByTagName("TIME_RECEIPT_TENDERS")[0] !== 'undefined') {
                                     HT.time_receipt_tenders = nodes[i].getElementsByTagName("TIME_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
+                                    time = nodes[i].getElementsByTagName("TIME_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
                                 }
+
+
+                                var datetime = new Date(date + ' ' + time);
+
+                                HT.datetime = datetime;
 
                                 if (typeof nodes[i].getElementsByTagName("DATE_TENDER_VALID")[0] !== 'undefined') {
                                     HT.date_tender_valid = nodes[i].getElementsByTagName("DATE_TENDER_VALID")[0].childNodes[0].nodeValue;
@@ -551,6 +781,18 @@
 
                                 if (typeof nodes[i].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
                                     HT.info_add = nodes[i].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("CE_ACTIVITY")[0] !== 'undefined') {
+                                    HT.ce_activity = nodes[i].getElementsByTagName("CE_ACTIVITY")[0].getAttributeNode("VALUE").nodeValue;
+                                }
+
+
+                                if (typeof nodes[i].getElementsByTagName("TYPE_CONTRACT")[0] !== 'undefined') {
+
+                                    if (nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE") != null) {
+                                        HT.type_contract = nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE").nodeValue;
+                                    }
                                 }
 
 

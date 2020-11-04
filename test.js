@@ -59,7 +59,7 @@ function test() {
 
     $.ajax({
       type: 'GET',
-      url: urls[0],
+      url: urls[1],
       dataType: "xml",
       jsonp: true,
       contentType: "text/xml; charset=\"utf-8\"",
@@ -88,6 +88,18 @@ function test() {
           //CONTRACTING_BODY
 
           HT.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+
+
+          if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
+            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0] !== 'undefined') {
+          HT.contract_officialname = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+            }
+        }
+
+        console.log(HT.test);
+
+
+
           HT.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
 
           if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
@@ -169,8 +181,9 @@ function test() {
             time = nodes[i].getElementsByTagName("TIME_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
           }
 
-
+if (typeof date !== 'undefined' && typeof time !== 'undefined'){
           var datetime = new Date(date+' '+time);
+}
 
           HT.datetime = datetime;
 
@@ -200,7 +213,7 @@ function test() {
                 }
             }
 
-            console.log(HT.type_contract)
+            //console.log(HT.type_contract)
 
 
           allRows.push(HT)
