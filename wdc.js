@@ -10,6 +10,14 @@
             var cols = [
 
                 {
+                    id: "datetime",
+                    alias: "esitamise_aeg",
+                    dataType: tableau.dataTypeEnum.string
+
+                }
+                ,
+
+                {
                     id: "no_doc_ext",
                     alias: "no_doc_ext",
                     dataType: tableau.dataTypeEnum.string
@@ -33,14 +41,14 @@
 
                 {
                     id: "officialname",
-                    alias: "officialname",
+                    alias: "hankija",
                     dataType: tableau.dataTypeEnum.string
                 }
                 ,
 
                 {
                     id: "nationalid",
-                    alias: "nationalid",
+                    alias: "nhankija_kood",
                     dataType: tableau.dataTypeEnum.int
                 }
                 ,
@@ -52,7 +60,7 @@
                 ,
                 {
                     id: "town",
-                    alias: "town",
+                    alias: "hankija_linn",
                     dataType: tableau.dataTypeEnum.string
                 }
                 ,
@@ -68,7 +76,7 @@
                     dataType: tableau.dataTypeEnum.string
                 }
 
-,
+                ,
 
                 {
                     id: "url_participation",
@@ -90,13 +98,13 @@
                 ,
                 {
                     id: "title",
-                    alias: "title",
+                    alias: "nimetus",
                     dataType: tableau.dataTypeEnum.string
                 }
                 ,
                 {
                     id: "reference_number",
-                    alias: "reference_number",
+                    alias: "viitenumber",
                     dataType: tableau.dataTypeEnum.int
                 }
 
@@ -293,71 +301,79 @@
                                 //----------------
                                 if (typeof nodes[i].getElementsByTagName("URL_PARTICIPATION")[0] !== 'undefined') {
                                     HT.url_participation = nodes[i].getElementsByTagName("URL_PARTICIPATION")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  if (typeof nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0] !== 'undefined') {
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0] !== 'undefined') {
                                     HT.ca_type_other = nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  if (typeof nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0] !== 'undefined') {
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0] !== 'undefined') {
                                     HT.ca_activity_other = nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  //OBJECT_CONTRACT
-                        
-                                  if (typeof nodes[i].getElementsByTagName("TITLE")[0] !== 'undefined') {
+                                }
+
+                                //OBJECT_CONTRACT
+
+                                if (typeof nodes[i].getElementsByTagName("TITLE")[0] !== 'undefined') {
                                     HT.title = nodes[i].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
                                     HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  if (typeof nodes[i].getElementsByTagName("SHORT_DESCR")[0] !== 'undefined') {
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("SHORT_DESCR")[0] !== 'undefined') {
                                     HT.short_descr = nodes[i].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  if (typeof nodes[i].getElementsByTagName("VAL_ESTIMATED_TOTAL")[0] !== 'undefined') {
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("VAL_ESTIMATED_TOTAL")[0] !== 'undefined') {
                                     HT.val_estimated_total = nodes[i].getElementsByTagName("VAL_ESTIMATED_TOTAL")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  if (typeof nodes[i].getElementsByTagName("DURATION")[0] !== 'undefined') {
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("DURATION")[0] !== 'undefined') {
                                     HT.duration = nodes[i].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
-                                  //LEFTI
+                                //LEFTI
 
-                                  if (typeof nodes[i].getElementsByTagName("ECONOMIC_FINANCIAL_INFO")[0] !== 'undefined') {
+                                if (typeof nodes[i].getElementsByTagName("ECONOMIC_FINANCIAL_INFO")[0] !== 'undefined') {
                                     HT.economic_financial_info = nodes[i].getElementsByTagName("ECONOMIC_FINANCIAL_INFO")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
-                                  if (typeof nodes[i].getElementsByTagName("TECHNICAL_PROFESSIONAL_INFO")[0] !== 'undefined') {
+                                if (typeof nodes[i].getElementsByTagName("TECHNICAL_PROFESSIONAL_INFO")[0] !== 'undefined') {
                                     HT.technical_professional_info = nodes[i].getElementsByTagName("TECHNICAL_PROFESSIONAL_INFO")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
-                                  if (typeof nodes[i].getElementsByTagName("PERFORMANCE_CONDITIONS")[0] !== 'undefined') {
+                                if (typeof nodes[i].getElementsByTagName("PERFORMANCE_CONDITIONS")[0] !== 'undefined') {
                                     HT.performance_conditions = nodes[i].getElementsByTagName("PERFORMANCE_CONDITIONS")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
-                                  //PROCEDURE
+                                //PROCEDURE
 
-                                  if (typeof nodes[i].getElementsByTagName("DATE_RECEIPT_TENDERS")[0] !== 'undefined') {
+                                //ESITAMISE AEG
+                                if (typeof nodes[i].getElementsByTagName("DATE_RECEIPT_TENDERS")[0] !== 'undefined') {
                                     HT.date_receipt_tenders = nodes[i].getElementsByTagName("DATE_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
-                                  }
+                                    date = nodes[i].getElementsByTagName("DATE_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
+                                }
 
-                                  if (typeof nodes[i].getElementsByTagName("TIME_RECEIPT_TENDERS")[0] !== 'undefined') {
+                                if (typeof nodes[i].getElementsByTagName("TIME_RECEIPT_TENDERS")[0] !== 'undefined') {
                                     HT.time_receipt_tenders = nodes[i].getElementsByTagName("TIME_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
-                                  }
+                                    time = nodes[i].getElementsByTagName("TIME_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
+                                }
 
-                                  if (typeof nodes[i].getElementsByTagName("DATE_TENDER_VALID")[0] !== 'undefined') {
+
+                                var datetime = new Date(date + ' ' + time);
+
+                                HT.datetime = datetime;
+
+                                if (typeof nodes[i].getElementsByTagName("DATE_TENDER_VALID")[0] !== 'undefined') {
                                     HT.date_tender_valid = nodes[i].getElementsByTagName("DATE_TENDER_VALID")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
-                                  //COMPLEMENTARY_INFO
+                                //COMPLEMENTARY_INFO
 
-                                  if (typeof nodes[i].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
+                                if (typeof nodes[i].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
                                     HT.info_add = nodes[i].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
 
 
@@ -436,71 +452,71 @@
                                 //----------------
                                 if (typeof nodes[i].getElementsByTagName("URL_PARTICIPATION")[0] !== 'undefined') {
                                     HT.url_participation = nodes[i].getElementsByTagName("URL_PARTICIPATION")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  if (typeof nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0] !== 'undefined') {
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0] !== 'undefined') {
                                     HT.ca_type_other = nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  if (typeof nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0] !== 'undefined') {
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0] !== 'undefined') {
                                     HT.ca_activity_other = nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  //OBJECT_CONTRACT
-                        
-                                  if (typeof nodes[i].getElementsByTagName("TITLE")[0] !== 'undefined') {
+                                }
+
+                                //OBJECT_CONTRACT
+
+                                if (typeof nodes[i].getElementsByTagName("TITLE")[0] !== 'undefined') {
                                     HT.title = nodes[i].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
                                     HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  if (typeof nodes[i].getElementsByTagName("SHORT_DESCR")[0] !== 'undefined') {
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("SHORT_DESCR")[0] !== 'undefined') {
                                     HT.short_descr = nodes[i].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  if (typeof nodes[i].getElementsByTagName("VAL_ESTIMATED_TOTAL")[0] !== 'undefined') {
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("VAL_ESTIMATED_TOTAL")[0] !== 'undefined') {
                                     HT.val_estimated_total = nodes[i].getElementsByTagName("VAL_ESTIMATED_TOTAL")[0].childNodes[0].nodeValue;
-                                  }
-                        
-                                  if (typeof nodes[i].getElementsByTagName("DURATION")[0] !== 'undefined') {
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("DURATION")[0] !== 'undefined') {
                                     HT.duration = nodes[i].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
-                                  //LEFTI
+                                //LEFTI
 
-                                  if (typeof nodes[i].getElementsByTagName("ECONOMIC_FINANCIAL_INFO")[0] !== 'undefined') {
+                                if (typeof nodes[i].getElementsByTagName("ECONOMIC_FINANCIAL_INFO")[0] !== 'undefined') {
                                     HT.economic_financial_info = nodes[i].getElementsByTagName("ECONOMIC_FINANCIAL_INFO")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
-                                  if (typeof nodes[i].getElementsByTagName("TECHNICAL_PROFESSIONAL_INFO")[0] !== 'undefined') {
+                                if (typeof nodes[i].getElementsByTagName("TECHNICAL_PROFESSIONAL_INFO")[0] !== 'undefined') {
                                     HT.technical_professional_info = nodes[i].getElementsByTagName("TECHNICAL_PROFESSIONAL_INFO")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
-                                  if (typeof nodes[i].getElementsByTagName("PERFORMANCE_CONDITIONS")[0] !== 'undefined') {
+                                if (typeof nodes[i].getElementsByTagName("PERFORMANCE_CONDITIONS")[0] !== 'undefined') {
                                     HT.performance_conditions = nodes[i].getElementsByTagName("PERFORMANCE_CONDITIONS")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
-                                  //PROCEDURE
+                                //PROCEDURE
 
-                                  if (typeof nodes[i].getElementsByTagName("DATE_RECEIPT_TENDERS")[0] !== 'undefined') {
+                                if (typeof nodes[i].getElementsByTagName("DATE_RECEIPT_TENDERS")[0] !== 'undefined') {
                                     HT.date_receipt_tenders = nodes[i].getElementsByTagName("DATE_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
-                                  if (typeof nodes[i].getElementsByTagName("TIME_RECEIPT_TENDERS")[0] !== 'undefined') {
+                                if (typeof nodes[i].getElementsByTagName("TIME_RECEIPT_TENDERS")[0] !== 'undefined') {
                                     HT.time_receipt_tenders = nodes[i].getElementsByTagName("TIME_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
-                                  if (typeof nodes[i].getElementsByTagName("DATE_TENDER_VALID")[0] !== 'undefined') {
+                                if (typeof nodes[i].getElementsByTagName("DATE_TENDER_VALID")[0] !== 'undefined') {
                                     HT.date_tender_valid = nodes[i].getElementsByTagName("DATE_TENDER_VALID")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
-                                  //COMPLEMENTARY_INFO
+                                //COMPLEMENTARY_INFO
 
-                                  if (typeof nodes[i].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
+                                if (typeof nodes[i].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
                                     HT.info_add = nodes[i].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                  }
+                                }
 
 
 
@@ -552,7 +568,7 @@
                 if (dateObj.selection == "hanketeated") {
                     tableau.connectionName = "hangete hanketeated ja muutmise teated"; // This will be the data source name in Tableau
                 } else if (dateObj.selection == "lepingud") {
-                   
+
                     tableau.connectionName = "lepingute teated ja lepingute muutmise teated"; // This will be the data source name in Tableau
 
                 }
