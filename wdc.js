@@ -281,6 +281,14 @@
                     }
                     ,
 
+                    {
+                        id: "conclusion_contract ",
+                        alias: "solmimise_kpv",
+                        dataType: tableau.dataTypeEnum.string
+
+                    }
+                    ,
+
                     //{
                     //    id: "town",
                     //    alias: "hankija_linn",
@@ -332,13 +340,7 @@
                     }
                     ,
 
-                    {
-                        id: "conclusion_contract ",
-                        alias: "solmimise_kpv",
-                        dataType: tableau.dataTypeEnum.string
-
-                    }
-                    ,
+                    
 
 
                     //{
