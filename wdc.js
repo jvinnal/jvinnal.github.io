@@ -264,15 +264,15 @@
                     }
                     ,
 
-                
+
                     {
                         id: "contract_town",
                         alias: "pakkuja_linn",
                         dataType: tableau.dataTypeEnum.string
-                     }
+                    }
                     ,
 
-                    
+
                     {
                         id: "val_total",
                         alias: "eeldatav_maksumus",
@@ -330,7 +330,14 @@
                         dataType: tableau.dataTypeEnum.string
 
                     }
+                    ,
 
+                    {
+                        id: "conclusion_contract ",
+                        alias: "solmimise_kpv",
+                        dataType: tableau.dataTypeEnum.string
+
+                    }
                     ,
 
 
@@ -338,81 +345,81 @@
                     //    id: "postal_code",
                     //    alias: "postal_code",
                     //    dataType: tableau.dataTypeEnum.int
-                   // }
-                   // ,
-                   // {
+                    // }
+                    // ,
+                    // {
                     //    id: "url_document",
                     //    alias: "url_document",
                     //    dataType: tableau.dataTypeEnum.string
-                   // }
+                    // }
 
-                   // ,
+                    // ,
 
-                   // {
+                    // {
                     //    id: "url_participation",
                     //    alias: "url_participation",
                     //    dataType: tableau.dataTypeEnum.string
-                   // }
-                   // ,
+                    // }
+                    // ,
                     //{
-                   //     id: "ca_type_other",
-                   //     alias: "ca_type_other",
-                   //     dataType: tableau.dataTypeEnum.string
-                   // }
-                   // ,
-                   // {
+                    //     id: "ca_type_other",
+                    //     alias: "ca_type_other",
+                    //     dataType: tableau.dataTypeEnum.string
+                    // }
+                    // ,
+                    // {
                     //    id: "ca_activity_other",
                     //    alias: "ca_activity_other",
                     //    dataType: tableau.dataTypeEnum.int
-                   // }
+                    // }
                     //,
 
 
                     //{
-                     //   id: "short_descr",
-                     //   alias: "short_descr",
-                     //   dataType: tableau.dataTypeEnum.string
+                    //   id: "short_descr",
+                    //   alias: "short_descr",
+                    //   dataType: tableau.dataTypeEnum.string
                     //}
                     //,
                     //{
-                     //   id: "val_estimated_total",
-                     //   alias: "val_estimated_total",
-                     //   dataType: tableau.dataTypeEnum.int
+                    //   id: "val_estimated_total",
+                    //   alias: "val_estimated_total",
+                    //   dataType: tableau.dataTypeEnum.int
                     //}
                     //,
                     //{
-                     //   id: "duration",
-                      //  alias: "duration",
-                      //  dataType: tableau.dataTypeEnum.int
+                    //   id: "duration",
+                    //  alias: "duration",
+                    //  dataType: tableau.dataTypeEnum.int
                     //}
-                   // ,
-                   // {
-                     //   id: "economic_financial_info",
-                     //   alias: "economic_financial_info",
-                     //   dataType: tableau.dataTypeEnum.string
+                    // ,
+                    // {
+                    //   id: "economic_financial_info",
+                    //   alias: "economic_financial_info",
+                    //   dataType: tableau.dataTypeEnum.string
                     //}
                     //,
-                   // {
+                    // {
                     //    id: "technical_professional_info",
-                     //   alias: "technical_professional_info",
-                     //   dataType: tableau.dataTypeEnum.string
+                    //   alias: "technical_professional_info",
+                    //   dataType: tableau.dataTypeEnum.string
                     //}
-//
-//
+                    //
+                    //
                     //,
-//
+                    //
                     //{
-                     //   id: "performance_conditions",
-                     //   alias: "performance_conditions",
-                     //   dataType: tableau.dataTypeEnum.string
+                    //   id: "performance_conditions",
+                    //   alias: "performance_conditions",
+                    //   dataType: tableau.dataTypeEnum.string
                     //}
                     //,
                     //{
                     //    id: "date_receipt_tenders",
                     //    alias: "date_receipt_tenders",
                     //    dataType: tableau.dataTypeEnum.date
-                   // }
-                   // ,
+                    // }
+                    // ,
                     //{
                     //    id: "time_receipt_tenders",
                     //    alias: "time_receipt_tenders",
@@ -714,22 +721,28 @@
 
 
                                 if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
-                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0] !== 'undefined') {
+                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("NATIONALID")[0] !== 'undefined') {
                                         HT.contract_nationalid = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
                                     }
                                 }
 
                                 if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
-                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0] !== 'undefined') {
+                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0] !== 'undefined') {
                                         HT.contract_town = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
                                     }
                                 }
 
                                 if (typeof nodes[i].getElementsByTagName("VAL_TOTAL")[0] !== 'undefined') {
                                     if (nodes[i].getElementsByTagName("VAL_TOTAL")[0].childNodes[0] != null) {
-                                    HT.val_total = nodes[i].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue;
+                                        HT.val_total = nodes[i].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue;
                                     }
-                                  }
+                                }
+
+                                if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
+                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0] !== 'undefined') {
+                                        HT.conclusion_contract = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0].childNodes[0].nodeValue;
+                                    }
+                                }
 
 
                                 //FORM_SECTION
