@@ -75,7 +75,6 @@ function test() {
         for (var i = 0; i < nodes.length; i++) {
           const HT = {};
 
-
           //GENERATED
 
           HT.file_name = 'HT_' + dateYear + '_' + t + '.xml';
@@ -84,22 +83,18 @@ function test() {
           HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
           HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
 
+
+          if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
+            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0] !== 'undefined') {
+              HT.contract_officialname = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+            }
+          }
+
+
           //FORM_SECTION
           //CONTRACTING_BODY
 
           HT.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
-
-
-          if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
-            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0] !== 'undefined') {
-          HT.contract_officialname = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
-            }
-        }
-
-        //console.log(HT.contract_officialname);
-
-
-
           HT.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
 
           if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
@@ -169,7 +164,6 @@ function test() {
 
           //PROCEDURE
 
-
           //ESITAMISE AEG
           if (typeof nodes[i].getElementsByTagName("DATE_RECEIPT_TENDERS")[0] !== 'undefined') {
             HT.date_receipt_tenders = nodes[i].getElementsByTagName("DATE_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
@@ -181,42 +175,41 @@ function test() {
             time = nodes[i].getElementsByTagName("TIME_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
           }
 
-if (typeof date !== 'undefined' && typeof time !== 'undefined'){
-          var datetime = new Date(date+' '+time);
-}
+
+          if (typeof date !== 'undefined' && typeof time !== 'undefined') {
+            var datetime = new Date(date + ' ' + time);
+          }
 
           HT.datetime = datetime;
-
-
-          
 
           if (typeof nodes[i].getElementsByTagName("DATE_TENDER_VALID")[0] !== 'undefined') {
             HT.date_tender_valid = nodes[i].getElementsByTagName("DATE_TENDER_VALID")[0].childNodes[0].nodeValue;
           }
 
-               //COMPLEMENTARY_INFO
+          //COMPLEMENTARY_INFO
 
-               if (typeof nodes[i].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
-                HT.info_add = nodes[i].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+          if (typeof nodes[i].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
+            HT.info_add = nodes[i].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+          }
+
+          if (typeof nodes[i].getElementsByTagName("CE_ACTIVITY")[0] !== 'undefined') {
+            HT.ce_activity = nodes[i].getElementsByTagName("CE_ACTIVITY")[0].getAttributeNode("VALUE").nodeValue;
+          }
+
+
+          if (typeof nodes[i].getElementsByTagName("TYPE_CONTRACT")[0] !== 'undefined') {
+
+            if (nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE") != null) {
+              HT.type_contract = nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE").nodeValue;
             }
-
-            if (typeof nodes[i].getElementsByTagName("CE_ACTIVITY")[0] !== 'undefined') {
-                HT.ce_activity = nodes[i].getElementsByTagName("CE_ACTIVITY")[0].getAttributeNode("VALUE").nodeValue;
-            }
+          }
 
 
-            if (typeof nodes[i].getElementsByTagName("TYPE_CONTRACT")[0] !== 'undefined') {
-
-                if  (nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE") != null)
-                {
-                  HT.type_contract = nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE").nodeValue;
-                }
-            }
-
-            //console.log(HT.type_contract)
 
 
-          allRows.push(HT)
+
+
+          allRows.push(HT);
         }
 
 

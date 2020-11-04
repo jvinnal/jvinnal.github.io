@@ -672,7 +672,7 @@
 
                                 //GENERATED
 
-                                HT.file_name = 'HT_' + dateYear + '_' + t + '.xml';
+                                HT.file_name = 'HLST_' + dateYear + '_' + t + '.xml';
 
                                 //SENDER
                                 HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
