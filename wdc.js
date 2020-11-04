@@ -12,7 +12,7 @@
                 {
                     id: "datetime",
                     alias: "esitamise_aeg",
-                    dataType: tableau.dataTypeEnum.string
+                    dataType: tableau.dataTypeEnum.date
 
                 }
                 ,
@@ -48,7 +48,7 @@
 
                 {
                     id: "nationalid",
-                    alias: "nhankija_kood",
+                    alias: "hankija_kood",
                     dataType: tableau.dataTypeEnum.int
                 }
                 ,
