@@ -181,19 +181,26 @@ function test() {
             HT.date_tender_valid = nodes[i].getElementsByTagName("DATE_TENDER_VALID")[0].childNodes[0].nodeValue;
           }
 
-          //COMPLEMENTARY_INFO
+               //COMPLEMENTARY_INFO
 
-          if (typeof nodes[i].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
-            HT.info_add = nodes[i].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-          }
+               if (typeof nodes[i].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
+                HT.info_add = nodes[i].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+            }
+
+            if (typeof nodes[i].getElementsByTagName("CE_ACTIVITY")[0] !== 'undefined') {
+                HT.ce_activity = nodes[i].getElementsByTagName("CE_ACTIVITY")[0].getAttributeNode("VALUE").nodeValue;
+            }
 
 
-          if (typeof nodes[i].getElementsByTagName("CE_ACTIVITY")[0] !== 'undefined') {
-            HT.ce_activity = nodes[i].getElementsByTagName("CE_ACTIVITY")[0].getAttributeNode("VALUE").nodeValue;
-          }
+            if (typeof nodes[i].getElementsByTagName("TYPE_CONTRACT")[0] !== 'undefined') {
 
-          console.log(HT.ce_activity )
+                if  (nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE") != null)
+                {
+                  HT.type_contract = nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE").nodeValue;
+                }
+            }
 
+            console.log(HT.type_contract)
 
 
           allRows.push(HT)

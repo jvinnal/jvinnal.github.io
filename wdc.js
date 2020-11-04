@@ -403,7 +403,11 @@
 
 
                                 if (typeof nodes[i].getElementsByTagName("TYPE_CONTRACT")[0] !== 'undefined') {
-                                    HT.type_contract = nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE").nodeValue;
+
+                                    if  (nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE") != null)
+                                    {
+                                      HT.type_contract = nodes[i].getElementsByTagName("TYPE_CONTRACT")[0].getAttributeNode("CTYPE").nodeValue;
+                                    }
                                 }
 
 
