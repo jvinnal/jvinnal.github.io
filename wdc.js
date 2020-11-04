@@ -239,13 +239,13 @@
                     }
                     ,
 
-                    {
-                        id: "datetime",
-                        alias: "esitamise_aeg",
-                        dataType: tableau.dataTypeEnum.date
+                    //  {
+                    //     id: "datetime",
+                    //    alias: "esitamise_aeg",
+                    //    dataType: tableau.dataTypeEnum.date
 
-                    }
-                    ,
+                    // }
+                    //,
 
                     {
                         id: "contract_officialname",
@@ -340,7 +340,7 @@
                     }
                     ,
 
-                    
+
 
 
                     //{
