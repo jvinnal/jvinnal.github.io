@@ -255,6 +255,15 @@
                     ,
 
 
+                    
+
+                    {
+                        id: "contract_nationalid",
+                        alias: "pakkuja_kood",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+
 
 
                     {
@@ -679,11 +688,19 @@
                                 HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
 
 
+                                //PAKKUJA
                                 if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
                                     if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0] !== 'undefined') {
                                         HT.contract_officialname = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
                                     }
                                 }
+
+
+                                if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
+                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("OFFICIALNAME")[0] !== 'undefined') {
+                                      HT.contract_nationalid = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+                                    }
+                                  }
 
 
                                 //FORM_SECTION
