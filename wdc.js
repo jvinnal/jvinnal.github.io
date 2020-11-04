@@ -214,7 +214,7 @@
                         alias: "viitenumber",
                         dataType: tableau.dataTypeEnum.int
                     }
-                    ,
+                    //,
 
                     //{
                     //    id: "title",
