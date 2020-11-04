@@ -272,6 +272,15 @@
                      }
                     ,
 
+                    
+                    {
+                        id: "val_total",
+                        alias: "eeldatav_maksumus",
+                        dataType: tableau.dataTypeEnum.string
+
+                    }
+                    ,
+
                     //{
                     //    id: "town",
                     //    alias: "hankija_linn",
@@ -324,13 +333,6 @@
 
                     ,
 
-                    {
-                        id: "val_total",
-                        alias: "eeldatav_maksumus",
-                        dataType: tableau.dataTypeEnum.string
-
-                    }
-                    ,
 
                     //{
                     //    id: "postal_code",
