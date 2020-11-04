@@ -323,97 +323,97 @@
                     }
                     ,
 
-                    {
-                        id: "postal_code",
-                        alias: "postal_code",
-                        dataType: tableau.dataTypeEnum.int
-                    }
-                    ,
-                    {
-                        id: "url_document",
-                        alias: "url_document",
-                        dataType: tableau.dataTypeEnum.string
-                    }
+                    //{
+                    //    id: "postal_code",
+                    //    alias: "postal_code",
+                    //    dataType: tableau.dataTypeEnum.int
+                   // }
+                   // ,
+                   // {
+                    //    id: "url_document",
+                    //    alias: "url_document",
+                    //    dataType: tableau.dataTypeEnum.string
+                   // }
 
-                    ,
+                   // ,
 
-                    {
-                        id: "url_participation",
-                        alias: "url_participation",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-                    ,
-                    {
-                        id: "ca_type_other",
-                        alias: "ca_type_other",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-                    ,
-                    {
-                        id: "ca_activity_other",
-                        alias: "ca_activity_other",
-                        dataType: tableau.dataTypeEnum.int
-                    }
-                    ,
-
-
-                    {
-                        id: "short_descr",
-                        alias: "short_descr",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-                    ,
-                    {
-                        id: "val_estimated_total",
-                        alias: "val_estimated_total",
-                        dataType: tableau.dataTypeEnum.int
-                    }
-                    ,
-                    {
-                        id: "duration",
-                        alias: "duration",
-                        dataType: tableau.dataTypeEnum.int
-                    }
-                    ,
-                    {
-                        id: "economic_financial_info",
-                        alias: "economic_financial_info",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-                    ,
-                    {
-                        id: "technical_professional_info",
-                        alias: "technical_professional_info",
-                        dataType: tableau.dataTypeEnum.string
-                    }
+                   // {
+                    //    id: "url_participation",
+                    //    alias: "url_participation",
+                    //    dataType: tableau.dataTypeEnum.string
+                   // }
+                   // ,
+                    //{
+                   //     id: "ca_type_other",
+                   //     alias: "ca_type_other",
+                   //     dataType: tableau.dataTypeEnum.string
+                   // }
+                   // ,
+                   // {
+                    //    id: "ca_activity_other",
+                    //    alias: "ca_activity_other",
+                    //    dataType: tableau.dataTypeEnum.int
+                   // }
+                    //,
 
 
-                    ,
-
-                    {
-                        id: "performance_conditions",
-                        alias: "performance_conditions",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-                    ,
-                    {
-                        id: "date_receipt_tenders",
-                        alias: "date_receipt_tenders",
-                        dataType: tableau.dataTypeEnum.date
-                    }
-                    ,
-                    {
-                        id: "time_receipt_tenders",
-                        alias: "time_receipt_tenders",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-                    ,
-                    {
-                        id: "date_tender_valid",
-                        alias: "date_tender_valid",
-                        dataType: tableau.dataTypeEnum.date
-                    }
-                    ,
+                    //{
+                     //   id: "short_descr",
+                     //   alias: "short_descr",
+                     //   dataType: tableau.dataTypeEnum.string
+                    //}
+                    //,
+                    //{
+                     //   id: "val_estimated_total",
+                     //   alias: "val_estimated_total",
+                     //   dataType: tableau.dataTypeEnum.int
+                    //}
+                    //,
+                    //{
+                     //   id: "duration",
+                      //  alias: "duration",
+                      //  dataType: tableau.dataTypeEnum.int
+                    //}
+                   // ,
+                   // {
+                     //   id: "economic_financial_info",
+                     //   alias: "economic_financial_info",
+                     //   dataType: tableau.dataTypeEnum.string
+                    //}
+                    //,
+                   // {
+                    //    id: "technical_professional_info",
+                     //   alias: "technical_professional_info",
+                     //   dataType: tableau.dataTypeEnum.string
+                    //}
+//
+//
+                    //,
+//
+                    //{
+                     //   id: "performance_conditions",
+                     //   alias: "performance_conditions",
+                     //   dataType: tableau.dataTypeEnum.string
+                    //}
+                    //,
+                    //{
+                    //    id: "date_receipt_tenders",
+                    //    alias: "date_receipt_tenders",
+                    //    dataType: tableau.dataTypeEnum.date
+                   // }
+                   // ,
+                    //{
+                    //    id: "time_receipt_tenders",
+                    //    alias: "time_receipt_tenders",
+                    //    dataType: tableau.dataTypeEnum.string
+                    //}
+                    //,
+                    //{
+                    //    id: "date_tender_valid",
+                    //    alias: "date_tender_valid",
+                    //    dataType: tableau.dataTypeEnum.date
+                    //}
+                    //,
                     {
                         id: "info_add",
                         alias: "info_add",
