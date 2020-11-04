@@ -282,7 +282,7 @@
                     ,
 
                     {
-                        id: "conclusion_contract ",
+                        id: "conclusion_contract",
                         alias: "solmimise_kpv",
                         dataType: tableau.dataTypeEnum.string
 
