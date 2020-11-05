@@ -285,7 +285,7 @@
                     {
                         id: "val_total",
                         alias: "eeldatav_maksumus",
-                        dataType: tableau.dataTypeEnum.string
+                        dataType: tableau.dataTypeEnum.int
 
                     }
                     ,
