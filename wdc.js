@@ -47,8 +47,22 @@
                     {
                         id: "datetime",
                         alias: "esitamise_aeg",
-                        dataType: tableau.dataTypeEnum.date
+                        dataType: tableau.dataTypeEnum.datetime
 
+                    }
+                    ,
+
+                    {
+                        id: "val_estimated_total",
+                        alias: "eeldatav_maksumus",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+
+                    {
+                        id: "duration",
+                        alias: "kestvus",
+                        dataType: tableau.dataTypeEnum.int
                     }
                     ,
 
@@ -147,18 +161,8 @@
                         dataType: tableau.dataTypeEnum.string
                     }
                     ,
-                    {
-                        id: "val_estimated_total",
-                        alias: "val_estimated_total",
-                        dataType: tableau.dataTypeEnum.int
-                    }
-                    ,
-                    {
-                        id: "duration",
-                        alias: "duration",
-                        dataType: tableau.dataTypeEnum.int
-                    }
-                    ,
+                   
+                   
                     {
                         id: "economic_financial_info",
                         alias: "economic_financial_info",
