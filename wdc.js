@@ -671,7 +671,9 @@
                                                     HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
                                                     HT.sub_title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
 
+                                                    if (!!HT.lot_no && !!T.sub_title) {
                                                     allRows.push(HT);
+                                                    }
                                                     
                                                     
                                                 }
