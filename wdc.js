@@ -265,7 +265,7 @@
 
                 var cols2 = [
                     {
-                        id: "reference_number",
+                        id: "sub_reference_number",
                         alias: "hanke viitenumber",
                         dataType: tableau.dataTypeEnum.int
                     }
@@ -664,7 +664,7 @@
                                                 const HT = {};
                                                 
                                                 if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
-                                                    HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                                                    HT.sub_reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
                                                 }
     
                                                 if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0] !== 'undefined') {
