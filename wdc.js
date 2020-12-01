@@ -13,24 +13,10 @@
             if (dateObj.selection == "hanketeated") {
                 var cols = [
 
-                    {
-                        id: "reference_number",
-                        alias: "viitenumber",
-                        dataType: tableau.dataTypeEnum.int
-                    }
-                    ,
-
-                    {
-                        id: "title",
-                        alias: "nimetus",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-
-                    ,
 
                     {
                         id: "officialname",
-                        alias: "hankija",
+                        alias: "hankija nimi",
                         dataType: tableau.dataTypeEnum.string
                     }
 
@@ -38,11 +24,95 @@
 
                     {
                         id: "nationalid",
-                        alias: "hankija_kood",
+                        alias: "registrikood",
                         dataType: tableau.dataTypeEnum.int,
                         
                     }
                     ,
+
+                    {
+                        id: "aadress",
+                        alias: "hankija aadress",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+
+                    {
+                        id: "town",
+                        alias: "hankija linn",
+                        dataType: tableau.dataTypeEnum.string,
+                        geoRole: tableau.geographicRoleEnum.city
+                        
+                    }
+                    ,
+
+                    {
+                        id: "postal_code",
+                        alias: "hankija postiindeks",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+
+                    {
+                        id: "ca_type",
+                        alias: "hankija tüüp",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+                    ,
+
+                    {
+                        id: "ca_activity",
+                        alias: "hanke tüüp",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+
+
+                    
+
+
+                    {
+                        id: "url_document",
+                        alias: "link hankele",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+                    ,
+
+                    {
+                        id: "title",
+                        alias: "hanke nimetus",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+
+                    ,
+
+                    {
+                        id: "reference_number",
+                        alias: "hanke viitenumber",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+
+                    
+
+                    {
+                        id: "type_contract",
+                        alias: "hanke liik",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+
+                    
+
+                    {
+                        id: "cpv_main_code",
+                        alias: "peamine cpv kood",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+
 
                     {
                         id: "datetime",
@@ -68,21 +138,7 @@
 
 
 
-                    {
-                        id: "town",
-                        alias: "hankija_linn",
-                        dataType: tableau.dataTypeEnum.string,
-                        geoRole: tableau.geographicRoleEnum.city
-                        
-                    }
-                    ,
 
-                    {
-                        id: "aadress",
-                        alias: "aadress",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-                    ,
                     {
                         id: "ce_activity",
                         alias: "hankija_teg_ala",
@@ -90,12 +146,7 @@
                     }
                     ,
 
-                    {
-                        id: "type_contract",
-                        alias: "hanke_liik",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-                    ,
+
 
 
 
@@ -121,19 +172,8 @@
                     }
                     ,
 
-                    {
-                        id: "postal_code",
-                        alias: "postal_code",
-                        dataType: tableau.dataTypeEnum.int
-                    }
-                    ,
-                    {
-                        id: "url_document",
-                        alias: "url_document",
-                        dataType: tableau.dataTypeEnum.string
-                    }
 
-                    ,
+
 
                     {
                         id: "url_participation",
@@ -559,20 +599,16 @@
         
                                     const HT = {};
         
-                                    //GENERATED
-        
+                                    //GENERATED file name       
                                     HT.file_name = 'HT_' + y + '_' + m + '.xml';
-        
-                                    //SENDER
-                                    HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
-                                    HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
-        
-                                    //FORM_SECTION
-                                    //CONTRACTING_BODY
-        
+
+                                    //hankja nimi        
                                     HT.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+
+                                    //registrikood
                                     HT.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
-        
+
+                                    //aadress
                                     if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
                                         HT.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
                                     }
@@ -584,6 +620,43 @@
                                     if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
                                         HT.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
                                     }
+
+                                    //hankija tüüp
+                                    if (typeof nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0] !== 'undefined') {
+                                        HT.ca_type_other = nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0].childNodes[0].nodeValue;
+                                    }
+
+                                    //hankija tüüp õige
+                                    if (typeof nodes[i].getElementsByTagName("CA_TYPE")[0] !== 'undefined') {
+                                    HT.ca_type = nodes[i].getElementsByTagName("CA_TYPE")[0].getAttributeNode("VALUE").nodeValue;
+                                    }
+
+                                    //hanke tüüp
+                                    if (typeof nodes[i].getElementsByTagName("CA_ACTIVITY")[0] !== 'undefined') {
+                                    HT.ca_activity = nodes[i].getElementsByTagName("CA_ACTIVITY")[0].getAttributeNode("VALUE").nodeValue;
+                                    }
+
+
+                                    //Peamine CPV kood
+                                    if (typeof nodes[i].getElementsByTagName("CPV_MAIN")[0] !== 'undefined') {
+                                        HT.cpv_main_code = nodes[i].getElementsByTagName("CPV_MAIN")[0].getElementsByTagName("CPV_CODE")[0].getAttributeNode("CODE").nodeValue;
+                                    }
+                                
+
+
+
+
+
+                                    //SENDER
+                                    //HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
+                                    //HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
+        
+                                    //FORM_SECTION
+
+                                    
+                                    
+        
+
         
                                     if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined') {
                                         HT.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
@@ -594,9 +667,7 @@
                                         HT.url_participation = nodes[i].getElementsByTagName("URL_PARTICIPATION")[0].childNodes[0].nodeValue;
                                     }
         
-                                    if (typeof nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0] !== 'undefined') {
-                                        HT.ca_type_other = nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0].childNodes[0].nodeValue;
-                                    }
+
         
                                     if (typeof nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0] !== 'undefined') {
         

@@ -85,28 +85,51 @@ function test() {
 
                             HT.file_name = 'HT_' + y + '_' + m + '.xml';
 
-                            //SENDER
-                            HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
-                            HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
+                                                                //GENERATED file name       
+                                                                HT.file_name = 'HT_' + y + '_' + m + '.xml';
 
-                            //FORM_SECTION
-                            //CONTRACTING_BODY
+                                                                //hankja nimi        
+                                                                HT.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+                            
+                                                                //registrikood
+                                                                HT.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+                            
+                                                                //aadress
+                                                                if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
+                                                                    HT.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+                                                                }
+                                    
+                                                                if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined') {
+                                                                    HT.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                                                                }
+                                    
+                                                                if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
+                                                                    HT.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
+                                                                }
+                            
+                                                                //hankija tüüp
+                                                                if (typeof nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0] !== 'undefined') {
+                                                                    HT.ca_type_other = nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0].childNodes[0].nodeValue;
+                                                                }
 
-                            HT.officialname = nodes[i].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
-                            HT.nationalid = nodes[i].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+                                                                //hankija tüüp õige
+                                                                if (typeof nodes[i].getElementsByTagName("CA_TYPE")[0] !== 'undefined') {
+                                                                    HT.ca_type = nodes[i].getElementsByTagName("CA_TYPE")[0].getAttributeNode("VALUE").nodeValue;
+                                                                }
 
-                            if (typeof nodes[i].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
-                                HT.aadress = nodes[i].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
-                            }
+    //hanke tüüp
+    if (typeof nodes[i].getElementsByTagName("CA_ACTIVITY")[0] !== 'undefined') {
+        HT.ca_activity = nodes[i].getElementsByTagName("CA_ACTIVITY")[0].getAttributeNode("VALUE").nodeValue;
+    }
+                                                            
 
-                            if (typeof nodes[i].getElementsByTagName("TOWN")[0] !== 'undefined') {
-                                HT.town = nodes[i].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
-                            }
 
-                            if (typeof nodes[i].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
-                                HT.postal_code = nodes[i].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
-                            }
+    if (typeof nodes[i].getElementsByTagName("CPV_MAIN")[0] !== 'undefined') {
+        HT.cpv_main_code = nodes[i].getElementsByTagName("CPV_MAIN")[0].getElementsByTagName("CPV_CODE")[0].getAttributeNode("CODE").nodeValue;
+    }
 
+                                                                
+                            
                             if (typeof nodes[i].getElementsByTagName("URL_DOCUMENT")[0] !== 'undefined') {
                                 HT.url_document = nodes[i].getElementsByTagName("URL_DOCUMENT")[0].childNodes[0].nodeValue;
                             }
@@ -114,10 +137,6 @@ function test() {
                             //----------------
                             if (typeof nodes[i].getElementsByTagName("URL_PARTICIPATION")[0] !== 'undefined') {
                                 HT.url_participation = nodes[i].getElementsByTagName("URL_PARTICIPATION")[0].childNodes[0].nodeValue;
-                            }
-
-                            if (typeof nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0] !== 'undefined') {
-                                HT.ca_type_other = nodes[i].getElementsByTagName("CA_TYPE_OTHER")[0].childNodes[0].nodeValue;
                             }
 
                             if (typeof nodes[i].getElementsByTagName("CA_ACTIVITY_OTHER")[0] !== 'undefined') {
