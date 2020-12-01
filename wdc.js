@@ -31,18 +31,18 @@
                     ,
 
                     {
-                        id: "aadress",
-                        alias: "hankija aadress",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-                    ,
-
-                    {
                         id: "town",
                         alias: "hankija linn",
                         dataType: tableau.dataTypeEnum.string,
                         geoRole: tableau.geographicRoleEnum.city
                         
+                    }
+                    ,
+
+                    {
+                        id: "aadress",
+                        alias: "hankija aadress",
+                        dataType: tableau.dataTypeEnum.string
                     }
                     ,
 
@@ -97,12 +97,7 @@
 
                     
 
-                    {
-                        id: "type_contract",
-                        alias: "hanke liik",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-                    ,
+
 
                     
 
@@ -113,6 +108,32 @@
                     }
                     ,
 
+                    {
+                        id: "type_contract",
+                        alias: "hanke liik",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+
+                    {
+                        id: "short_descr",
+                        alias: "lühikirjeldus",
+                        dataType: tableau.dataTypeEnum.string
+                    }
+                    ,
+
+                    {
+                        id: "val_estimated_total",
+                        alias: "eeldatav kogumaksumus",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                    ,
+
+                    ////////////////////////////////////
+
+
+
+                    
 
                     {
                         id: "datetime",
@@ -122,12 +143,7 @@
                     }
                     ,
 
-                    {
-                        id: "val_estimated_total",
-                        alias: "eeldatav_maksumus",
-                        dataType: tableau.dataTypeEnum.int
-                    }
-                    ,
+
 
                     {
                         id: "duration",
@@ -195,12 +211,7 @@
                     ,
 
 
-                    {
-                        id: "short_descr",
-                        alias: "short_descr",
-                        dataType: tableau.dataTypeEnum.string
-                    }
-                    ,
+
                    
                    
                     {
