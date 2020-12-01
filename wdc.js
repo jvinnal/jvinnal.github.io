@@ -644,12 +644,12 @@
                                   // Iterate over the XML object
                         for (var i = 0; i < nodes.length; i++) {
                             
-
+                            const HT = {};
 
                                     //test lot_no
 
                                     if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
-                                        var sub_reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                                        HT.sub_reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
                                     }
 
                                     if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined') {
@@ -674,7 +674,7 @@
 
                                                     HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
                                                     HT.sub_title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                                    HT.sub_reference_number = sub_reference_number;
+                                                    HT.sub_reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
 
                                                     //if (!!HT.lot_no && !! HT.sub_title) {
                                                     allRows.push(HT);
@@ -688,7 +688,7 @@
                                     }
                                     }
                                 }
-                                //allRows.push(HT);
+                                allRows.push(HT);
                         };
         
                                 // Iterate over the XML object
