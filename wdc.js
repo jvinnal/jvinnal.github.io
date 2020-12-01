@@ -280,7 +280,7 @@
                     {
                         id: "sub_title",
                         alias: "hanke osa nimi",
-                        dataType: tableau.dataTypeEnum.int
+                        dataType: tableau.dataTypeEnum.string
                     }
 
                 ];
