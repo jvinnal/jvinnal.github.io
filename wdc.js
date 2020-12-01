@@ -643,7 +643,7 @@
 
                                   // Iterate over the XML object
                         for (var i = 0; i < nodes.length; i++) {
-                            const HT = {};
+                           
 
 
                                     //test lot_no
