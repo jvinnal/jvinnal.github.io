@@ -929,7 +929,7 @@
 
 
 
-                                    tableau.log(filterValues.include.length);
+                                    tableau.log(filterValues.length);
 
                                             if (filterValues.include(HT.reference_number))
                                             {
