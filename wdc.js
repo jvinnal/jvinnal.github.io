@@ -293,7 +293,15 @@
                     {
                         id: "reference_number",
                         alias: "hanke viitenumber",
-                        dataType: tableau.dataTypeEnum.int
+                        dataType: tableau.dataTypeEnum.int,
+                        filterable: true,
+                        foreignKey: {
+                            "tableId": "hanked",
+                            "columnId": "reference_number"
+                        }
+
+
+
                     }
                     ,
 
@@ -993,13 +1001,13 @@
                 tableau.connectionData = JSON.stringify(dateObj); // Use this variable to pass data to your getSchema and getData functions
 
 
-                if (dateObj.selection == "hanketeated") {
-                    tableau.connectionName = "Hangete hanketeated"; // This will be the data source name in Tableau
-                } else if (dateObj.selection == "lepingud") {
+                //if (dateObj.selection == "hanketeated") {
+                    tableau.connectionName = "hanked ja lepingud"; // This will be the data source name in Tableau
+                //} else if (dateObj.selection == "lepingud") {
 
-                    tableau.connectionName = "Lepingute teated"; // This will be the data source name in Tableau
+                  //  tableau.connectionName = "Lepingute teated"; // This will be the data source name in Tableau
 
-                }
+                //}
 
 
 
