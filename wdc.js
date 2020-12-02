@@ -302,7 +302,7 @@
             var lepingud_cols = [
 
                 {
-                    id: "reference_number_id",
+                    id: "reference_number",
                     alias: "hanke viitenumber_id",
                     dataType: tableau.dataTypeEnum.int,
                     filterable: true,
@@ -317,15 +317,18 @@
 
                 ,
 
+
+                
+
                 {
-                    id: "filtertest",
-                    alias: "filtertest",
-                    dataType: tableau.dataTypeEnum.string
+                    id: "lot_no",
+                    alias: "lot_no",
+                    dataType: tableau.dataTypeEnum.int
                 }
 
                 ,
 
-
+            
 
 
                 {
@@ -336,8 +339,9 @@
 
                 ,
 
+
                 {
-                    id: "officialname",
+                    id: "contract_officialname ",
                     alias: "hankija",
                     dataType: tableau.dataTypeEnum.string
                 }
@@ -345,19 +349,11 @@
                 ,
 
                 {
-                    id: "nationalid",
+                    id: "contract_nationalid",
                     alias: "hankija_kood",
                     dataType: tableau.dataTypeEnum.int
                 }
                 ,
-
-                {
-                    id: "contract_officialname",
-                    alias: "pakkuja",
-                    dataType: tableau.dataTypeEnum.string
-                }
-                ,
-
 
 
 
@@ -398,27 +394,13 @@
 
 
                 {
-                    id: "no_doc_ext",
-                    alias: "no_doc_ext",
-                    dataType: tableau.dataTypeEnum.string
-
-                }
-
-                ,
-                {
                     id: "file_name",
                     alias: "file_name",
                     dataType: tableau.dataTypeEnum.string
 
                 }
-                ,
+                
 
-
-                {
-                    id: "info_add",
-                    alias: "info_add",
-                    dataType: tableau.dataTypeEnum.string
-                }
 
 
 
@@ -543,7 +525,7 @@
 
                                                         if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0] !== 'undefined') {
                                                             HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
-                                                            HT.sub_title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                                            HT.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
 
 
                                                             if (table.tableInfo.id == "osahanked") {
