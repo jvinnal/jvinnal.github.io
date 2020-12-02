@@ -327,6 +327,7 @@
 
                 
 
+
                 {
                     id: "title",
                     alias: "nimetus",
@@ -945,8 +946,10 @@
 
                                 
 
-                                        
+                                       
+                                        if (Object.values(filterValues).indexOf(HT.reference_number_id) > -1) {
                                             allRows.push(HT);
+                                        }
                                             
 
 
