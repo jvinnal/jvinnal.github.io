@@ -292,9 +292,8 @@
 
                     {
                         id: "reference_number",
-                        alias: "viitenumber",
+                        alias: "hanke viitenumber",
                         dataType: tableau.dataTypeEnum.int
-                       
                     }
                     ,
 
