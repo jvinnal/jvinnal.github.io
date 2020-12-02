@@ -515,13 +515,15 @@
                                 const nodes = data.getElementsByTagName("TED_ESENDERS")
 
 
-                                  // Iterate over the XML object
-                        for (var i = 0; i < nodes.length; i++) {
-                            
+                    
+        
+                                // Iterate over the XML object
+                                for (var i = 0; i < nodes.length; i++) {
+        
+                                    const HT = {};
 
 
-                                    //test lot_no
-
+                                    //osahanked
                                     if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined') {
 
                                         if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0] !== 'undefined') {
@@ -531,8 +533,6 @@
                                             
                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0] !== 'undefined') {
                                                 
-    
-    
     
                                             for (var n = 0; n < nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR").length; n++) { 
                                                 const HT = {};
@@ -558,13 +558,9 @@
                                     }
                                     }
                                 }
-                                //allRows.push(HT);
-                        };
-        
-                                // Iterate over the XML object
-                                for (var i = 0; i < nodes.length; i++) {
-        
-                                    const HT = {};
+
+
+                                //HANKED
         
                                     //GENERATED file name       
                                     HT.file_name = 'HT_' + y + '_' + m + '.xml';
