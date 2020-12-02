@@ -314,7 +314,18 @@
 
 
                 }
+
                 ,
+
+                {
+                    id: "filtertest",
+                    alias: "filtertest",
+                    dataType: tableau.dataTypeEnum.string
+                }
+
+                ,
+
+                
 
                 {
                     id: "title",
@@ -773,6 +784,9 @@
                                     HT.file_name = 'HLST_' + y + '_' + m + '.xml';
 
                                     //SENDER
+
+                                    HT.filtertest = filterValues.length;
+
                                     HT.no_doc_ext = nodes[i].getElementsByTagName("NO_DOC_EXT")[0].childNodes[0].nodeValue;
                                     HT.organisation = nodes[i].getElementsByTagName("ORGANISATION")[0].childNodes[0].nodeValue;
 
@@ -929,13 +943,11 @@
 
 
 
-                                    tableau.log("test");
+                                
 
-                                           if (filterValues.include(HT.reference_number))
-                                            {
-
+                                        
                                             allRows.push(HT);
-                                            }
+                                            
 
 
 
