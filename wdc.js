@@ -972,9 +972,9 @@
                                 
 
                                        
-                                        if (Object.values(filterValues).indexOf(HT.reference_number_id) > -1) {
+                                        //if (Object.values(filterValues).indexOf(HT.reference_number_id) > -1) {
                                             allRows.push(HT);
-                                        }
+                                        //}
                                             
 
 
