@@ -755,7 +755,7 @@
                         });
                     
 
-                    } else if (dateObj.selection == "lepingud") {
+                    } else if (table.tableInfo.id == "lepingud") {
                     //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
 
                     //const url = 'https://jvinnal.github.io/HT_' + dateYear + '_' + t + '.xml'
