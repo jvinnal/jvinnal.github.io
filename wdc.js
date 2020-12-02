@@ -510,6 +510,9 @@
 
                     //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
 
+
+                    if (table.tableInfo.id == "osahanked" || table.tableInfo.id == "hanked" ) {
+
                     $.ajax({
                         type: 'GET',
                         url: urls[0],
@@ -526,7 +529,7 @@
 
 
 
-                           // if (table.tableInfo.id == "osahanked" || table.tableInfo.id == "hanked" ) {
+                           // 
                                 // Iterate over the XML object
                                 for (var i = 0; i < nodes.length; i++) {
 
@@ -750,8 +753,9 @@
                                // }
 
                         });
+                    
 
-                    //} else if (dateObj.selection == "lepingud") {
+                    } else if (dateObj.selection == "lepingud") {
                     //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
 
                     //const url = 'https://jvinnal.github.io/HT_' + dateYear + '_' + t + '.xml'
@@ -777,7 +781,7 @@
 
                             const nodes = data.getElementsByTagName("TED_ESENDERS")
 
-                            if (table.tableInfo.id == "lepingud") {
+                            //if (table.tableInfo.id == "lepingud") {
 
                             // Iterate over the XML object
                             for (var i = 0; i < nodes.length; i++) {
@@ -975,8 +979,9 @@
 
                             }
                         }
-                    }
+                    
                     });
+                }
 
                     //}
 
