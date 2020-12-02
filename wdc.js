@@ -504,8 +504,7 @@
 
                     //const url = 'https://jvinnal.github.io/HT_' + dateYear + '_' + t + '.xml'
 
-                    var urls = ['https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + y + '/month/' + m + '/xml'
-                        , 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice_award/' + y + '/month/' + m + '/xml']
+                    var urls = ['https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + y + '/month/' + m + '/xml']
 
                     //const url = 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + dateYear + '/month/' + t + '/xml';
 
@@ -949,14 +948,7 @@
 
 
 
-
-                                    
-
-                                        var filterValues = table.filterValues;
-
-                                        var postFetches = [];
-
-                                        for (var userId in filterValues) {
+                                        
 
                                             //if (filterValues.include(HT.reference_number))
 
@@ -968,7 +960,7 @@
 
 
 
-                                        }
+                                        
 
 
 
