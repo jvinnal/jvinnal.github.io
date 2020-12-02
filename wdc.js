@@ -756,6 +756,23 @@
                     
 
                     } else if (table.tableInfo.id == "lepingud") {
+
+                        var filterValues = table.filterValues;
+
+                        if (!table.isJoinFiltered) {
+                            tableau.abortWithError("The table must be filtered first.");
+                            return;
+                            }
+                        
+                            if (filterValues.length === 0) {
+                            doneCallback();
+                            return;
+                            }
+                        
+                    var postFetches = [];
+
+
+
                     //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
 
                     //const url = 'https://jvinnal.github.io/HT_' + dateYear + '_' + t + '.xml'
