@@ -446,7 +446,6 @@
             //}
             //else if (dateObj.selection == "lepingud") {
             var lepingud_tb = {
-                joinOnly: true,
                 id: "lepingud",
                 alias: "lepingud",
                 columns: lepingud_cols
