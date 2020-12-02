@@ -526,7 +526,7 @@
 
 
 
-                            if (table.tableInfo.id == "osahanked" || table.tableInfo.id == "hanked" ) {
+                           // if (table.tableInfo.id == "osahanked" || table.tableInfo.id == "hanked" ) {
                                 // Iterate over the XML object
                                 for (var i = 0; i < nodes.length; i++) {
 
@@ -747,7 +747,7 @@
 
 
                                     }
-                                }
+                               // }
 
                         });
 
