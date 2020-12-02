@@ -868,7 +868,7 @@
 
 
                                             if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0] !== 'undefined') {
-                                                if (HT.reference_number_id == "212933") {
+                                                if (Object.values(filterValues).indexOf(HT.reference_number_id) > -1) {
 
                                                     allRows.push(HT);
                                                 }
