@@ -729,10 +729,7 @@
 
                         var filterValues = table.filterValues;
 
-                        if (!table.isJoinFiltered) {
-                            tableau.abortWithError("The table must be filtered first.");
-                            return;
-                            }
+                        
                         
                             if (filterValues.length === 0) {
                             doneCallback();
