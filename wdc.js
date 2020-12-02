@@ -789,11 +789,13 @@
                                     //välistan login class B, puudub reference
                                     if (typeof nodes[i].getElementsByTagName("LOGIN")[0] == 'undefined') {
 
-                                        HT.file_name = 'HLST_' + y + '_' + m + '.xml';
+                                        
 
 
                                         for (var n = 0; n < nodes[i].getElementsByTagName("AWARD_CONTRACT").length; n++) {
                                             const HT = {};
+
+                                            HT.file_name = 'HLST_' + y + '_' + m + '.xml';
 
                                             if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
                                                 HT.reference_number_id = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
@@ -850,11 +852,11 @@
 
 
                                             if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0] !== 'undefined') {
-                                                if (Object.values(filterValues).indexOf(HT.reference_number_id) > -1) {
+                                                //if (Object.values(filterValues).indexOf(HT.reference_number_id) > -1) {
 
                                                     allRows.push(HT);
                                                 }
-                                            }
+                                            //}
 
                                         }
 
