@@ -527,7 +527,7 @@
 
 
 
-                            if (table.tableInfo.id == "osahanked") {
+                            if (table.tableInfo.id == "osahanked" || table.tableInfo.id == "hanked" ) {
                                 // Iterate over the XML object
                                 for (var i = 0; i < nodes.length; i++) {
 
@@ -561,8 +561,9 @@
                                                             HT.sub_title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
 
 
-
+                                                            if (table.tableInfo.id == "osahanked" ) {
                                                             allRows.push(HT);
+                                                            }
 
 
 
@@ -574,16 +575,8 @@
                                             }
                                         }
                                     }
-                                }
-                            }
-
-
-
-                                     else if (table.tableInfo.id === "hanked") {
-                                        for (var i = 0; i < nodes.length; i++) {
-
-
-
+                                
+    
                                             //HANKED
 
                                             //GENERATED file name       
@@ -745,8 +738,9 @@
 
 
 
-
+                                            if (table.tableInfo.id == "hanked" ) {
                                             allRows.push(HT);
+                                            }
 
 
 
@@ -755,13 +749,6 @@
 
                                     }
                                 }
-                                
-                            
-
-
-
-
-
 
                         });
 
@@ -1020,7 +1007,7 @@
 
 
 
-        
+
 
         // Create event listeners for when the user submits the form
         tableau.registerConnector(myConnector);
