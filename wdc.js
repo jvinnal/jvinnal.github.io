@@ -729,14 +729,7 @@
 
                         var filterValues = table.filterValues;
 
-                        
-                        
-                            if (filterValues.length === 0) {
-                            doneCallback();
-                            return;
-                            }
-                        
-                    var postFetches = [];
+          
 
 
 
