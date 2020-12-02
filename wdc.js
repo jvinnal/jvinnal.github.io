@@ -939,10 +939,24 @@
         
         
         
-        
+                                    
         
                                     if (table.tableInfo.id == "lepingud") {
-                                    allRows.push(HT);
+
+                                        var filterValues = table.filterValues;
+
+                                        if (filterValues.include(HT.reference_number))
+                                        {
+                                            allRows.push(HT);
+
+                                        }
+
+
+
+
+
+
+                                    
                                     }
         
                                 }
