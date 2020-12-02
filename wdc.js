@@ -10,8 +10,8 @@
             var dateObj = JSON.parse(tableau.connectionData);
 
 
-            if (dateObj.selection == "hanketeated") {
-                var cols = [
+            //if (dateObj.selection == "hanketeated") {
+                var hanked_cols = [
 
 
                     {
@@ -263,9 +263,9 @@
 
                 ];
 
-                var cols2 = [
+                var osahanked_cols = [
                     {
-                        id: "sub_reference_number",
+                        id: "reference_number",
                         alias: "hanke viitenumber",
                         dataType: tableau.dataTypeEnum.int
                     }
@@ -286,9 +286,9 @@
                 ];
 
 
-            } else if (dateObj.selection == "lepingud") {
+            //} else if (dateObj.selection == "lepingud") {
 
-                var cols = [
+                var lepingud_cols = [
 
                     {
                         id: "reference_number",
@@ -372,32 +372,6 @@
                     }
                     ,
 
-                    //{
-                    //    id: "town",
-                    //    alias: "hankija_linn",
-                    //    dataType: tableau.dataTypeEnum.string
-                    // }
-                    //,
-
-                    // {
-                    //    id: "aadress",
-                    //   alias: "aadress",
-                    //   dataType: tableau.dataTypeEnum.string
-                    // }
-                    // ,
-                    // {
-                    //    id: "ce_activity",
-                    //   alias: "hankija_teg_ala",
-                    //   dataType: tableau.dataTypeEnum.string
-                    // }
-                    //,
-
-                    // {
-                    //    id: "type_contract",
-                    //   alias: "hanke_liik",
-                    //   dataType: tableau.dataTypeEnum.string
-                    // }
-                    //,
 
 
 
@@ -424,99 +398,6 @@
                     ,
 
 
-
-
-                    //{
-                    //    id: "postal_code",
-                    //    alias: "postal_code",
-                    //    dataType: tableau.dataTypeEnum.int
-                    // }
-                    // ,
-                    // {
-                    //    id: "url_document",
-                    //    alias: "url_document",
-                    //    dataType: tableau.dataTypeEnum.string
-                    // }
-
-                    // ,
-
-                    // {
-                    //    id: "url_participation",
-                    //    alias: "url_participation",
-                    //    dataType: tableau.dataTypeEnum.string
-                    // }
-                    // ,
-                    //{
-                    //     id: "ca_type_other",
-                    //     alias: "ca_type_other",
-                    //     dataType: tableau.dataTypeEnum.string
-                    // }
-                    // ,
-                    // {
-                    //    id: "ca_activity_other",
-                    //    alias: "ca_activity_other",
-                    //    dataType: tableau.dataTypeEnum.int
-                    // }
-                    //,
-
-
-                    //{
-                    //   id: "short_descr",
-                    //   alias: "short_descr",
-                    //   dataType: tableau.dataTypeEnum.string
-                    //}
-                    //,
-                    //{
-                    //   id: "val_estimated_total",
-                    //   alias: "val_estimated_total",
-                    //   dataType: tableau.dataTypeEnum.int
-                    //}
-                    //,
-                    //{
-                    //   id: "duration",
-                    //  alias: "duration",
-                    //  dataType: tableau.dataTypeEnum.int
-                    //}
-                    // ,
-                    // {
-                    //   id: "economic_financial_info",
-                    //   alias: "economic_financial_info",
-                    //   dataType: tableau.dataTypeEnum.string
-                    //}
-                    //,
-                    // {
-                    //    id: "technical_professional_info",
-                    //   alias: "technical_professional_info",
-                    //   dataType: tableau.dataTypeEnum.string
-                    //}
-                    //
-                    //
-                    //,
-                    //
-                    //{
-                    //   id: "performance_conditions",
-                    //   alias: "performance_conditions",
-                    //   dataType: tableau.dataTypeEnum.string
-                    //}
-                    //,
-                    //{
-                    //    id: "date_receipt_tenders",
-                    //    alias: "date_receipt_tenders",
-                    //    dataType: tableau.dataTypeEnum.date
-                    // }
-                    // ,
-                    //{
-                    //    id: "time_receipt_tenders",
-                    //    alias: "time_receipt_tenders",
-                    //    dataType: tableau.dataTypeEnum.string
-                    //}
-                    //,
-                    //{
-                    //    id: "date_tender_valid",
-                    //    alias: "date_tender_valid",
-                    //    dataType: tableau.dataTypeEnum.date
-                    //}
-                    //,
                     {
                         id: "info_add",
                         alias: "info_add",
@@ -530,24 +411,24 @@
 
 
 
-            }
+            //}
 
 
 
 
 
 
-            if (dateObj.selection == "hanketeated") {
-                var tb = {
+            //if (dateObj.selection == "hanketeated") {
+                var hanked_tb = {
                     id: "hanked",
                     alias: "hanked",
-                    columns: cols
+                    columns: hanked_cols
                 }
 
-                var sub_tb = {
+                var osahanked_tb = {
                     id: "osahanked",
                     alias: "osahanked",
-                    columns: cols2
+                    columns: osahanked_cols
                 }
 
 
@@ -555,23 +436,17 @@
 
 
 
-            }
-            else if (dateObj.selection == "lepingud") {
-                var tb = {
+            //}
+            //else if (dateObj.selection == "lepingud") {
+                var lepingud_tb = {
                     id: "lepingud",
                     alias: "lepingud",
-                    columns: cols
+                    columns: lepingud_cols
                 };
-            }
-            else {
-                var tb = {
-                    id: "undefined",
-                    alias: "undefined",
-                    columns: cols
-                };
-            }
+          //  }
+         
 
-            schemaCallback([tb, sub_tb]);
+            schemaCallback([hanked_tb, osahanked_tb,lepingud_tb ]);
         };
 
         // Download the data
@@ -613,7 +488,7 @@
 
                 for (var m = start_month; m <= end_month; m++) {
 
-                    if (dateObj.selection == "hanketeated") {
+                    //if (dateObj.selection == "hanketeated") {
 
                         //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
         
@@ -664,14 +539,17 @@
                                                 const HT = {};
                                                 
                                                 if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
-                                                    HT.sub_reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                                                    HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
                                                 }
     
                                                 if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0] !== 'undefined') {
                                                     HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
                                                     HT.sub_title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
 
+
+                                                    if (table.tableInfo.id == "osahanked") {
                                                     allRows.push(HT);
+                                                    }
                                                     
                                                     
                                                 }
@@ -848,8 +726,10 @@
         
         
         
-        
+                                    if (table.tableInfo.id == "hanked") {
                                     allRows.push(HT);
+
+                                    }
         
                                 }
         
@@ -857,7 +737,7 @@
                             }
                         });
         
-                    } else if (dateObj.selection == "lepingud") {
+                    //} else if (dateObj.selection == "lepingud") {
                         //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
         
                         //const url = 'https://jvinnal.github.io/HT_' + dateYear + '_' + t + '.xml'
@@ -1050,8 +930,9 @@
         
         
         
-        
+                                    if (table.tableInfo.id == "lepingud") {
                                     allRows.push(HT);
+                                    }
         
                                 }
         
@@ -1059,7 +940,7 @@
                             }
                         });
         
-                    }
+                    //}
 
 
                 }
