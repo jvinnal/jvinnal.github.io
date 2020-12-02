@@ -929,13 +929,13 @@
 
 
 
-                                        
+                                    tableau.log(filterValues.include.length);
 
-                                            //if (filterValues.include(HT.reference_number))
-                                            //{
+                                            if (filterValues.include(HT.reference_number))
+                                            {
 
                                             allRows.push(HT);
-                                            //}
+                                            }
 
 
 
