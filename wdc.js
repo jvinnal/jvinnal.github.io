@@ -468,6 +468,7 @@
                 end_month = e_Month;
             }
 
+            if (table.tableInfo.id == "osahanked" || table.tableInfo.id == "hanked" ) {
 
             for (var y = s_Year; y <= e_Year; y++) {
 
@@ -493,7 +494,7 @@
                     //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
 
 
-                    if (table.tableInfo.id == "osahanked" || table.tableInfo.id == "hanked" ) {
+                    
 
                     $.ajax({
                         type: 'GET',
@@ -738,9 +739,30 @@
                                // }
 
                         });
+
+                        
+                }
+
+                start_month = 1;
+
+
+            }
+        
+
                     
 
                     } else if (table.tableInfo.id == "lepingud") {
+
+                        for (var y = s_Year; y <= e_Year; y++) {
+
+                            if (y == e_Year) {
+                                end_month = e_Month;
+                            }
+            
+                            for (var m = start_month; m <= end_month; m++) {
+
+
+
 
                         var filterValues = table.filterValues;
 
@@ -978,6 +1000,7 @@
                     
                     });
                 }
+            
 
                     //}
 
@@ -985,17 +1008,16 @@
                 }
 
                 start_month = 1;
-
-
+            
+            
             }
-
-
 
 
 
             table.appendRows(allRows)
             doneCallback();
         };
+
 
 
 
