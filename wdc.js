@@ -286,13 +286,24 @@
             ];
 
 
-            //} else if (dateObj.selection == "lepingud") {
+                    var hanked_tb = {
+                        id: "hanked",
+                        alias: "hanked",
+                        columns: hanked_cols
+                    }
+        
+                    var osahanked_tb = {
+                        id: "osahanked",
+                        alias: "osahanked",
+                        columns: osahanked_cols
+                    }
+        
 
             var lepingud_cols = [
 
                 {
-                    id: "reference_number",
-                    alias: "hanke viitenumber",
+                    id: "reference_number_id",
+                    alias: "hanke viitenumber_id",
                     dataType: tableau.dataTypeEnum.int,
                     filterable: true,
                     foreignKey: {
@@ -327,14 +338,6 @@
                     dataType: tableau.dataTypeEnum.int
                 }
                 ,
-
-                //  {
-                //     id: "datetime",
-                //    alias: "esitamise_aeg",
-                //    dataType: tableau.dataTypeEnum.date
-
-                // }
-                //,
 
                 {
                     id: "contract_officialname",
@@ -388,12 +391,6 @@
                     dataType: tableau.dataTypeEnum.string
 
                 }
-                // ,
-                //{
-                //   id: "organisation",
-                //   alias: "organisation",
-                //  dataType: tableau.dataTypeEnum.string
-                // }
 
                 ,
                 {
@@ -416,41 +413,14 @@
             ];
 
 
-
-
-            //}
-
-
-
-
-
-
-            //if (dateObj.selection == "hanketeated") {
-            var hanked_tb = {
-                id: "hanked",
-                alias: "hanked",
-                columns: hanked_cols
-            }
-
-            var osahanked_tb = {
-                id: "osahanked",
-                alias: "osahanked",
-                columns: osahanked_cols
-            }
-
-
-
-
-
-
-            //}
-            //else if (dateObj.selection == "lepingud") {
             var lepingud_tb = {
                 id: "lepingud",
                 alias: "lepingud",
                 columns: lepingud_cols
             };
-            //  }
+      
+
+
 
 
             schemaCallback([hanked_tb, osahanked_tb, lepingud_tb]);
@@ -895,7 +865,7 @@
                                     }
 
                                     if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
-                                        HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                                        HT.reference_number_id = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
                                     }
 
                                     if (typeof nodes[i].getElementsByTagName("SHORT_DESCR")[0] !== 'undefined') {
