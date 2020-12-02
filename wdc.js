@@ -523,6 +523,10 @@
                                     const HT = {};
 
 
+                                    //välistan login class B, puudub reference
+                                    if (typeof nodes[i].getElementsByTagName("LOGIN")[0] == 'undefined') {
+
+
                                     //osahanked
                                     if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined') {
 
@@ -730,6 +734,7 @@
         
         
                             }
+                        }
                         });
         
                     //} else if (dateObj.selection == "lepingud") {
@@ -764,6 +769,9 @@
                                     const HT = {};
         
                                     //GENERATED
+
+                                       //välistan login class B, puudub reference
+                                       if (typeof nodes[i].getElementsByTagName("LOGIN")[0] == 'undefined') {
         
                                     HT.file_name = 'HLST_' + y + '_' + m + '.xml';
         
@@ -933,6 +941,7 @@
         
         
                             }
+                        }
                         });
         
                     //}

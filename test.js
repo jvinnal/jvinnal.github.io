@@ -83,6 +83,10 @@ function test() {
                             const HT = {};
 
                             
+                            if (typeof nodes[i].getElementsByTagName("LOGIN")[0] !== 'undefined') {
+                                console.log(nodes[i].getElementsByTagName("LOGIN")[0].getAttributeNode("CLASS").nodeValue);
+                            }
+
 
                                                                 //GENERATED file name       
                                                                 HT.file_name = 'HT_' + y + '_' + m + '.xml';
