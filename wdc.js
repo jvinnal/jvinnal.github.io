@@ -341,7 +341,7 @@
 
 
                 {
-                    id: "contract_officialname ",
+                    id: "contract_officialname",
                     alias: "hankija",
                     dataType: tableau.dataTypeEnum.string
                 }
