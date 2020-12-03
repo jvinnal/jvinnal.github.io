@@ -333,7 +333,7 @@
 
                 {
                     id: "title",
-                    alias: "nimetus",
+                    alias: " lepingu nimetus",
                     dataType: tableau.dataTypeEnum.string
                 }
 
@@ -342,7 +342,7 @@
 
                 {
                     id: "contract_officialname",
-                    alias: "hankija",
+                    alias: "pakkuja",
                     dataType: tableau.dataTypeEnum.string
                 }
 
@@ -350,7 +350,7 @@
 
                 {
                     id: "contract_nationalid",
-                    alias: "hankija_kood",
+                    alias: "pakkuja_kood",
                     dataType: tableau.dataTypeEnum.int
                 }
                 ,
@@ -371,7 +371,7 @@
                 {
                     id: "val_total",
                     alias: "eeldatav_maksumus",
-                    dataType: tableau.dataTypeEnum.int
+                    dataType: tableau.dataTypeEnum.string
 
                 }
                 ,
