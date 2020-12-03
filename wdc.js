@@ -357,21 +357,15 @@
 
 
 
+
+
                 {
-                    id: "contract_nationalid",
-                    alias: "pakkuja_kood",
-                    dataType: tableau.dataTypeEnum.int
+                    id: "contract_town",
+                    alias: "pakkuja_linn",
+                    dataType: tableau.dataTypeEnum.string,
+                    geoRole: tableau.geographicRoleEnum.city
                 }
                 ,
-
-
-               // {
-               //     id: "contract_town",
-                //    alias: "pakkuja_linn",
-                //    dataType: tableau.dataTypeEnum.string,
-                //    geoRole: tableau.geographicRoleEnum.city
-                //}
-                //,
 
 
                 {
@@ -382,13 +376,13 @@
                 }
                 ,
 
-               // {
-                //    id: "conclusion_contract",
-                //    alias: "solmimise_kpv",
-                //    dataType: tableau.dataTypeEnum.date
+                {
+                    id: "conclusion_contract",
+                    alias: "solmimise_kpv",
+                    dataType: tableau.dataTypeEnum.date
 //
-                //}
-                //,
+                }
+                ,
 
 
 
