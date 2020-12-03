@@ -278,7 +278,7 @@
 
                 ,
                 {
-                    id: "sub_title",
+                    id: "title",
                     alias: "hanke osa nimi",
                     dataType: tableau.dataTypeEnum.string
                 }
