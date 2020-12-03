@@ -315,7 +315,92 @@
 
                 }
 
-               
+                ,
+
+
+                
+
+                {
+                    id: "lot_no",
+                    alias: "lot_no",
+                    dataType: tableau.dataTypeEnum.int
+                }
+
+                ,
+
+            
+
+
+                {
+                    id: "title",
+                    alias: "nimetus",
+                    dataType: tableau.dataTypeEnum.string
+                }
+
+                ,
+
+
+                {
+                    id: "contract_officialname",
+                    alias: "hankija",
+                    dataType: tableau.dataTypeEnum.string
+                }
+
+                ,
+
+                {
+                    id: "contract_nationalid",
+                    alias: "hankija_kood",
+                    dataType: tableau.dataTypeEnum.int
+                }
+                ,
+
+
+
+                {
+                    id: "contract_nationalid",
+                    alias: "pakkuja_kood",
+                    dataType: tableau.dataTypeEnum.int
+                }
+                ,
+
+
+                {
+                    id: "contract_town",
+                    alias: "pakkuja_linn",
+                    dataType: tableau.dataTypeEnum.string,
+                    geoRole: tableau.geographicRoleEnum.city
+                }
+                ,
+
+
+                {
+                    id: "val_total",
+                    alias: "eeldatav_maksumus",
+                    dataType: tableau.dataTypeEnum.int
+
+                }
+                ,
+
+                {
+                    id: "conclusion_contract",
+                    alias: "solmimise_kpv",
+                    dataType: tableau.dataTypeEnum.date
+
+                }
+                ,
+
+
+
+
+                {
+                    id: "file_name",
+                    alias: "file_name",
+                    dataType: tableau.dataTypeEnum.string
+
+                }
+                
+
 
 
 
