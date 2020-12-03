@@ -125,7 +125,7 @@
                 {
                     id: "val_estimated_total",
                     alias: "eeldatav kogumaksumus",
-                    dataType: tableau.dataTypeEnum.int
+                    dataType: tableau.dataTypeEnum.string
                 }
                 ,
 
