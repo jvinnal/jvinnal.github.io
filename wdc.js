@@ -520,20 +520,19 @@
                                                         if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0] !== 'undefined') {
                                                             HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
                                                             HT.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-
-
-                                                            if (table.tableInfo.id == "osahanked") {
-                                                                allRows.push(HT);
-                                                            }
-
-
-
                                                         }
                                                         else
                                                         {
                                                             //kui ei ole hankeleping, siis osa numbri genereerin ise
                                                             HT.lot_no = 0;
                                                         }
+
+                                                        if (table.tableInfo.id == "osahanked") {
+                                                            allRows.push(HT);
+                                                        }
+
+
+
 
                                                         //HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
                                                     }
