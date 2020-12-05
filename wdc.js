@@ -529,6 +529,11 @@
 
 
                                                         }
+                                                        else
+                                                        {
+                                                            //kui ei ole hankeleping, siis osa numbri genereerin ise
+                                                            HT.lot_no = 0;
+                                                        }
 
                                                         //HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
                                                     }
@@ -816,6 +821,11 @@
 
                                                             if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("LOT_NO")[0] !== 'undefined') {
                                                                 HT.lot_no = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
+                                                            }
+                                                            else
+                                                            {
+                                                                //kui ei ole hankeleping, siis osa numbri genereerin ise
+                                                                HT.lot_no = 0;
                                                             }
                                                         }
                                                     }
