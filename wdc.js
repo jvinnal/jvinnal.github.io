@@ -523,7 +523,7 @@
                                                         }
 
 
-                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0] == 'undefined') {
+                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0] == 'undefined') 
                                                         {
                                                             //kui ei ole hankeleping, siis osa numbri genereerin ise
                                                             HT.lot_no = 0;
