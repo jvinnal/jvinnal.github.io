@@ -64,7 +64,7 @@ function test() {
 
                 $.ajax({
                     type: 'GET',
-                    url: urls[1],
+                    url: urls[0],
                     dataType: "xml",
                     jsonp: true,
                     contentType: "text/xml; charset=\"utf-8\"",
@@ -83,99 +83,80 @@ function test() {
 
                             const HT = {};
 
+                            //osahanked
+                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined') {
+
+                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0] !== 'undefined') {
+
+                                                //console.log("suurus");
+                                                //console.log(nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR").length);
+
+                                                if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0] !== 'undefined') {
 
 
-                            //välistan login class B, puudub reference
-                            if (typeof nodes[i].getElementsByTagName("LOGIN")[0] == 'undefined') {
+                                                    for (var n = 0; n < nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR").length; n++) {
+                                                        const HT = {};
+
+                                                        if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
+                                                            HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                                                        }
+
+                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0] !== 'undefined') {
+                                                            HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
+                                                            HT.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                                        }
 
 
-                                if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
-                                    HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
-                                }
+                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0] == 'undefined') 
+                                                        {
+                                                            //kui ei ole hankeleping, siis osa numbri genereerin ise
+                                                            HT.lot_no = 0;
+                                                        }
+
+                                                       
+                                                            allRows.push(HT);
+                                                        
 
 
-                                for (var n = 0; n < nodes[i].getElementsByTagName("AWARD_CONTRACT").length; n++) {
-                                    const HT = {};
-
-                                    HT.file_name = 'HLST_' + y + '_' + m + '.xml';
-
-                                    if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
-                                        HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
-                                    }
 
 
-                                    // if (HT.reference_number_id == "212933"){
-
-                                        //raamhanked
-                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n] !== 'undefined') {
-                                        if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0] !== 'undefined') {
-                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
-                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0] !== 'undefined') {
-                                                    HT.contract_officialname = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
-
-                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0] !== 'undefined') {
-                                                        HT.val_total = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue;
-                                                    }
-
-                                                   
-
-
-                                                    HT.title = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-
-                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("LOT_NO")[0] !== 'undefined') {
-                                                        HT.lot_no = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
-                                                    }
-                                                    else
-                                                    {
-                                                        //kui ei ole hankeleping, siis osa numbri genereerin ise
-                                                        HT.lot_no = 0;
+                                                        //HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
                                                     }
                                                 }
                                             }
+
+                                            else
+                                            {
+                                                HT.lot_no = 0;
+                                                if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
+                                                    HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                                                    allRows.push(HT);
+                                                }
+
+
+
+                                            }
                                         }
-                                    }
-
-
-
-                                    if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
-                                        if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("NATIONALID")[0] !== 'undefined') {
-                                            HT.contract_nationalid = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
-                                        }
-                                    }
-
-                                    if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
-                                        if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0] !== 'undefined') {
-                                            HT.contract_town = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
-                                        }
-                                    }
-
-
-
-                                    if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
-                                        if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0] !== 'undefined') {
-                                            HT.conclusion_contract = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0].childNodes[0].nodeValue;
-                                        }
-                                    }
-
-
-
-                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0] !== 'undefined') {
-                                        //if (Object.values(filterValues).indexOf(HT.reference_number_id) > -1) {
-
-                                        allRows.push(HT);
-                                    }
-                                    //}
-
-                                }
 
 
 
 
+                            
 
 
-
-                            }
                         }
+                        //}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
