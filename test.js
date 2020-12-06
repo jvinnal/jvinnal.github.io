@@ -83,61 +83,72 @@ function test() {
 
                             const HT = {};
 
-                            //osahanked
-                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined') {
+                        
+                            if (typeof nodes[i].getElementsByTagName("TITLE")[0] !== 'undefined') {
+                                HT.title = nodes[i].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                            }
 
-                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0] !== 'undefined') {
-
-                                                //console.log("suurus");
-                                                //console.log(nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR").length);
-
-                                                if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0] !== 'undefined') {
-
-
-                                                    for (var n = 0; n < nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR").length; n++) {
-                                                        const HT = {};
-
-                                                        if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
-                                                            HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
-                                                        }
-
-                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0] !== 'undefined') {
-                                                            HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
-                                                            HT.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                                        }
+                            if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
+                                HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                            }
 
 
-                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0] == 'undefined') 
-                                                        {
-                                                            //kui ei ole hankeleping, siis osa numbri genereerin ise
-                                                            HT.lot_no = 0;
-                                                        }
+                                        if (typeof nodes[i].getElementsByTagName("CHANGES")[0] !== 'undefined') {
 
-                                                       
-                                                            allRows.push(HT);
-                                                        
+                                            if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[0] !== 'undefined') {
 
 
+                                                for (var n = 0; n < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE").length; n++) {
+                                                    const HT = {};
 
+                                                    if (typeof nodes[i].getElementsByTagName("TITLE")[0] !== 'undefined') {
+                                                        HT.title = nodes[i].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                                    }
+                        
+                                                    if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
+                                                        HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                                                    }
+                        
+                                                   // HT.mitu = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE").length;
 
-                                                        //HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
+                                                    HT.section = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("SECTION")[0].childNodes[0].nodeValue;
+                                                    HT.label = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("LABEL")[0].childNodes[0].nodeValue;
+
+                                                    if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0] !== 'undefined') {
+                                                        if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0] !== 'undefined') {
+                                                            if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[0].childNodes[0] !== 'undefined') {
+
+                                                    HT.old_value = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
                                                     }
                                                 }
                                             }
 
-                                            else
-                                            {
-                                                HT.lot_no = 0;
-                                                if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
-                                                    HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                                                    if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0] !== 'undefined') {
+                                                        if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0] !== 'undefined') {
+                                                            if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[0].childNodes[0] !== 'undefined') {
+
+
+                                                    HT.new_value = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                                    }
+                                                }
+                                            }
+
+
                                                     allRows.push(HT);
+
+
+
+
+
+
                                                 }
 
 
 
-                                            }
-                                        }
 
+
+                                            }
+                                            
 
 
 
@@ -145,6 +156,11 @@ function test() {
 
 
                         }
+                        else
+                        {
+                            allRows.push(HT);
+                        }
+                    }
                         //}
 
 
