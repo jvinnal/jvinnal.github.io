@@ -514,7 +514,7 @@
                 end_month = e_Month;
             }
 
-            if (table.tableInfo.id == "osahanked" || table.tableInfo.id == "hanked") {
+            if (table.tableInfo.id == "osahanked" || table.tableInfo.id == "hanked" || table.tableInfo.id == "muudatused") {
 
                 for (var y = s_Year; y <= e_Year; y++) {
 
