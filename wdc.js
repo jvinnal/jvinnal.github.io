@@ -540,7 +540,10 @@
                                                 HT.lot_no = 0;
                                                 if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {                    
                                                     HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
-                                                    allRows.push(HT);
+                                                    
+                                                    if (table.tableInfo.id == "osahanked") {
+                                                        allRows.push(HT);
+                                                    }
                                                 }
 
 
