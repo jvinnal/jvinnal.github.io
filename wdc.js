@@ -665,7 +665,14 @@
 
                                                                 for (var o = 0; o < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P").length; o++) {
                                                                     //HT.pikkus = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P").length;
+                                                                    if (typeof HT.old_value !== 'undefined'){
                                                                     HT.old_value = HT.old_value + " " + nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[o].childNodes[0].nodeValue;
+                                                                    }
+                                                                else
+                                                                {
+
+                                                                    HT.old_value = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[o].childNodes[0].nodeValue;
+                                                                }
                                                                 }
                                                             }
                                                         }
@@ -678,7 +685,13 @@
 
                                                                 
                                                                 for (var u = 0; u < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P").length; u++) {
+                                                                    if (typeof HT.new_value !== 'undefined'){
                                                                     HT.new_value = HT.new_value + " " + nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[u].childNodes[0].nodeValue;
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        HT.new_value = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[u].childNodes[0].nodeValue;
+                                                                    }
                                                                     }
                                                             }
                                                         }
