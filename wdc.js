@@ -506,6 +506,17 @@
                     dataType: tableau.dataTypeEnum.string
 
                 }
+
+                ,
+
+                {
+                    id: "c_info_add",
+                    alias: "muudatused põhjendus",
+                    dataType: tableau.dataTypeEnum.string
+
+                }
+
+                
                 
 
             ]
@@ -750,6 +761,7 @@
 
                                                     HT.section = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("SECTION")[0].childNodes[0].nodeValue;
                                                     HT.label = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("LABEL")[0].childNodes[0].nodeValue;
+                                                    HT.c_info_add = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[o].childNodes[0].nodeValue;
 
                                                     if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0] !== 'undefined') {
                                                         if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0] !== 'undefined') {
