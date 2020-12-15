@@ -391,7 +391,7 @@
                 
 
                 {
-                    id: "DATE_CONCLUSION_CONTRACT",
+                    id: "conclusion_contract",
                     alias: "solmimise kp",
                     dataType: tableau.dataTypeEnum.date
                 }
@@ -1123,9 +1123,9 @@
                                                         }
 
 
-                                                    
-                                                            HT.DATE_CONCLUSION_CONTRACT = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0].childNodes[0].nodeValue;
-                                                                
+                                                       // if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0] !== 'undefined') {
+                                                         //   HT.DATE_CONCLUSION_CONTRACT = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0].childNodes[0].nodeValue;
+                                                       // }
 
 
 
