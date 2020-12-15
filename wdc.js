@@ -764,7 +764,7 @@
 
 
                                                     if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
-                                                    HT.c_info_add = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[o].childNodes[0].nodeValue;
+                                                    HT.c_info_add = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
                                                     }
 
                                                     if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0] !== 'undefined') {
