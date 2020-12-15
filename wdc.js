@@ -1113,14 +1113,6 @@
                                                 if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0] !== 'undefined') {
                                                     HT.contract_no = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0].childNodes[0].nodeValue;
                                                         }
-
-
-                                                        if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0] !== 'undefined') {
-                                                            HT.DATE_CONCLUSION_CONTRACT = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0].childNodes[0].nodeValue;
-                                                                }
-
-
-                                                                
                                                 if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0] !== 'undefined') {
                                                     if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
                                                         if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0] !== 'undefined') {
