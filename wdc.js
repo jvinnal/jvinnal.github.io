@@ -291,6 +291,49 @@
                     dataType: tableau.dataTypeEnum.string
                 }
 
+                ,
+                {
+                    id: "hanke_osa_cpv",
+                    alias: "hanke osa cpv",
+                    dataType: tableau.dataTypeEnum.string
+                }
+
+                ,
+                {
+                    id: "main_site",
+                    alias: "teostamise koht",
+                    dataType: tableau.dataTypeEnum.string
+                }
+
+                ,
+                {
+                    id: "short_desc",
+                    alias: "kirjeldus",
+                    dataType: tableau.dataTypeEnum.string
+                }
+
+                ,
+                {
+                    id: "val_obj",
+                    alias: "eeldatav maksumus",
+                    dataType: tableau.dataTypeEnum.string
+                }
+
+                ,
+                {
+                    id: "osa_kest",
+                    alias: "hanke osa kestvus",
+                    dataType: tableau.dataTypeEnum.string
+                }
+
+                ,
+                {
+                    id: "no_eu",
+                    alias: "seos EU prog",
+                    dataType: tableau.dataTypeEnum.string
+                }
+
+
             ];
 
 
@@ -587,10 +630,58 @@
                                                             HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
                                                         }
 
-                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0] !== 'undefined') {
+                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0] !== 'undefined') {
                                                             HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
                                                             HT.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+
+
+                                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("CPV_ADDITIONAL")[0] !== 'undefined') {
+                                                                if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("CPV_ADDITIONAL")[0].getElementsByTagName("CPV_CODE")[0].getAttributeNode("CODE") !== 'undefined') {
+
+
+                                                            HT.hanke_osa_cpv = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("CPV_ADDITIONAL")[0].getElementsByTagName("CPV_CODE")[0].getAttributeNode("CODE").nodeValue;
+
+
+
+
+
+
+
+
+
+
+                                                                }
+                                                            }
+
+                                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("MAIN_SITE")[0] !== 'undefined') {
+                                                                
+                                                            HT.main_site = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("MAIN_SITE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                                            
                                                         }
+
+                                                        HT.short_desc= nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+
+
+
+                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("VAL_OBJECT")[0] !== 'undefined') {
+                                                        HT.val_obj= nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("VAL_OBJECT")[0].childNodes[0].nodeValue;
+                                                        }
+
+
+                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("DURATION")[0] !== 'undefined') {
+                                                            HT.osa_kest= nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue;
+                                                            }
+
+
+                                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("NO_EU_PROGR_RELATED")[0] !== 'undefined') {
+                                                                HT.no_eu= nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("NO_EU_PROGR_RELATED")[0].nodeValue;
+                                                                }
+
+
+
+                                                        }
+
+
 
 
                                                         if (table.tableInfo.id == "osahanked") {
@@ -625,7 +716,7 @@
                                                 if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
                                                     HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
 
-                                                    if (table.tableInfo.id == "osahanked") {
+                                                   if (table.tableInfo.id == "osahanked") {
                                                         allRows.push(HT);
                                                     }
                                                 }
@@ -634,6 +725,7 @@
 
                                             }
                                         }
+
 
 
 

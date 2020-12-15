@@ -85,89 +85,120 @@ function test() {
 
                         
                                                                     //muutused
-                                                                    if (typeof nodes[i].getElementsByTagName("CHANGES")[0] !== 'undefined') {
+                                        //osahanked
+                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0] !== 'undefined') {
 
-                                                                        if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[0] !== 'undefined') {
-                                                                            HT.old_value = '';
-                            
-                                                                            for (var n = 0; n < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE").length; n++) {
-                                                                                const HT = {};
-                            
-                                                                                //if (typeof nodes[i].getElementsByTagName("TITLE")[0] !== 'undefined') {
-                                                                                 //   HT.title = nodes[i].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                                                               // }
-                            
-                                                                                if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
-                                                                                    HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
-                                                                                }
-                            
-                                                                                // HT.mitu = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE").length;
-                            
-                                                                                HT.section = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("SECTION")[0].childNodes[0].nodeValue;
-                                                                                HT.label = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("LABEL")[0].childNodes[0].nodeValue;
-                            
-                                                                                if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0] !== 'undefined') {
-                                                                                    if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0] !== 'undefined') {
-                                                                                        if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[0].childNodes[0] !== 'undefined') {
-                            
-                                                                                            for (var o = 0; o < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P").length; o++) {
-                                                                                                //HT.pikkus = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P").length;
-                                                                                                if (typeof HT.old_value !== 'undefined'){
-                                                                                                HT.old_value = HT.old_value + " " + nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[o].childNodes[0].nodeValue;
-                                                                                                }
-                                                                                            else
-                                                                                            {
+                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0] !== 'undefined') {
 
-                                                                                                HT.old_value = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[o].childNodes[0].nodeValue;
-                                                                                            }
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                }
-                            
-                                                                                if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0] !== 'undefined') {
-                                                                                    if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0] !== 'undefined') {
-                                                                                        if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[0].childNodes[0] !== 'undefined') {
-                            
-                            
-                                                                                            
-                                                                                            for (var u = 0; u < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P").length; u++) {
-                                                                                                if (typeof HT.new_value !== 'undefined'){
-                                                                                                HT.new_value = HT.new_value + " " + nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[u].childNodes[0].nodeValue;
-                                                                                                }
-                                                                                                else
-                                                                                                {
-                                                                                                    HT.new_value = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[u].childNodes[0].nodeValue;
-                                                                                                }
-                                                                                                }
-                                                                                        }
-                                                                                    }
-                                                                                }
-                            
-                                                                                //if (table.tableInfo.id == "muudatused") {
-                                                                                allRows.push(HT);
-                                                                                //}
-                            
-                            
-                            
-                            
-                            
-                            
-                                                                            }
-                            
-                            
-                            
-                            
-                            
-                                                                        }
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                                                                    }
+                                                //console.log("suurus");
+                                                //console.log(nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR").length);
+
+                                                if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0] !== 'undefined') {
+
+
+                                                    for (var n = 0; n < nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR").length; n++) {
+                                                        const HT = {};
+
+                                                        if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
+                                                            HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                                                        }
+
+                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0] !== 'undefined') {
+                                                            HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
+                                                            HT.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+
+
+                                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("CPV_ADDITIONAL")[0] !== 'undefined') {
+                                                                if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("CPV_ADDITIONAL")[0].getElementsByTagName("CPV_CODE")[0].getAttributeNode("CODE") !== 'undefined') {
+
+
+                                                            HT.hanke_osa_cpv = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("CPV_ADDITIONAL")[0].getElementsByTagName("CPV_CODE")[0].getAttributeNode("CODE").nodeValue;
+
+
+
+
+
+
+
+
+
+
+                                                                }
+                                                            }
+
+                                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("MAIN_SITE")[0] !== 'undefined') {
+                                                                
+                                                            HT.main_site = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("MAIN_SITE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                                            
+                                                        }
+
+                                                        HT.short_desc= nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+
+
+
+                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("VAL_OBJECT")[0] !== 'undefined') {
+                                                        HT.val_obj= nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("VAL_OBJECT")[0].childNodes[0].nodeValue;
+                                                        }
+
+
+                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("DURATION")[0] !== 'undefined') {
+                                                            HT.osa_kest= nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue;
+                                                            }
+
+
+                                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("NO_EU_PROGR_RELATED")[0] !== 'undefined') {
+                                                                HT.osa_kest= nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("NO_EU_PROGR_RELATED")[0].nodeValue;
+                                                                }
+
+
+
+                                                        }
+
+
+
+
+                                                       // if (table.tableInfo.id == "osahanked") {
+                                                            allRows.push(HT);
+                                                       // }
+
+
+
+
+                                                        //HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
+                                                    }
+                                                }
+                                                else {
+                                                    HT.lot_no = 0;
+                                                    if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
+                                                        HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+
+                                                       // if (table.tableInfo.id == "osahanked") {
+                                                            allRows.push(HT);
+                                                        //}
+                                                    }
+
+
+
+                                                }
+
+
+                                            }
+
+                                            else {
+                                                HT.lot_no = 0;
+                                                if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
+                                                    HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+
+                                                   // if (table.tableInfo.id == "osahanked") {
+                                                        allRows.push(HT);
+                                                   // }
+                                                }
+
+
+
+                                            }
+                                        }
+
 
 
 
