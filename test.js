@@ -64,7 +64,7 @@ function test() {
 
                 $.ajax({
                     type: 'GET',
-                    url: urls[0],
+                    url: urls[1],
                     dataType: "xml",
                     jsonp: true,
                     contentType: "text/xml; charset=\"utf-8\"",
@@ -84,102 +84,102 @@ function test() {
                             const HT = {};
 
                         
-                                        //muutused
-                                        if (typeof nodes[i].getElementsByTagName("CHANGES")[0] !== 'undefined') {
-
-      
-
-                                            if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[0] !== 'undefined') {
+                                    //välistan login class B, puudub reference
+                                    if (typeof nodes[i].getElementsByTagName("LOGIN")[0] == 'undefined') {
 
 
-                                     
+                                        if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
+                                            HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                                        }
 
 
-                                                for (var n = 0; n < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE").length; n++) {
-                                                    const HT = {};
+                                        for (var n = 0; n < nodes[i].getElementsByTagName("AWARD_CONTRACT").length; n++) {
+                                            const HT = {};
 
-                                                    if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
-                                                        HT.c_info_add = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                                        }
+                                            HT.file_name = 'HLST_' + y + '_' + m + '.xml';
 
-                                                    //if (typeof nodes[i].getElementsByTagName("TITLE")[0] !== 'undefined') {
-                                                     //   HT.title = nodes[i].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                                   // }
+                                            if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
+                                                HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                                            }
 
-                                                    if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
-                                                        HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+
+                                            // if (HT.reference_number_id == "212933"){
+
+                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n] !== 'undefined') {
+
+                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0] !== 'undefined') {
+                                                HT.contract_no = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0].childNodes[0].nodeValue;
                                                     }
 
-                                                    // HT.mitu = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE").length;
 
-                                                    HT.section = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("SECTION")[0].childNodes[0].nodeValue;
-                                                    HT.label = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("LABEL")[0].childNodes[0].nodeValue;
+                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0] !== 'undefined') {
+                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
+                                                        if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0] !== 'undefined') {
+                                                            HT.contract_officialname = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+
+                                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0] !== 'undefined') {
+                                                                HT.val_total = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue;
+                                                            }
 
 
-                                                  
+                                                            HT.title = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
 
-                                                    if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0] !== 'undefined') {
-                                                        if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0] !== 'undefined') {
-                                                            if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[0].childNodes[0] !== 'undefined') {
 
-                                                                for (var o = 0; o < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P").length; o++) {
-                                                                    //HT.pikkus = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P").length;
-                                                                    if (typeof HT.old_value !== 'undefined'){
-                                                                    HT.old_value = HT.old_value + " " + nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[o].childNodes[0].nodeValue;
-                                                                    }
-                                                                else
-                                                                {
 
-                                                                    HT.old_value = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[o].childNodes[0].nodeValue;
-                                                                }
-                                                                }
+                                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("LOT_NO")[0] !== 'undefined') {
+                                                                HT.lot_no = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
+                                                            }
+                                                            else {
+                                                                //kui ei ole hankeleping, siis osa numbri genereerin ise
+                                                                HT.lot_no = 0;
                                                             }
                                                         }
                                                     }
-
-                                                    if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0] !== 'undefined') {
-                                                        if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0] !== 'undefined') {
-                                                            if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[0].childNodes[0] !== 'undefined') {
-
-
-                                                                
-                                                                for (var u = 0; u < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P").length; u++) {
-                                                                    if (typeof HT.new_value !== 'undefined'){
-                                                                    HT.new_value = HT.new_value + " " + nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[u].childNodes[0].nodeValue;
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        HT.new_value = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[u].childNodes[0].nodeValue;
-                                                                    }
-                                                                    }
-                                                            }
-                                                        }
-                                                    }
-
-                                                   // if (table.tableInfo.id == "muudatused") {
-                                                    allRows.push(HT);
-                                                    //}
-
-
-
-
-
-
                                                 }
-
-
-
-
-
                                             }
 
 
 
 
 
+                                            if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
+                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("NATIONALID")[0] !== 'undefined') {
+                                                    HT.contract_nationalid = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+                                                }
+                                            }
 
+                                            if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
+                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0] !== 'undefined') {
+                                                    HT.contract_town = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                                                }
+                                            }
+
+
+
+                                            if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
+                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0] !== 'undefined') {
+                                                    HT.conclusion_contract = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0].childNodes[0].nodeValue;
+                                                }
+                                            }
+
+
+
+                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0] !== 'undefined') {
+                                                //if (Object.values(filterValues).indexOf(HT.reference_number_id) > -1) {
+
+                                                allRows.push(HT);
+                                            }
+                                            //}
 
                                         }
+
+
+
+
+
+
+
+                                    }
 
 
 
