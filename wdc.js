@@ -746,6 +746,11 @@
                                             if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[0] !== 'undefined') {
 
 
+                                                if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
+                                                    HT.c_info_add = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                                    }
+
+
                                                 for (var n = 0; n < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE").length; n++) {
                                                     const HT = {};
 
@@ -763,9 +768,7 @@
                                                     HT.label = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("LABEL")[0].childNodes[0].nodeValue;
 
 
-                                                    if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
-                                                    HT.c_info_add = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                                    }
+                                                  
 
                                                     if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0] !== 'undefined') {
                                                         if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0] !== 'undefined') {
