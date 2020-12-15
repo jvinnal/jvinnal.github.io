@@ -393,7 +393,7 @@
                 {
                     id: "DATE_CONCLUSION_CONTRACT",
                     alias: "solmimise kp",
-                    dataType: tableau.dataTypeEnum.string
+                    dataType: tableau.dataTypeEnum.date
                 }
                 ,
 
