@@ -372,7 +372,7 @@
                 {
                     id: "contract_no",
                     alias: "lepingu nr",
-                    dataType: tableau.dataTypeEnum.int
+                    dataType: tableau.dataTypeEnum.string
                 }
 
                 ,
