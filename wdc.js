@@ -382,8 +382,8 @@
                 }
                 ,
                 {
-                    id: "pakkumuste arv",
-                    alias: "tenders",
+                    id: "tenders",
+                    alias: "pakkumuste arv",
                     dataType: tableau.dataTypeEnum.int
                 }
                 ,
