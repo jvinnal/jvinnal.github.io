@@ -361,102 +361,82 @@
                         "tableId": "hanked",
                         "columnId": "reference_number"
                     }
-
-
-
-                }
-
+                }                
                 ,
-
-                
                 {
                     id: "contract_no",
                     alias: "lepingu nr",
                     dataType: tableau.dataTypeEnum.string
                 }
-
-                ,
-
-
-
-                {
-                    id: "lot_no",
-                    alias: "lot_no",
-                    dataType: tableau.dataTypeEnum.int
-                }
-
-                ,
-
-
-
-
+                ,                
                 {
                     id: "title",
                     alias: " lepingu nimetus",
                     dataType: tableau.dataTypeEnum.string
                 }
-
                 ,
-
-
                 {
-                    id: "contract_officialname",
-                    alias: "pakkuja",
-                    dataType: tableau.dataTypeEnum.string
+                    id: "date_conclusion_contract",
+                    alias: "solmimise kp",
+                    dataType: tableau.dataTypeEnum.date
                 }
-
                 ,
-
                 {
-                    id: "contract_nationalid",
-                    alias: "pakkuja_kood",
+                    id: "pakkumuste arv",
+                    alias: "tenders",
                     dataType: tableau.dataTypeEnum.int
                 }
                 ,
-
-
-
-
-
+                {
+                    id: "contract_officialname",
+                    alias: "pakkuja nimi",
+                    dataType: tableau.dataTypeEnum.string
+                }
+                ,
+                {
+                    id: "contract_nationalid",
+                    alias: "pakkuja reg",
+                    dataType: tableau.dataTypeEnum.int
+                }
+                ,
                 {
                     id: "contract_town",
-                    alias: "pakkuja_linn",
+                    alias: "pakkuja linn",
                     dataType: tableau.dataTypeEnum.string,
                     geoRole: tableau.geographicRoleEnum.city
                 }
                 ,
-
-
                 {
-                    id: "val_total",
-                    alias: "eeldatav_maksumus",
+                    id: "contract_aadress",
+                    alias: "pakkuja aadress",
+                    dataType: tableau.dataTypeEnum.string
+                }
+                ,                
+                {
+                    id: "lep_val_total",
+                    alias: "lepingu maksumus",
                     dataType: tableau.dataTypeEnum.string
 
                 }
                 ,
-
                 {
-                    id: "conclusion_contract",
-                    alias: "solmimise_kpv",
-                    dataType: tableau.dataTypeEnum.date
-                    //
+                    id: "hanke_val_total",
+                    alias: "hanke maksumus",
+                    dataType: tableau.dataTypeEnum.string
+
                 }
                 ,
-
-
-
-
+                {
+                    id: "lot_no",
+                    alias: "hanke osa",
+                    dataType: tableau.dataTypeEnum.int
+                }
+                ,
                 {
                     id: "file_name",
-                    alias: "file_name",
+                    alias: "faili nimi",
                     dataType: tableau.dataTypeEnum.string
-
                 }
-
-
-
-
-
             ];
 
 
@@ -524,8 +504,8 @@
 
                 }
 
-                
-                
+
+
 
             ]
 
@@ -537,7 +517,7 @@
 
 
 
-                
+
 
 
 
@@ -658,7 +638,7 @@
                                                                 if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("CPV_ADDITIONAL")[0].getElementsByTagName("CPV_CODE")[0].getAttributeNode("CODE") !== 'undefined') {
 
 
-                                                            HT.hanke_osa_cpv = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("CPV_ADDITIONAL")[0].getElementsByTagName("CPV_CODE")[0].getAttributeNode("CODE").nodeValue;
+                                                                    HT.hanke_osa_cpv = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("CPV_ADDITIONAL")[0].getElementsByTagName("CPV_CODE")[0].getAttributeNode("CODE").nodeValue;
 
 
 
@@ -673,28 +653,28 @@
                                                             }
 
                                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("MAIN_SITE")[0] !== 'undefined') {
-                                                                
-                                                            HT.main_site = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("MAIN_SITE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                                            
-                                                        }
 
-                                                        HT.short_desc= nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                                                HT.main_site = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("MAIN_SITE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
 
+                                                            }
 
-
-                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("VAL_OBJECT")[0] !== 'undefined') {
-                                                        HT.val_obj= nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("VAL_OBJECT")[0].childNodes[0].nodeValue;
-                                                        }
+                                                            HT.short_desc = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
 
 
-                                                        if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("DURATION")[0] !== 'undefined') {
-                                                            HT.osa_kest= nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue;
+
+                                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("VAL_OBJECT")[0] !== 'undefined') {
+                                                                HT.val_obj = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("VAL_OBJECT")[0].childNodes[0].nodeValue;
+                                                            }
+
+
+                                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("DURATION")[0] !== 'undefined') {
+                                                                HT.osa_kest = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue;
                                                             }
 
 
                                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("NO_EU_PROGR_RELATED")[0] !== 'undefined') {
-                                                                HT.no_eu= nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("NO_EU_PROGR_RELATED")[0].nodeValue;
-                                                                }
+                                                                HT.no_eu = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("NO_EU_PROGR_RELATED")[0].nodeValue;
+                                                            }
 
 
 
@@ -735,7 +715,7 @@
                                                 if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
                                                     HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
 
-                                                   if (table.tableInfo.id == "osahanked") {
+                                                    if (table.tableInfo.id == "osahanked") {
                                                         allRows.push(HT);
                                                     }
                                                 }
@@ -754,7 +734,7 @@
                                             if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[0] !== 'undefined') {
 
 
- 
+
 
 
                                                 for (var n = 0; n < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE").length; n++) {
@@ -762,11 +742,11 @@
 
                                                     if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("INFO_ADD")[0] !== 'undefined') {
                                                         HT.c_info_add = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                                        }
+                                                    }
 
                                                     //if (typeof nodes[i].getElementsByTagName("TITLE")[0] !== 'undefined') {
-                                                     //   HT.title = nodes[i].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                                   // }
+                                                    //   HT.title = nodes[i].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                                    // }
 
                                                     if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
                                                         HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
@@ -778,7 +758,7 @@
                                                     HT.label = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("LABEL")[0].childNodes[0].nodeValue;
 
 
-                                                  
+
 
                                                     if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0] !== 'undefined') {
                                                         if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0] !== 'undefined') {
@@ -786,14 +766,13 @@
 
                                                                 for (var o = 0; o < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P").length; o++) {
                                                                     //HT.pikkus = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P").length;
-                                                                    if (typeof HT.old_value !== 'undefined'){
-                                                                    HT.old_value = HT.old_value + " " + nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[o].childNodes[0].nodeValue;
+                                                                    if (typeof HT.old_value !== 'undefined') {
+                                                                        HT.old_value = HT.old_value + " " + nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[o].childNodes[0].nodeValue;
                                                                     }
-                                                                else
-                                                                {
+                                                                    else {
 
-                                                                    HT.old_value = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[o].childNodes[0].nodeValue;
-                                                                }
+                                                                        HT.old_value = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("OLD_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[o].childNodes[0].nodeValue;
+                                                                    }
                                                                 }
                                                             }
                                                         }
@@ -804,22 +783,21 @@
                                                             if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[0].childNodes[0] !== 'undefined') {
 
 
-                                                                
+
                                                                 for (var u = 0; u < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P").length; u++) {
-                                                                    if (typeof HT.new_value !== 'undefined'){
-                                                                    HT.new_value = HT.new_value + " " + nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[u].childNodes[0].nodeValue;
+                                                                    if (typeof HT.new_value !== 'undefined') {
+                                                                        HT.new_value = HT.new_value + " " + nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[u].childNodes[0].nodeValue;
                                                                     }
-                                                                    else
-                                                                    {
+                                                                    else {
                                                                         HT.new_value = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("NEW_VALUE")[0].getElementsByTagName("TEXT")[0].getElementsByTagName("P")[u].childNodes[0].nodeValue;
                                                                     }
-                                                                    }
+                                                                }
                                                             }
                                                         }
                                                     }
 
                                                     if (table.tableInfo.id == "muudatused") {
-                                                    allRows.push(HT);
+                                                        allRows.push(HT);
                                                     }
 
 
@@ -1091,97 +1069,97 @@
                                     if (typeof nodes[i].getElementsByTagName("LOGIN")[0] == 'undefined') {
 
 
-                                        if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
-                                            HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
-                                        }
-
-
                                         for (var n = 0; n < nodes[i].getElementsByTagName("AWARD_CONTRACT").length; n++) {
                                             const HT = {};
 
+                                            //genereerin faili nime
                                             HT.file_name = 'HLST_' + y + '_' + m + '.xml';
 
-                                            if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
-                                                HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
+                                            //hanke viitenumber   OBJECT_CONTRACT
+                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
+                                                HT.reference_number = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
                                             }
 
+                                            //hanke kogumaksumus   VAL_TOTAL
+                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0] !== 'undefined') {
+                                                HT.hanke_val_total = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue;
+                                            }
 
-                                            // if (HT.reference_number_id == "212933"){
 
                                             if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n] !== 'undefined') {
 
+                                                //hanke osa nr (vajalik hankega joinimiseks)
+                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("LOT_NO")[0] !== 'undefined') {
+                                                    HT.lot_no = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
+                                                }
+                                                else {
+                                                    //kui ei ole hankeleping, siis osa numbri genereerin ise
+                                                    HT.lot_no = 0;
+                                                }
+
+
+                                                //lepingu nr
                                                 if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0] !== 'undefined') {
                                                     HT.contract_no = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0].childNodes[0].nodeValue;
-                                                        }
+                                                }
+
+                                                //lepingu nimetus
+                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("TITLE")[0] !== 'undefined') {
+                                                    HT.title = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                                }
+
+
                                                 if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0] !== 'undefined') {
+
+
+                                                    //lepingu sõlmimise kuupäev
+                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0] !== 'undefined') {
+                                                        HT.date_conclusion_contract = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0].childNodes[0].nodeValue;
+                                                    }
+
+
+                                                    //tenders, ehk pakkumiste arv
+                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TENDERS")[0] !== 'undefined') {
+                                                        HT.tenders = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TENDERS")[0].getElementsByTagName("NB_TENDERS_RECEIVED")[0].childNodes[0].nodeValue;
+                                                    }
+
+                                                    //lepingu maksumus
+                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0] !== 'undefined') {
+                                                        HT.lep_val_total = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue;
+                                                    }
+
+
                                                     if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
                                                         if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0] !== 'undefined') {
+
+
+                                                            //pakkuja nimi
                                                             HT.contract_officialname = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
 
-                                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0] !== 'undefined') {
-                                                                HT.val_total = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue;
+                                                            //pakkuja registrikood
+                                                            HT.contract_nationalid = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+
+                                                            // linn
+                                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0] !== 'undefined') {
+                                                                HT.contract_town = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                                                            }
+
+                                                            // aadress
+                                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
+                                                                HT.contract_aadress = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
                                                             }
 
 
-                                                            HT.title = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-
-                                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("LOT_NO")[0] !== 'undefined') {
-                                                                HT.lot_no = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
-                                                            }
-                                                            else {
-                                                                //kui ei ole hankeleping, siis osa numbri genereerin ise
-                                                                HT.lot_no = 0;
-                                                            }
                                                         }
                                                     }
                                                 }
-                                            }
-
-
-
-
-
-                                            if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
-                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("NATIONALID")[0] !== 'undefined') {
-                                                    HT.contract_nationalid = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
-                                                }
-                                            }
-
-                                            if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
-                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0] !== 'undefined') {
-                                                    HT.contract_town = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
-                                                }
-                                            }
-
-
-
-                                            if (typeof nodes[i].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
-                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0] !== 'undefined') {
-                                                    HT.conclusion_contract = nodes[i].getElementsByTagName("AWARD_CONTRACT")[0].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0].childNodes[0].nodeValue;
-                                                }
-                                            }
-
-
-
-                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0] !== 'undefined') {
-                                                //if (Object.values(filterValues).indexOf(HT.reference_number_id) > -1) {
 
                                                 allRows.push(HT);
                                             }
-                                            //}
 
                                         }
 
-
-
-
-
-
-
                                     }
-
-
-
                                 }
                             }
 
@@ -1189,7 +1167,7 @@
                     }
 
 
-                    //}
+
 
 
                 }
