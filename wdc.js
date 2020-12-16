@@ -415,14 +415,14 @@
                 {
                     id: "lep_val_total",
                     alias: "lepingu osamaksumus",
-                    dataType: tableau.dataTypeEnum.int
+                    dataType: tableau.dataTypeEnum.float
 
                 }
                 ,
                 {
                     id: "hanke_val_total",
                     alias: "lepingute kogumaksumus",
-                    dataType: tableau.dataTypeEnum.int
+                    dataType: tableau.dataTypeEnum.float
 
                 }
                 ,
