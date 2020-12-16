@@ -1082,7 +1082,7 @@
 
                                             //hanke kogumaksumus   VAL_TOTAL
                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0] !== 'undefined') {
-                                                HT.hanke_val_total = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue;
+                                                HT.hanke_val_total = Number(nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue);
                                             }
 
 
@@ -1125,7 +1125,7 @@
 
                                                     //lepingu maksumus
                                                     if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0] !== 'undefined') {
-                                                        HT.lep_val_total = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue;
+                                                        HT.lep_val_total = Number(nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue);
                                                     }
 
 
