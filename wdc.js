@@ -66,7 +66,7 @@
 
                 {
                     id: "ca_activity",
-                    alias: "hanke tüüp",
+                    alias: "hankja tegevusala",
                     dataType: tableau.dataTypeEnum.string
                 }
                 ,
