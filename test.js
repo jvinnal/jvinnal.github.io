@@ -214,6 +214,14 @@ function test() {
                                 }
 
 
+                                if (typeof nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0] !== 'undefined') {
+                                    HT.date_dispatch_notice = nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0].getElementsByTagName("DATE_DISPATCH_NOTICE")[0].childNodes[0].nodeValue;
+                                }
+
+
+
+
+
 
                                
                             }
