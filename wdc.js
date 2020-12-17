@@ -135,12 +135,13 @@
                     dataType: tableau.dataTypeEnum.datetime
 
                 }
-                ,            
+                ,              
                 
+
                 {
-                    id: "avaldamise kp",
-                    alias: "pakkumuste esitamine",
-                    dataType: tableau.dataTypeEnum.date
+                    id: "date_dispatch_notice",
+                    alias: "avaldamise kp",
+                    dataType: tableau.dataTypeEnum.datetime
 
                 }
                 ,
