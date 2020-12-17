@@ -66,7 +66,7 @@
 
                 {
                     id: "ca_activity",
-                    alias: "hankija tegevusala",
+                    alias: "hanke sektor",
                     dataType: tableau.dataTypeEnum.string
                 }
                 ,
@@ -508,8 +508,6 @@
 
                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0] !== 'undefined') {
 
-                                                //console.log("suurus");
-                                                //console.log(nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR").length);
 
                                                 if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0] !== 'undefined') {
 
@@ -572,7 +570,7 @@
 
 
 
-                                                        //HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
+                                             
                                                     }
                                                 }
                                                 else {
@@ -616,9 +614,6 @@
                                             if (typeof nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[0] !== 'undefined') {
 
 
-
-
-
                                                 for (var n = 0; n < nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE").length; n++) {
                                                     const HT = {};
 
@@ -626,15 +621,12 @@
                                                         HT.c_info_add = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
                                                     }
 
-                                                    //if (typeof nodes[i].getElementsByTagName("TITLE")[0] !== 'undefined') {
-                                                    //   HT.title = nodes[i].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                                    // }
-
+                                        
                                                     if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
                                                         HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
                                                     }
 
-                                                    // HT.mitu = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE").length;
+                                                  
 
                                                     HT.section = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("SECTION")[0].childNodes[0].nodeValue;
                                                     HT.label = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("LABEL")[0].childNodes[0].nodeValue;
@@ -681,26 +673,8 @@
                                                     if (table.tableInfo.id == "muudatused") {
                                                         allRows.push(HT);
                                                     }
-
-
-
-
-
-
                                                 }
-
-
-
-
-
                                             }
-
-
-
-
-
-
-
                                         }
 
 
