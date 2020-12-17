@@ -128,9 +128,9 @@
                 ,
 
                 {
-                    id: "datetime",
+                    id: "datetime_receipt_tenders",
                     alias: "pakkumuste esitamine",
-                    dataType: tableau.dataTypeEnum.string
+                    dataType: tableau.dataTypeEnum.datetime
 
                 }
                 ,
