@@ -786,14 +786,14 @@
                                             //lühikirjeldus
                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0] !== 'undefined') {
 
-                                                for (var o = 0; o < nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P").length; o++) {
+                                                for (var l = 0; l < nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P").length; l++) {
 
                                                     if (typeof HT.short_descr !== 'undefined') {
-                                                        HT.short_descr = HT.short_descr + " " + nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                                        HT.short_descr = HT.short_descr + " " + nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[l].childNodes[0].nodeValue;
                                                     }
                                                     else {
 
-                                                        HT.short_descr = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+                                                        HT.short_descr = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[l].childNodes[0].nodeValue;
                                                     }
                                                 }
                                             }
