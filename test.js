@@ -1,4 +1,5 @@
 
+
 function test() {
 
     //const url = 'phpscript.php'
@@ -204,11 +205,11 @@ function test() {
                                     HT.time = time
 
                                     if (typeof date !== 'undefined' && typeof time !== 'undefined') {
-                                        var datetime = new Date(date + ' ' + time).toLocaleString('en-US',  { timeZone: 'Europe/Tallinn' });
+                                        var datetime = new Date(date + ' ' + time)  //.toLocaleString('en-US',  { timeZone: 'Europe/Tallinn' });
                                         
                                     }
 
-                                    HT.datetime_receipt_tenders = datetime;
+                                    HT.datetime_receipt_tenders = moment(datetime).format("Y-MM-DD HH:mm:ss");
 
                                 }
 
