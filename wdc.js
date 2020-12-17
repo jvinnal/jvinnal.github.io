@@ -92,6 +92,13 @@
                     alias: "hanke viitenumber",
                     dataType: tableau.dataTypeEnum.int
                 }
+                ,                
+
+                {
+                    id: "pt_open",
+                    alias: "menetluse liik",
+                    dataType: tableau.dataTypeEnum.string
+                }
                 ,
 
                 {
@@ -135,8 +142,8 @@
                     dataType: tableau.dataTypeEnum.datetime
 
                 }
-                ,              
-                
+                ,
+
 
                 {
                     id: "date_dispatch_notice",
@@ -570,7 +577,7 @@
 
 
 
-                                             
+
                                                     }
                                                 }
                                                 else {
@@ -621,12 +628,12 @@
                                                         HT.c_info_add = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("INFO_ADD")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
                                                     }
 
-                                        
+
                                                     if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
                                                         HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
                                                     }
 
-                                                  
+
 
                                                     HT.section = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("SECTION")[0].childNodes[0].nodeValue;
                                                     HT.label = nodes[i].getElementsByTagName("CHANGES")[0].getElementsByTagName("CHANGE")[n].getElementsByTagName("LABEL")[0].childNodes[0].nodeValue;
@@ -789,6 +796,12 @@
 
                                             if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0] !== 'undefined') {
 
+
+                                                //Hankemenetluse liik
+                                                if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("PT_OPEN")[0] !== 'undefined') {
+                                                    HT.pt_open = "Avatud hankemenetlus"
+                                                }
+
                                                 if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DATE_RECEIPT_TENDERS")[0] !== 'undefined') {
                                                     date = nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DATE_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
                                                 }
@@ -810,7 +823,7 @@
                                             if (typeof nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0] !== 'undefined') {
                                                 HT.date_dispatch_notice = nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0].getElementsByTagName("DATE_DISPATCH_NOTICE")[0].childNodes[0].nodeValue;
                                             }
-            
+
                                         }
 
 
@@ -820,7 +833,7 @@
                                         }
                                     }
                                 }
-                            }                           
+                            }
 
                         });
                     }

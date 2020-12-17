@@ -193,6 +193,15 @@ function test() {
 
                                 if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0] !== 'undefined') {
 
+
+                        
+                                    //Hankemenetluse liik
+                                    if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("PT_OPEN")[0] !== 'undefined') {
+                                        HT.PT_OPEN = "Avatud hankemenetlus"
+                                    }
+
+
+
                                     if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DATE_RECEIPT_TENDERS")[0] !== 'undefined') {
                                         date = nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DATE_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
                                     }
