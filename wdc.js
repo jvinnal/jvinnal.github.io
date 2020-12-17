@@ -95,7 +95,7 @@
                 ,
 
                 {
-                    id: "cpv_main_code",
+                    id: "main_cpv_code",
                     alias: "peamine cpv",
                     dataType: tableau.dataTypeEnum.int
                 }
