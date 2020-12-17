@@ -204,7 +204,7 @@ function test() {
                                     HT.time = time
 
                                     if (typeof date !== 'undefined' && typeof time !== 'undefined') {
-                                        var datetime = new Date(date + ' ' + time).toLocaleString('en-US', { timeZone: 'Europe/Tallinn' });
+                                        var datetime = new Date(date + ' ' + time).toLocaleString('et-EE', { timeZone: 'Europe/Tallinn' });
                                     }
 
                                     HT.datetime_receipt_tenders = datetime;
