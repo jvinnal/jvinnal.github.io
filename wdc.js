@@ -133,6 +133,12 @@
                     dataType: tableau.dataTypeEnum.datetime
 
                 }
+                ,
+                {
+                    id: "file_name",
+                    alias: "faili nimi",
+                    dataType: tableau.dataTypeEnum.string
+                }
 
             ];
 
