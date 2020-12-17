@@ -359,14 +359,14 @@
                 ,
                 {
                     id: "section",
-                    alias: "section",
+                    alias: "osa",
                     dataType: tableau.dataTypeEnum.string
 
                 }
                 ,
                 {
                     id: "label",
-                    alias: "label",
+                    alias: "pealkiri",
                     dataType: tableau.dataTypeEnum.string
 
                 }
@@ -374,7 +374,7 @@
 
                 {
                     id: "old_value",
-                    alias: "old_value",
+                    alias: "vana väärtus",
                     dataType: tableau.dataTypeEnum.string
 
                 }
@@ -382,7 +382,7 @@
 
                 {
                     id: "new_value",
-                    alias: "new_value",
+                    alias: "uus väärtus",
                     dataType: tableau.dataTypeEnum.string
 
                 }
