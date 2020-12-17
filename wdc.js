@@ -25,7 +25,7 @@
                 {
                     id: "nationalid",
                     alias: "hankija reg",
-                    dataType: tableau.dataTypeEnum.int,
+                    dataType: tableau.dataTypeEnum.string,
 
                 }
                 ,
@@ -275,7 +275,7 @@
                 {
                     id: "contract_nationalid",
                     alias: "pakkuja reg",
-                    dataType: tableau.dataTypeEnum.int
+                    dataType: tableau.dataTypeEnum.string
                 }
                 ,
                 {
