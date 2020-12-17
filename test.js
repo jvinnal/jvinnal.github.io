@@ -200,14 +200,20 @@ function test() {
                                         time = nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("TIME_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
                                     }
 
+                                    HT.date = date
+                                    HT.time = time
 
                                     if (typeof date !== 'undefined' && typeof time !== 'undefined') {
-                                        var datetime = new Date(date + ' ' + time);
+                                        var datetime = new Date(date + ' ' + time).toLocaleString('en-US', { timeZone: 'Europe/Tallinn' });
                                     }
 
                                     HT.datetime_receipt_tenders = datetime;
 
                                 }
+
+
+
+                               
                             }
 
 

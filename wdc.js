@@ -812,7 +812,7 @@
 
 
                                                 if (typeof date !== 'undefined' && typeof time !== 'undefined') {
-                                                    var datetime = new Date(date + ' ' + time);
+                                                    var datetime = new Date(date + ' ' + time).toLocaleString('en-US', { timeZone: 'Europe/Tallinn' });
                                                 }
 
                                                 HT.datetime_receipt_tenders = datetime;
