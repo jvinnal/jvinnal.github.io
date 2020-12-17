@@ -130,7 +130,7 @@
                 {
                     id: "datetime",
                     alias: "pakkumuste esitamine",
-                    dataType: tableau.dataTypeEnum.datetime
+                    dataType: tableau.dataTypeEnum.string
 
                 }
                 ,
