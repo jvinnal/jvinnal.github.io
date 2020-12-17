@@ -437,11 +437,26 @@
             enddateString = new Date(dateObj.endDate);  //et getfullyear töötaks
 
 
+       
+
+
+
+
+
             s_Year = dateString.getFullYear();
             s_Month = dateString.getMonth() + 1;
 
             e_Year = enddateString.getFullYear();
             e_Month = enddateString.getMonth() + 1;
+
+             //lepingutele eraldi
+             s_Year_l = dateString.getFullYear();
+             s_Month_l = dateString.getMonth() + 1;
+ 
+             e_Year_l = enddateString.getFullYear() + 1;
+             e_Month_l = enddateString.getMonth() + 1;
+
+
 
 
             const allRows = [];
@@ -844,26 +859,24 @@
 
             } else if (table.tableInfo.id == "lepingud") {
 
-                for (var y = s_Year; y <= e_Year; y++) {
 
-                    if (y == e_Year) {
-                        end_month = e_Month;
+
+                var end_month_l = 12;
+                var start_month_l = s_Month_l;
+    
+                if (s_Year_l == e_Year_l) {
+                    end_month_l = e_Month_l;
+                }
+
+                for (var y = s_Year_l; y <= e_Year_l; y++) {
+
+                    if (y == e_Year_l) {
+                        end_month_l = e_Month_l;
                     }
 
-                    for (var m = start_month; m <= end_month + 10; m++) {
+                    for (var m = start_month_l; m <= end_month_l; m++) {
 
 
-
-
-                        var filterValues = table.filterValues;
-
-
-
-
-
-                        //const url = 'http://192.168.56.1:8080/HT_' + dateYear + '_' + t + '.xml'
-
-                        //const url = 'https://jvinnal.github.io/HT_' + dateYear + '_' + t + '.xml'
 
                         var urls = ['https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice/' + y + '/month/' + m + '/xml'
                             , 'https://riigihanked.riik.ee:443/rhr/api/public/v1/opendata/notice_award/' + y + '/month/' + m + '/xml']
@@ -1002,7 +1015,7 @@
 
                 }
 
-                start_month = 1;
+                start_month_l = 1;
 
 
             }
