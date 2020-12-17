@@ -391,7 +391,7 @@
 
                 {
                     id: "c_info_add",
-                    alias: "muudatused põhjendus",
+                    alias: "muudatuse põhjendus",
                     dataType: tableau.dataTypeEnum.string
 
                 }
