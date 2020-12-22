@@ -122,9 +122,17 @@
                 }
                 ,
 
+               // {
+                //    id: "duration_ten_val",
+                //    alias: "kestvus kuudes test",
+                //    dataType: tableau.dataTypeEnum.int
+              // }
+                //,
+
+
                 {
-                    id: "duration_ten_val",
-                    alias: "kestvus kuudes test",
+                    id: "maximum_dur",
+                    alias: "kestvus max",
                     dataType: tableau.dataTypeEnum.int
                 }
                 ,
@@ -541,8 +549,13 @@
                                                 if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[0].getElementsByTagName("LOT_NO")[0] !== 'undefined') {
 
 
+
+                                                    var max_dur = 0;
+
                                                     for (var n = 0; n < nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR").length; n++) {
                                                         const HT = {};
+
+                                                
 
                                                         if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
                                                             HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
@@ -551,6 +564,8 @@
                                                         if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0] !== 'undefined') {
                                                             HT.lot_no = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
                                                             HT.title = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+
+
 
 
                                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("CPV_ADDITIONAL")[0] !== 'undefined') {
@@ -581,6 +596,15 @@
                                                             }
 
 
+                                                            if (HT.osa_kest > max_dur)
+                                                            {
+
+                                                                max_dur = HT.osa_kest
+                                                            }
+                                                        
+                                                        
+
+
                                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("NO_EU_PROGR_RELATED")[0] !== 'undefined') {
                                                                 HT.no_eu = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("NO_EU_PROGR_RELATED")[0].nodeValue;
                                                             }
@@ -601,6 +625,9 @@
 
 
                                                     }
+
+                                                    
+
                                                 }
                                                 else {
                                                     HT.lot_no = 0;
@@ -807,6 +834,9 @@
                                             }
 
 
+                                            HT.maximum_dur = max_dur;
+
+
                                             //eeldatav kogumaksumus
                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_ESTIMATED_TOTAL")[0] !== 'undefined') {
                                                 HT.val_estimated_total = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_ESTIMATED_TOTAL")[0].childNodes[0].nodeValue;
@@ -821,9 +851,9 @@
 
 
                                                 //kestvus kuudes test
-                                                if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DURATION_TENDER_VALID")[0] !== 'undefined') {
-                                                    HT.duration_ten_val = nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DURATION_TENDER_VALID")[0].childNodes[0].nodeValue;
-                                                }
+                                                //if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DURATION_TENDER_VALID")[0] !== 'undefined') {
+                                                  //  HT.duration_ten_val = nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DURATION_TENDER_VALID")[0].childNodes[0].nodeValue;
+                                                //}
 
 
                                                 //Hankemenetluse liik
