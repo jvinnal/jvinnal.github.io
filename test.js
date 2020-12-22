@@ -182,6 +182,9 @@ function test() {
                                 }
 
 
+                               
+
+
                                 //eeldatav kogumaksumus
                                 if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_ESTIMATED_TOTAL")[0] !== 'undefined') {
                                     HT.val_estimated_total = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_ESTIMATED_TOTAL")[0].childNodes[0].nodeValue;
@@ -194,7 +197,15 @@ function test() {
                                 if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0] !== 'undefined') {
 
 
-                        
+                                    
+                                //kestvus kuudes test
+                                if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DURATION_TENDER_VALID")[0] !== 'undefined') {
+                                    HT.duration_ten_val = nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DURATION_TENDER_VALID")[0].childNodes[0].nodeValue;
+                                }
+
+
+
+
                                     //Hankemenetluse liik
                                     if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("PT_OPEN")[0] !== 'undefined') {
                                         HT.PT_OPEN = "Avatud hankemenetlus"
@@ -215,7 +226,7 @@ function test() {
 
                                     if (typeof date !== 'undefined' && typeof time !== 'undefined') {
                                         var datetime = new Date(date + ' ' + time)  //.toLocaleString('en-US',  { timeZone: 'Europe/Tallinn' });
-                                        
+
                                     }
 
                                     HT.datetime_receipt_tenders = moment(datetime).format("Y-MM-DD HH:mm:ss");
@@ -232,7 +243,7 @@ function test() {
 
 
 
-                               
+
                             }
 
 

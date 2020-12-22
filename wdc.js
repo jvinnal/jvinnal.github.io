@@ -92,7 +92,7 @@
                     alias: "hanke viitenumber",
                     dataType: tableau.dataTypeEnum.int
                 }
-                ,                
+                ,
 
                 {
                     id: "pt_open",
@@ -119,6 +119,13 @@
                     id: "short_descr",
                     alias: "lühikirjeldus",
                     dataType: tableau.dataTypeEnum.string
+                }
+                ,
+
+                {
+                    id: "duration_ten_val",
+                    alias: "kestvus kuudes test",
+                    dataType: tableau.dataTypeEnum.int
                 }
                 ,
 
@@ -437,7 +444,7 @@
             enddateString = new Date(dateObj.endDate);  //et getfullyear töötaks
 
 
-       
+
 
 
 
@@ -449,12 +456,12 @@
             e_Year = enddateString.getFullYear();
             e_Month = enddateString.getMonth() + 1;
 
-             //lepingutele eraldi
-             s_Year_l = dateString.getFullYear();
-             s_Month_l = dateString.getMonth() + 1;
- 
-             e_Year_l = enddateString.getFullYear() + 1;
-             e_Month_l = enddateString.getMonth() + 1;
+            //lepingutele eraldi
+            s_Year_l = dateString.getFullYear();
+            s_Month_l = dateString.getMonth() + 1;
+
+            e_Year_l = enddateString.getFullYear() + 1;
+            e_Month_l = enddateString.getMonth() + 1;
 
 
 
@@ -812,6 +819,13 @@
                                             if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0] !== 'undefined') {
 
 
+
+                                                //kestvus kuudes test
+                                                if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DURATION_TENDER_VALID")[0] !== 'undefined') {
+                                                    HT.duration_ten_val = nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DURATION_TENDER_VALID")[0].childNodes[0].nodeValue;
+                                                }
+
+
                                                 //Hankemenetluse liik
                                                 if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("PT_OPEN")[0] !== 'undefined') {
                                                     HT.pt_open = "Avatud hankemenetlus"
@@ -863,7 +877,7 @@
 
                 var end_month_l = 12;
                 var start_month_l = s_Month_l;
-    
+
                 if (s_Year_l == e_Year_l) {
                     end_month_l = e_Month_l;
                 }
