@@ -229,7 +229,7 @@
                 {
                     id: "osa_kest",
                     alias: "hanke osa kestvus",
-                    dataType: tableau.dataTypeEnum.string
+                    dataType: tableau.dataTypeEnum.int
                 }
 
                 ,
