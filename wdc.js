@@ -535,6 +535,8 @@
 
                                     const HT = {};
 
+                                    var max_dur = 0; //osahangete suurim kestvus
+
 
                                     //välistan login class B, puudub reference
                                     if (typeof nodes[i].getElementsByTagName("LOGIN")[0] == 'undefined') {
@@ -550,7 +552,7 @@
 
 
 
-                                                    var max_dur = 0;
+                                                    
 
                                                     for (var n = 0; n < nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR").length; n++) {
                                                         const HT = {};
@@ -592,7 +594,7 @@
 
 
                                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("DURATION")[0] !== 'undefined') {
-                                                                HT.osa_kest = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue;
+                                                                HT.osa_kest = parseInt(nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue);
                                                             }
 
 
@@ -833,7 +835,7 @@
                                                 HT.duration = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue;
                                             }
 
-
+                                            //osahangete suurim kestvus
                                             HT.maximum_dur = max_dur;
 
 
