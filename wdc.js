@@ -123,6 +123,13 @@
                 ,
 
                 {
+                    id: "maximum_dur",
+                    alias: "kestvus max",
+                    dataType: tableau.dataTypeEnum.int
+                }
+                ,
+
+                {
                     id: "duration",
                     alias: "kestvus kuudes",
                     dataType: tableau.dataTypeEnum.int
@@ -827,8 +834,11 @@
                                                 HT.duration = max_dur;
                                             }
 
+
+                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("DURATION")[0] !== 'undefined') {
                                             //osahangete suurim kestvus
-                                            //HT.maximum_dur = max_dur;
+                                            HT.maximum_dur = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue;
+                                            }
 
 
                                             //eeldatav kogumaksumus
