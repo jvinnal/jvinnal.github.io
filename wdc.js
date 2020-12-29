@@ -122,12 +122,7 @@
                 }
                 ,
 
-                {
-                    id: "maximum_dur",
-                    alias: "kestvus max",
-                    dataType: tableau.dataTypeEnum.int
-                }
-                ,
+            
 
                 {
                     id: "duration",
@@ -835,11 +830,7 @@
                                             }
 
 
-                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("DURATION")[0] !== 'undefined') {
-                                            //osahangete suurim kestvus
-                                            HT.maximum_dur = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue;
-                                            }
-
+                                       
 
                                             //eeldatav kogumaksumus
                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_ESTIMATED_TOTAL")[0] !== 'undefined') {
