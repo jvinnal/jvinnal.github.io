@@ -122,21 +122,6 @@
                 }
                 ,
 
-               // {
-                //    id: "duration_ten_val",
-                //    alias: "kestvus kuudes test",
-                //    dataType: tableau.dataTypeEnum.int
-              // }
-                //,
-
-
-                {
-                    id: "maximum_dur",
-                    alias: "kestvus max",
-                    dataType: tableau.dataTypeEnum.int
-                }
-                ,
-
                 {
                     id: "duration",
                     alias: "kestvus kuudes",
@@ -552,12 +537,12 @@
 
 
 
-                                                    
+
 
                                                     for (var n = 0; n < nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR").length; n++) {
                                                         const HT = {};
 
-                                                
+
 
                                                         if (typeof nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0] !== 'undefined') {
                                                             HT.reference_number = nodes[i].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
@@ -598,13 +583,12 @@
                                                             }
 
 
-                                                            if (HT.osa_kest > max_dur)
-                                                            {
+                                                            if (HT.osa_kest > max_dur) {
 
                                                                 max_dur = HT.osa_kest
                                                             }
-                                                        
-                                                        
+
+
 
 
                                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("OBJECT_DESCR")[n].getElementsByTagName("NO_EU_PROGR_RELATED")[0] !== 'undefined') {
@@ -628,7 +612,7 @@
 
                                                     }
 
-                                                    
+
 
                                                 }
                                                 else {
@@ -830,13 +814,21 @@
                                                 }
                                             }
 
-                                            //kestvus kuudes
-                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("DURATION")[0] !== 'undefined') {
-                                                HT.duration = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue;
+
+
+                                            //kui hankel on osahanked, siis võtab kestvuseks osahanke suurima kestvuse.
+                                            if (max_dur == 0) {
+
+                                                //kestvus kuudes
+                                                if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("DURATION")[0] !== 'undefined') {
+                                                    HT.duration = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("DURATION")[0].childNodes[0].nodeValue;
+                                                }
+                                            } else {
+                                                HT.duration = max_dur;
                                             }
 
                                             //osahangete suurim kestvus
-                                            HT.maximum_dur = max_dur;
+                                            //HT.maximum_dur = max_dur;
 
 
                                             //eeldatav kogumaksumus
@@ -854,7 +846,7 @@
 
                                                 //kestvus kuudes test
                                                 //if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DURATION_TENDER_VALID")[0] !== 'undefined') {
-                                                  //  HT.duration_ten_val = nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DURATION_TENDER_VALID")[0].childNodes[0].nodeValue;
+                                                //  HT.duration_ten_val = nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DURATION_TENDER_VALID")[0].childNodes[0].nodeValue;
                                                 //}
 
 
