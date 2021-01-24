@@ -444,10 +444,11 @@
             s_Month = dateString.getMonth() + 1;
 
             //lõpp
-            //e_Year = enddateString.getFullYear();
-            //e_Month = enddateString.getMonth() + 1;
-            e_Year = new Date().getFullYear();
-            e_Year = new Date().getMonth() + 1;
+            e_Year = enddateString.getFullYear();
+            e_Month = enddateString.getMonth() + 1;
+
+                //e_Year = new Date().getFullYear();
+                //e_Year = new Date().getMonth() + 1;
 
             //lepingutele eraldi, lõpp aeg + 1 aasta.
 
@@ -456,11 +457,11 @@
             s_Month_l = dateString.getMonth() + 1;
 
             //lõpp
-            //e_Year_l = enddateString.getFullYear() + 1;
-            //e_Month_l = enddateString.getMonth() + 1;
+            e_Year_l = enddateString.getFullYear() + 1;
+            e_Month_l = enddateString.getMonth() + 1;
             
-            e_Year_l = new Date().getFullYear() + 1;
-            e_Month_l = new Date().getMonth() + 1;
+                //e_Year_l = new Date().getFullYear() + 1;
+                //e_Month_l = new Date().getMonth() + 1;
 
 
 
