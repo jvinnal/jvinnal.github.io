@@ -155,12 +155,12 @@
                 }
                 ,
 
-               // {
-               //     id: "date_dispatch_notice_original",
-               //     alias: "avaldamise kp orig",
+                // {
+                //     id: "date_dispatch_notice_original",
+                //     alias: "avaldamise kp orig",
                 //    dataType: tableau.dataTypeEnum.date
 
-               // }
+                // }
                 //,
 
                 {
@@ -1004,79 +1004,83 @@
                                                 //lepingu nr, peab olema kõigil
                                                 if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0] !== 'undefined') {
                                                     HT.contract_no = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0].childNodes[0].nodeValue;
-                                                
-
-                                                //lepingu nimetus
-                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("TITLE")[0] !== 'undefined') {
-                                                    HT.title = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
-                                                }
 
 
-                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0] !== 'undefined') {
-
-
-                                                    //lepingu sõlmimise kuupäev
-                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0] !== 'undefined') {
-                                                        HT.date_conclusion_contract = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0].childNodes[0].nodeValue;
+                                                    //lepingu nimetus
+                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("TITLE")[0] !== 'undefined') {
+                                                        HT.title = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("TITLE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
                                                     }
 
 
-                                                    //tenders, ehk pakkumiste arv
-                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TENDERS")[0] !== 'undefined') {
-                                                        HT.tenders = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TENDERS")[0].getElementsByTagName("NB_TENDERS_RECEIVED")[0].childNodes[0].nodeValue;
-                                                    }
-
-                                                    //lepingu maksumus
-                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0] !== 'undefined') {
-                                                        HT.lep_val_total = Number(nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue);
-                                                    }
+                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0] !== 'undefined') {
 
 
-                                                    if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
-                                                        if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0] !== 'undefined') {
+                                                        //lepingu sõlmimise kuupäev
+                                                        if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0] !== 'undefined') {
+                                                            HT.date_conclusion_contract = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("DATE_CONCLUSION_CONTRACT")[0].childNodes[0].nodeValue;
+                                                        }
 
 
-                                                            //pakkuja nimi
-                                                            HT.contract_officialname = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+                                                        //tenders, ehk pakkumiste arv
+                                                        if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TENDERS")[0] !== 'undefined') {
+                                                            HT.tenders = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TENDERS")[0].getElementsByTagName("NB_TENDERS_RECEIVED")[0].childNodes[0].nodeValue;
+                                                        }
 
-                                                            //pakkuja registrikood
-                                                            HT.contract_nationalid = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
-
-                                                            // linn
-                                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0] !== 'undefined') {
-                                                                HT.contract_town = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                                                        //lepingu maksumus
+                                                        if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0] !== 'undefined') {
+                                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0].getElementsByTagName("VAL_TOTAL")[0] !== 'undefined') {
+                                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0] !== 'undefined') {
+                                                                    HT.lep_val_total = Number(nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("VALUES")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue);
+                                                                }
                                                             }
+                                                        }
 
-                                                            // aadress
-                                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
-                                                                HT.contract_aadress = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+
+                                                        if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0] !== 'undefined') {
+                                                            if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0] !== 'undefined') {
+
+
+                                                                //pakkuja nimi
+                                                                HT.contract_officialname = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
+
+                                                                //pakkuja registrikood
+                                                                HT.contract_nationalid = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("CONTRACTORS")[0].getElementsByTagName("CONTRACTOR")[0].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+
+                                                                // linn
+                                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0] !== 'undefined') {
+                                                                    HT.contract_town = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                                                                }
+
+                                                                // aadress
+                                                                if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
+                                                                    HT.contract_aadress = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("AWARDED_CONTRACT")[0].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+                                                                }
+
+
+
                                                             }
-
-
-
                                                         }
                                                     }
+                                                    allRows.push(HT);
                                                 }
-                                                allRows.push(HT);
                                             }
-                                            }
-                                            
-            
+
+
                                         }
-            
+
                                     }
                                 }
-            
-            
+
+
                             }
                         });
-                        
+
                     }
-            
-                        start_month_l = 1;
+
+                    start_month_l = 1;
                 }
 
-                
+
 
 
             }
