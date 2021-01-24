@@ -149,19 +149,19 @@
 
                 {
                     id: "date_dispatch_notice",
-                    alias: "kinnitamise kp",
+                    alias: "teate esitamise kp",
                     dataType: tableau.dataTypeEnum.date
 
                 }
                 ,
 
-                {
-                    id: "date_dispatch_notice_original",
-                    alias: "avaldamise kp orig",
-                    dataType: tableau.dataTypeEnum.date
+               // {
+               //     id: "date_dispatch_notice_original",
+               //     alias: "avaldamise kp orig",
+                //    dataType: tableau.dataTypeEnum.date
 
-                }
-                ,
+               // }
+                //,
 
                 {
                     id: "file_name",
