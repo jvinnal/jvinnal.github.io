@@ -1071,11 +1071,11 @@
 
 
 
-
+                    start_month_l = 1;
 
                 }
 
-                start_month_l = 1;
+                
 
 
             }
