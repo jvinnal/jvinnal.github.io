@@ -155,6 +155,13 @@
                 }
                 ,
 
+                {
+                    id: "date_dispatch_notice_original",
+                    alias: "avaldamise kp orig",
+                    dataType: tableau.dataTypeEnum.date
+
+                }
+                ,
 
                 {
                     id: "file_name",
@@ -880,6 +887,15 @@
                                             if (typeof nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0] !== 'undefined') {
                                                 HT.date_dispatch_notice = nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0].getElementsByTagName("DATE_DISPATCH_NOTICE")[0].childNodes[0].nodeValue;
                                             }
+
+                                            //avaldatud originaal
+                                            if (typeof nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0] !== 'undefined') {
+                                                if (typeof nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0].getElementsByTagName("DATE_DISPATCH_ORIGINAL")[0] !== 'undefined') {
+                                                HT.date_dispatch_notice_original = nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0].getElementsByTagName("DATE_DISPATCH_ORIGINAL")[0].childNodes[0].nodeValue;
+                                            }
+                                        }
+
+
 
                                         }
 
