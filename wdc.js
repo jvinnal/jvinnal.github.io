@@ -9,7 +9,7 @@
         // Define the schema
         myConnector.getSchema = function (schemaCallback) {
 
-            var dateObj = JSON.parse(tableau.connectionData);
+            //var dateObj = JSON.parse(tableau.connectionData);
 
 
             //if (dateObj.selection == "hanketeated") {
@@ -436,7 +436,7 @@
 
             var dateObj = JSON.parse(tableau.connectionData);  //võtame aja parameetri
             dateString = new Date(dateObj.startDate);  //et getfullyear töötaks
-            enddateString = new Date(dateObj.endDate);  //et getfullyear töötaks
+            //enddateString = new Date(dateObj.endDate);  //et getfullyear töötaks
 
 
             //algus
@@ -1084,8 +1084,8 @@
 
                 var dateObj = {
                     startDate: $('#start-date-one').val().trim(),
-                    endDate: $('#end-date-one').val().trim(),
-                    selection: document.getElementById('selectid').value
+                    //endDate: $('#end-date-one').val().trim(),
+                    //selection: document.getElementById('selectid').value
                 };
 
                 // Simple date validation: Call the getDate function on the date object created
