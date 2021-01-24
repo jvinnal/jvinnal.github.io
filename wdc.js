@@ -181,7 +181,7 @@
                 ,
                 {
                     id: "lot_no",
-                    alias: "lot_no",
+                    alias: "hanke osa jrk",
                     dataType: tableau.dataTypeEnum.int
                 }
 
