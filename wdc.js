@@ -439,24 +439,27 @@
             enddateString = new Date(dateObj.endDate);  //et getfullyear töötaks
 
 
-
-
-
-
-
-
+            //algus
             s_Year = dateString.getFullYear();
             s_Month = dateString.getMonth() + 1;
 
-            e_Year = enddateString.getFullYear();
-            e_Month = enddateString.getMonth() + 1;
+            //lõpp
+            //e_Year = enddateString.getFullYear();
+            //e_Month = enddateString.getMonth() + 1;
+
+            e_Year = new Date().getFullYear();
+            e_Month = new Date().getMonth() + 1;
 
             //lepingutele eraldi
+            //algus
             s_Year_l = dateString.getFullYear();
             s_Month_l = dateString.getMonth() + 1;
 
-            e_Year_l = enddateString.getFullYear() + 1;
-            e_Month_l = enddateString.getMonth() + 1;
+            //lopp + 1a
+            //e_Year_l = enddateString.getFullYear() + 1;
+            //e_Month_l = enddateString.getMonth() + 1;
+            e_Year_l = new Date().getFullYear() + 1;
+            e_Month_l = new Date().getMonth() + 1;
 
 
 
