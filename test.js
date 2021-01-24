@@ -25,6 +25,7 @@ function test() {
 
 
     const allRows = [];
+    const ref_no = [];
 
 
 
@@ -313,6 +314,15 @@ function test() {
                                     // }
                                 }
                             }
+
+
+
+                            if (!ref_no.includes(HT.reference_number) && !!HT.reference_number)
+                            {
+                            ref_no.push(HT.reference_number)
+                            }
+
+
                         }
                     }
 
@@ -336,7 +346,8 @@ function test() {
         //console.log(JSON.stringify(allRows, null, 4));
 
     } //aasta
-    console.log(JSON.stringify(allRows, null, 4));
+    //console.log(JSON.stringify(allRows, null, 4));
+    console.log(JSON.stringify(ref_no, null, 4));
 };
 
 
