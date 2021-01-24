@@ -149,7 +149,7 @@
 
                 {
                     id: "date_dispatch_notice",
-                    alias: "teate esitamise kp",
+                    alias: "teate kinnitamise kp",
                     dataType: tableau.dataTypeEnum.date
 
                 }
