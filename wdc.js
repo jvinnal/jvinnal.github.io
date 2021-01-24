@@ -122,7 +122,7 @@
                 }
                 ,
 
-            
+
 
                 {
                     id: "duration",
@@ -840,7 +840,7 @@
                                             }
 
 
-                                       
+
 
                                             //eeldatav kogumaksumus
                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_ESTIMATED_TOTAL")[0] !== 'undefined') {
@@ -891,9 +891,11 @@
                                             //avaldatud originaal
                                             if (typeof nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0] !== 'undefined') {
                                                 if (typeof nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0].getElementsByTagName("DATE_DISPATCH_ORIGINAL")[0] !== 'undefined') {
-                                                HT.date_dispatch_notice_original = nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0].getElementsByTagName("DATE_DISPATCH_ORIGINAL")[0].childNodes[0].nodeValue;
+                                                    if (typeof nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0].getElementsByTagName("DATE_DISPATCH_ORIGINAL")[0].childNodes[0] !== 'undefined') {
+                                                        HT.date_dispatch_notice_original = nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0].getElementsByTagName("DATE_DISPATCH_ORIGINAL")[0].childNodes[0].nodeValue;
+                                                    }
+                                                }
                                             }
-                                        }
 
 
 
