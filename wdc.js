@@ -439,34 +439,29 @@
             enddateString = new Date(dateObj.endDate);  //et getfullyear töötaks
 
 
-            //algus
+
+
+
+
+
+
             s_Year = dateString.getFullYear();
             s_Month = dateString.getMonth() + 1;
 
-            //lõpp
             e_Year = enddateString.getFullYear();
             e_Month = enddateString.getMonth() + 1;
 
-                //e_Year = new Date().getFullYear();
-                //e_Year = new Date().getMonth() + 1;
-
-            //lepingutele eraldi, lõpp aeg + 1 aasta.
-
-            //algus
+            //lepingutele eraldi
             s_Year_l = dateString.getFullYear();
             s_Month_l = dateString.getMonth() + 1;
 
-            //lõpp
             e_Year_l = enddateString.getFullYear() + 1;
             e_Month_l = enddateString.getMonth() + 1;
-            
-                //e_Year_l = new Date().getFullYear() + 1;
-                //e_Month_l = new Date().getMonth() + 1;
+
 
 
 
             const allRows = [];
-            const ref_no = [];
 
 
 
@@ -794,7 +789,6 @@
                                                 HT.reference_number = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
                                             }
 
-
                                             //Peamine CPV kood
                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("CPV_MAIN")[0] !== 'undefined') {
                                                 HT.main_cpv_code = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("CPV_MAIN")[0].getElementsByTagName("CPV_CODE")[0].getAttributeNode("CODE").nodeValue;
@@ -968,13 +962,6 @@
                                                 HT.reference_number = nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("REFERENCE_NUMBER")[0].childNodes[0].nodeValue;
                                             }
 
-                                        
-                                            //unikaalse viitenumbrid massiivi, lepingu 
-                                            //if (!ref_no.includes(HT.reference_number) && !!HT.reference_number)
-                                            //{
-                                            //ref_no.push(HT.reference_number)
-                                            //}
-
                                             //hanke kogumaksumus   VAL_TOTAL
                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0] !== 'undefined') {
                                                 HT.hanke_val_total = Number(nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue);
@@ -1131,4 +1118,3 @@
 
     });
 })();
-
