@@ -6,9 +6,6 @@ function test() {
     //const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=TSLA&apikey=QYOWP5SXIHB6BV3X'
 
 
-    if ($("#selectid").val() === "") {
-        alert("Not selected");
-    }
 
     console.log("test");
 
@@ -34,7 +31,7 @@ function test() {
     console.log(e_Month);
 
     const allRows = [];
-    const ref_no = [];
+  
 
 
 
@@ -56,7 +53,8 @@ function test() {
 
         for (var m = start_month; m <= end_month; m++) {
 
-            //console.log(start_month);
+            console.log(m + " kuu");
+            console.log(y + " aasta");
             //console.log(end_month);
 
 
@@ -76,7 +74,7 @@ function test() {
 
             $.ajax({
                 type: 'GET',
-                url: urls[0],
+                url: urls[1],
                 dataType: "xml",
                 jsonp: true,
                 contentType: "text/xml; charset=\"utf-8\"",
@@ -91,7 +89,7 @@ function test() {
                     // Iterate over the XML object
                     for (var i = 0; i < nodes.length; i++) {
 
-                        const HT = {};
+                        
 
                         //GENERATED
 
@@ -118,6 +116,7 @@ function test() {
 
                                 if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n] !== 'undefined') {
 
+
                                     //hanke osa nr (vajalik hankega joinimiseks)
                                     if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("LOT_NO")[0] !== 'undefined') {
                                         HT.lot_no = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("LOT_NO")[0].childNodes[0].nodeValue;
@@ -128,10 +127,10 @@ function test() {
                                     }
 
 
-                                    //lepingu nr
+                                    //lepingu nr (peab olema kõigil)
                                     if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0] !== 'undefined') {
                                         HT.contract_no = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0].childNodes[0].nodeValue;
-                                    }
+                                    
 
                                     //lepingu nimetus
                                     if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("TITLE")[0] !== 'undefined') {
@@ -183,9 +182,10 @@ function test() {
                                             }
                                         }
                                     }
-
                                     allRows.push(HT);
                                 }
+                                }
+                                
 
                             }
 
@@ -194,25 +194,20 @@ function test() {
 
 
                 }
-            }
-            )
+            });
+            
+        }
 
-
+            start_month = 1;
     }
 
-    start_month_l = 1;
-
-
-
-
-
-
+    
 
         //console.log(allRows.);
 
         //console.log(JSON.stringify(allRows, null, 4));
 
-    } //aasta
+     //aasta
     console.log(JSON.stringify(allRows, null, 4));
     // console.log(JSON.stringify(ref_no, null, 4));
 };

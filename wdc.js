@@ -1001,10 +1001,10 @@
                                                 }
 
 
-                                                //lepingu nr
+                                                //lepingu nr, peab olema kõigil
                                                 if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0] !== 'undefined') {
                                                     HT.contract_no = nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("CONTRACT_NO")[0].childNodes[0].nodeValue;
-                                                }
+                                                
 
                                                 //lepingu nimetus
                                                 if (typeof nodes[i].getElementsByTagName("AWARD_CONTRACT")[n].getElementsByTagName("TITLE")[0] !== 'undefined') {
@@ -1053,26 +1053,27 @@
                                                             }
 
 
+
                                                         }
                                                     }
                                                 }
-
                                                 allRows.push(HT);
                                             }
-
+                                            }
+                                            
+            
                                         }
-
+            
                                     }
                                 }
+            
+            
                             }
-
                         });
+                        
                     }
-
-
-
-                    start_month_l = 1;
-
+            
+                        start_month_l = 1;
                 }
 
                 
