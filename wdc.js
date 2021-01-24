@@ -150,7 +150,7 @@
                 {
                     id: "date_dispatch_notice",
                     alias: "avaldamise kp",
-                    dataType: tableau.dataTypeEnum.datetime
+                    dataType: tableau.dataTypeEnum.date
 
                 }
                 ,
