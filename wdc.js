@@ -140,7 +140,7 @@
 
                 {
                     id: "datetime_receipt_tenders",
-                    alias: "pakkumuste esitamise aeg",
+                    alias: "pakkumuste esitamine",
                     dataType: tableau.dataTypeEnum.datetime
 
                 }
