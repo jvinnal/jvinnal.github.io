@@ -455,10 +455,10 @@
             s_Year_l = dateString.getFullYear();
             s_Month_l = dateString.getMonth() + 1;
 
-            //lopp + 1a
+            //lopp
             //e_Year_l = enddateString.getFullYear() + 1;
             //e_Month_l = enddateString.getMonth() + 1;
-            e_Year_l = new Date().getFullYear() + 1;
+            e_Year_l = new Date().getFullYear();
             e_Month_l = new Date().getMonth() + 1;
 
 
