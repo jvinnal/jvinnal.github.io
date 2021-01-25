@@ -71,6 +71,15 @@
                 }
                 ,
 
+                
+
+                {
+                    id: "joint",
+                    alias: "ühishange",
+                    dataType: tableau.dataTypeEnum.string
+                }
+                ,
+
                 {
                     id: "url_document",
                     alias: "hanke link",
@@ -777,6 +786,15 @@
                                             if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("CA_ACTIVITY")[0] !== 'undefined') {
                                                 HT.ca_activity = nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("CA_ACTIVITY")[0].getAttributeNode("VALUE").nodeValue;
                                             }
+
+                                            //ühishange
+                                            if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("JOINT_PROCUREMENT_INVOLVED")[0] !== 'undefined') {
+                                                HT.joint = "jah"
+                                            } else
+                                            {
+                                                HT.joint = "ei"
+                                            }
+                                            
 
                                             //hanke tüüp eestikeel
                                             if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("CA_ACTIVITY_OTHER")[0] !== 'undefined') {
