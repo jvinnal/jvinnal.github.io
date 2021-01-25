@@ -754,6 +754,8 @@
                                         //GENERATED file name       
                                         HT.file_name = 'HT_' + y + '_' + m + '.xml';
 
+                                        HT.joint = "ei"
+
                                         //hankja nimi
                                         if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0] !== 'undefined') {
                                             HT.officialname = nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
