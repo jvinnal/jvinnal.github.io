@@ -765,6 +765,7 @@
 
                                         HT.joint = "ei"
                                         HT.central = "ei"
+                                        HT.framework = "Hankelepingu sõlmimine"
 
                                         //hankja nimi
                                         if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0] !== 'undefined') {
