@@ -117,6 +117,15 @@
                     dataType: tableau.dataTypeEnum.string
                 }
                 ,
+
+                {
+                    id: "central",
+                    alias: "keskse hankija hange",
+                    dataType: tableau.dataTypeEnum.string
+                }
+                ,
+
+                
                 {
                     id: "main_cpv_code",
                     alias: "peamine cpv",
@@ -755,6 +764,7 @@
                                         HT.file_name = 'HT_' + y + '_' + m + '.xml';
 
                                         HT.joint = "ei"
+                                        HT.central = "ei"
 
                                         //hankja nimi
                                         if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0] !== 'undefined') {
@@ -796,7 +806,15 @@
                                             {
                                                 HT.joint = "ei"
                                             }
-                                            
+
+
+                                            //keskse hankija hange (jah/ei), 
+                                            if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("CENTRAL_PURCHASING")[0] !== 'undefined') {
+                                                HT.central = "jah"
+                                            } else
+                                            {
+                                                HT.central = "ei"
+                                            }
 
                                             //hanke tüüp eestikeel
                                             if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("CA_ACTIVITY_OTHER")[0] !== 'undefined') {
