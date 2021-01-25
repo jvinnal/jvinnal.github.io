@@ -101,6 +101,13 @@
                 }
                 ,
 
+                
+                {
+                    id: "framework",
+                    alias: "hankega kaasneb",
+                    dataType: tableau.dataTypeEnum.string
+                }
+                ,
                 {
                     id: "main_cpv_code",
                     alias: "peamine cpv",
@@ -865,6 +872,14 @@
                                                 if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("PT_OPEN")[0] !== 'undefined') {
                                                     HT.pt_open = "Avatud hankemenetlus"
                                                 }
+
+                                                //Hankega kaasneb
+                                                if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("FRAMEWORK")[0] !== 'undefined') {
+                                                    HT.framework = "Raamlepingu sõlmimine"
+                                                }
+
+
+
 
                                                 if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DATE_RECEIPT_TENDERS")[0] !== 'undefined') {
                                                     date = nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("DATE_RECEIPT_TENDERS")[0].childNodes[0].nodeValue;
