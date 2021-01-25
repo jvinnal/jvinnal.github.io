@@ -876,6 +876,9 @@
                                                 //Hankega kaasneb
                                                 if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("FRAMEWORK")[0] !== 'undefined') {
                                                     HT.framework = "Raamlepingu sõlmimine"
+                                                } else
+                                                {
+                                                    HT.framework = "Hankelepingu sõlmimine"
                                                 }
 
 
