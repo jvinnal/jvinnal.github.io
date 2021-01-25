@@ -126,8 +126,8 @@
                 ,
 
                 {
-                    id: "korduv hange",
-                    alias: "keskse hankija hange",
+                    id: "recurrent",
+                    alias: "korduv hange",
                     dataType: tableau.dataTypeEnum.string
                 }
                 ,
