@@ -71,7 +71,7 @@
                 }
                 ,
 
-                
+
 
                 {
                     id: "joint",
@@ -110,7 +110,7 @@
                 }
                 ,
 
-                
+
                 {
                     id: "framework",
                     alias: "hankega kaasneb",
@@ -125,7 +125,15 @@
                 }
                 ,
 
+                {
+                    id: "korduv hange",
+                    alias: "keskse hankija hange",
+                    dataType: tableau.dataTypeEnum.string
+                }
+                ,
                 
+
+
                 {
                     id: "main_cpv_code",
                     alias: "peamine cpv",
@@ -763,9 +771,12 @@
                                         //GENERATED file name       
                                         HT.file_name = 'HT_' + y + '_' + m + '.xml';
 
+
+                                        //vaikeväärtused
                                         HT.joint = "ei"
                                         HT.central = "ei"
                                         HT.framework = "Hankelepingu sõlmimine"
+                                        HT.recurrent =  "ei"
 
                                         //hankja nimi
                                         if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0] !== 'undefined') {
@@ -803,8 +814,7 @@
                                             //ühishange
                                             if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("JOINT_PROCUREMENT_INVOLVED")[0] !== 'undefined') {
                                                 HT.joint = "jah"
-                                            } else
-                                            {
+                                            } else {
                                                 HT.joint = "ei"
                                             }
 
@@ -812,8 +822,7 @@
                                             //keskse hankija hange (jah/ei), 
                                             if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("CENTRAL_PURCHASING")[0] !== 'undefined') {
                                                 HT.central = "jah"
-                                            } else
-                                            {
+                                            } else {
                                                 HT.central = "ei"
                                             }
 
@@ -915,8 +924,7 @@
                                                 //Hankega kaasneb
                                                 if (typeof nodes[i].getElementsByTagName("PROCEDURE")[0].getElementsByTagName("FRAMEWORK")[0] !== 'undefined') {
                                                     HT.framework = "Raamlepingu sõlmimine"
-                                                } else
-                                                {
+                                                } else {
                                                     HT.framework = "Hankelepingu sõlmimine"
                                                 }
 
@@ -953,6 +961,13 @@
                                                     }
                                                 }
                                             }
+
+                                            //korduv hange (jah/ei),
+                                            if (typeof nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0] !== 'undefined') {
+                                                if (typeof nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0].getElementsByTagName("RECURRENT_PROCUREMENT")[0] !== 'undefined') {
+                                                HT.recurrent =  "jah"
+                                            }
+                                        }
 
 
 
