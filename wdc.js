@@ -312,7 +312,7 @@
                 ,
                 {
                     id: "title",
-                    alias: " lepingu nimetus",
+                    alias: "lepingu nimetus",
                     dataType: tableau.dataTypeEnum.string
                 }
                 ,
