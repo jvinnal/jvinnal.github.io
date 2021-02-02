@@ -131,7 +131,7 @@
                     dataType: tableau.dataTypeEnum.string
                 }
                 ,
-                
+
 
 
                 {
@@ -776,24 +776,29 @@
                                         HT.joint = "ei"
                                         HT.central = "ei"
                                         HT.framework = "Hankelepingu sõlmimine"
-                                        HT.recurrent =  "ei"
+                                        HT.recurrent = "ei"
 
                                         //hankja nimi
                                         if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0] !== 'undefined') {
-                                            HT.officialname = nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
 
-                                            //registrikood
-                                            HT.nationalid = nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
+                                            if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0] !== 'undefined') {
+                                                HT.officialname = nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("OFFICIALNAME")[0].childNodes[0].nodeValue;
 
-                                            //aadress
-                                            HT.aadress = nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+                                                //registrikood
+                                                HT.nationalid = nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("NATIONALID")[0].childNodes[0].nodeValue;
 
-                                            //linn
-                                            HT.town = nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+                                                //aadress
+                                                if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS")[0] !== 'undefined') {
+                                                    HT.aadress = nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS")[0].childNodes[0].nodeValue;
+                                                }
 
-                                            //postiindeks
-                                            if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
-                                                HT.postal_code = nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
+                                                //linn
+                                                HT.town = nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("TOWN")[0].childNodes[0].nodeValue;
+
+                                                //postiindeks
+                                                if (typeof nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("POSTAL_CODE")[0] !== 'undefined') {
+                                                    HT.postal_code = nodes[i].getElementsByTagName("CONTRACTING_BODY")[0].getElementsByTagName("ADDRESS_CONTRACTING_BODY")[0].getElementsByTagName("POSTAL_CODE")[0].childNodes[0].nodeValue;
+                                                }
                                             }
 
                                             //hankija tüüp
@@ -965,9 +970,9 @@
                                             //korduv hange (jah/ei),
                                             if (typeof nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0] !== 'undefined') {
                                                 if (typeof nodes[i].getElementsByTagName("COMPLEMENTARY_INFO")[0].getElementsByTagName("RECURRENT_PROCUREMENT")[0] !== 'undefined') {
-                                                HT.recurrent =  "jah"
+                                                    HT.recurrent = "jah"
+                                                }
                                             }
-                                        }
 
 
 
