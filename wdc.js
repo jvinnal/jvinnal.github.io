@@ -1061,7 +1061,7 @@
                                             }
 
                                             //hanke kogumaksumus   VAL_TOTAL
-                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0] !== 'undefined') {
+                                            if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue !== 'undefined') {
                                                 HT.hanke_val_total = Number(nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue);
                                             }
 
