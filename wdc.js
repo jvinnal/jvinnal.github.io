@@ -367,6 +367,44 @@
 
                 }
                 ,
+
+                {
+                    id: "mod_short_desc",
+                    alias: "muudatuste laad",
+                    dataType: tableau.dataTypeEnum.string
+                }
+                ,
+
+                {
+                    id: "mod_unforseen",
+                    alias: "ettenägematud asjaolud",
+                    dataType: tableau.dataTypeEnum.string
+                }         
+
+                ,
+
+                {
+                    id: "mod_need",
+                    alias: "põhjuste kirjeldus",
+                    dataType: tableau.dataTypeEnum.string
+                }               
+
+                ,
+
+                {
+                    id: "mod_val_before",
+                    alias: "maksumus enne muudatusi",
+                    dataType: tableau.dataTypeEnum.float
+
+                }
+                ,
+                {
+                    id: "mod_val_after",
+                    alias: "maksumus peale muudatusi",
+                    dataType: tableau.dataTypeEnum.float
+
+                }
+                ,
                 {
                     id: "lot_no",
                     alias: "hanke osa jrk",
@@ -1065,6 +1103,46 @@
                                             if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0] !== 'undefined') {
                                                 if (typeof nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0] !== 'undefined') {
                                                     HT.hanke_val_total = Number(nodes[i].getElementsByTagName("OBJECT_CONTRACT")[0].getElementsByTagName("VAL_TOTAL")[0].childNodes[0].nodeValue);
+                                                }
+                                            }
+
+                                            //muudatused
+                                            if (typeof nodes[i].getElementsByTagName("MODIFICATIONS_CONTRACT")[0] !== 'undefined') {
+                                                if (typeof nodes[i].getElementsByTagName("MODIFICATIONS_CONTRACT")[0].getElementsByTagName("INFO_MODIFICATIONS")[0] !== 'undefined') {
+
+
+                                                    //Muudatuste laad ja ulatus
+                                                    HT.mod_short_desc = nodes[i].getElementsByTagName("MODIFICATIONS_CONTRACT")[0].getElementsByTagName("INFO_MODIFICATIONS")[0].getElementsByTagName("SHORT_DESCR")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+
+
+
+                                                    //Töövõtja muutmist takistavate majanduslike või tehniliste põhjuste ja ebamugavuste või kulude kahekordistumise kirjeldus                        
+                                                    if (typeof nodes[i].getElementsByTagName("MODIFICATIONS_CONTRACT")[0].getElementsByTagName("INFO_MODIFICATIONS")[0].getElementsByTagName("ADDITIONAL_NEED")[0] !== 'undefined') {
+
+                                                        HT.mod_need = nodes[i].getElementsByTagName("MODIFICATIONS_CONTRACT")[0].getElementsByTagName("INFO_MODIFICATIONS")[0].getElementsByTagName("ADDITIONAL_NEED")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+
+                                                    }
+
+                                                    //Muudatuse tegemise põhjuseks olevate asjaolude kirjeldus ja nende asjaolude ettenägematu laadi selgitus                     
+                                                    if (typeof nodes[i].getElementsByTagName("MODIFICATIONS_CONTRACT")[0].getElementsByTagName("INFO_MODIFICATIONS")[0].getElementsByTagName("UNFORESEEN_CIRCUMSTANCE")[0] !== 'undefined') {
+
+                                                        HT.mod_unforseen = nodes[i].getElementsByTagName("MODIFICATIONS_CONTRACT")[0].getElementsByTagName("INFO_MODIFICATIONS")[0].getElementsByTagName("UNFORESEEN_CIRCUMSTANCE")[0].getElementsByTagName("P")[0].childNodes[0].nodeValue;
+
+                                                    }
+
+                                                    //lepingu maksumused                     
+                                                    if (typeof nodes[i].getElementsByTagName("MODIFICATIONS_CONTRACT")[0].getElementsByTagName("INFO_MODIFICATIONS")[0].getElementsByTagName("VALUES")[0] !== 'undefined') {
+
+                                                        //Lepingu ajakohastatud kogumaksumus enne muudatusi  
+                                                        HT.mod_val_before = Number(nodes[i].getElementsByTagName("MODIFICATIONS_CONTRACT")[0].getElementsByTagName("INFO_MODIFICATIONS")[0].getElementsByTagName("VAL_TOTAL_BEFORE")[0].childNodes[0].nodeValue);
+
+                                                        //Lepingu kogumaksumus pärast muudatusi              
+                                                        HT.mod_val_after = Number(nodes[i].getElementsByTagName("MODIFICATIONS_CONTRACT")[0].getElementsByTagName("INFO_MODIFICATIONS")[0].getElementsByTagName("VAL_TOTAL_AFTER")[0].childNodes[0].nodeValue);
+
+
+                                                    }
+
+
                                                 }
                                             }
 
